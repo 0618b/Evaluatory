@@ -5,7 +5,7 @@ var morgan      = require('morgan'); //Import morgan package
 var mongoose    = require('mongoose'); //HTTP request logger middleware for Node.js
 var bodyParser  = require('body-parser');
 var router      = express.Router();
-var evalformsRoutes   = require('./server/routes/evalforms')(router);
+var evalformsRoutes   = require('./app/routes/evalforms')(router);
 //var usersRoutes   = require('./server/routes/users')(router);
 var path        = require('path'); //Input path module
 
@@ -26,12 +26,8 @@ mongoose.connect('mongodb://localhost:27017/evaluatory', function(err) {
     }
 });
 
-app.post('/test', function(req, res) {
-    res.send('Test');
-})
-
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/client/app/views/index.html')); // Set index.html as layout
+    res.sendFile(path.join(__dirname + '/public/app/views/index.html')); // Set index.html as layout
 });
 
 app.listen(port, function() {
