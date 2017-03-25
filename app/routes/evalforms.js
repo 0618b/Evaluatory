@@ -39,9 +39,11 @@ module.exports = function(router) {
         });
     });
 
+    // Delete data
     router.delete('/evalforms/:id', function(req, res) {
         EvalForm.remove({_id:req.params.id}, function(err, docs) {
             res.json(docs);
+            res.send('หัวข้อการประเมินถูกลบแล้ว'); 
         });
     });
 

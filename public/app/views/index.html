@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="evalformsApp">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -20,6 +20,21 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+    <!-- Main Angular Files -->
+	<script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+	<script src="assets/js/angular-animate.js"></script>
+
+    <!--  Angular Config&Routes  -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+	<!-- Angular Controller -->
+	<script src="app/controllers/evalformsControllers.js"></script>
+
+	<!-- Angular Services -->
+	<script src="app/services/evalformsServices.js"></script>
+
 </head>
 <body>
 
@@ -34,15 +49,9 @@
     -->
 
     	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
-                </a>
-            </div>
-
             <ul class="nav">
                 <li><a href="/"><i class="pe-7s-home"></i><p>หน้าหลัก</p></a></li>
-				<li><a href="/evalForm"><i class="pe-7s-display1"></i><p>แบบประเมิน</p></a></li>
+				<li><a href="/evalforms"><i class="pe-7s-display1"></i><p>แบบประเมิน</p></a></li>
 
             </ul>
     	</div>

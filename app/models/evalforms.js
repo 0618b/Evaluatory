@@ -5,17 +5,16 @@ var validate = require('mongoose-validator');
 var evalWeightValidator = [
     validate ({
         validator: 'isNumeric',
-        arguments: [1, 20],
-        message: 'น้ำหนักการประเมินต้องอยู่ระหว่าง {ARGS[0]} ถึง {ARGS[1] เท่านั้น'
+        message: 'น้ำหนักการประเมินต้องเป็นตัวเลขเท่านั้น'
     })
 ];
 
 var evalFormSchema = new Schema ({
     evalFormType: { type: String, required: true },
     evalTopic: { type: String, required: true },
-    evalWeight: { type: String, required: true, validate: evalWeightValidator },
+    evalWeight: { type: Number, required: true, validate: evalWeightValidator, min: 1, max: 20 },
     evalCriteria: { type: String, required: true },
-    created_at: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('EvalForm', evalFormSchema);
