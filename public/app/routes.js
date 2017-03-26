@@ -3,7 +3,7 @@ angular.module('evalformsRoutes', ['ngRoute'])
 
         $routeProvider
         .when('/', {
-            templateUrl: 'app/views/index.html' //change to home.html in the future
+            templateUrl: 'app/views/pages/homepage/home.html' //change to home.html in the future
         })
         .when('/evalforms', {
             templateUrl: 'app/views/pages/evalforms/evalforms.html',
