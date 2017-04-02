@@ -7,9 +7,14 @@ angular.module('evalformsRoutes', ['ngRoute'])
         })
         .when('/evalforms', {
             templateUrl: 'app/views/pages/evalforms/evalforms.html',
-            /*controller: 'evalformsControllers',
-            controllerAs: 'efCtrl'*/
-        }) 
+            /*controller: 'addCtrl',
+            controllerAs: 'add'*/
+        })
+        .when('/addevalforms', {
+            templateUrl: 'app/views/pages/evalforms/addevalforms.html',
+            controller: 'addCtrl',
+            controllerAs: 'add'
+        })
         .otherwise({
             redirectTo: '/'
         });

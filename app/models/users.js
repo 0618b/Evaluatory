@@ -21,10 +21,6 @@ var userSchema = new Schema ({
     workGroupRole: { type: String, default: 'member' },
     classGroupRole: { type: String, default: 'member' },
     //profileImg: File,
-    performanceScore: [],
-    resultScore: [],
-    totalScore: { type: Number, default: 0 },
-    isPassed: Boolean,
     createdAt: { type: Date, default: Date.now }
 });
 

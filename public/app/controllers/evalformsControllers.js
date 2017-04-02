@@ -1,36 +1,13 @@
-angular.module('evalformsControllers', ['evalformsServices'])
-    .controller('evalformsControllers', function(EvalForm, $scope) {
-            var app = this;
+angular.module('evalformsControllers', [])
+    .controller('addCtrl', function($http) {
 
-            app.editAndDeleteAccess = false;
-            app.errorMsg = false;
-            app.showMoreError = false;
-
-            function getEvalForms() {
-                EvalForm.getEvalForms().then(function(data) {
-                    console.log('GETTER');
-                    if(data.data.success) {
-                        if(data.data.permission === 'admin') {
-                            app.evalforms = data.data.evalforms;
-                            app.editAndDeleteAccess = true;
-                        } else {
-                            app.editAndDeleteAccess = false;
-                            app.errorMsg = data.data.message;
-                        }
-                    }
-                });
-            }
-
-            getEvalForms();
-
-            app.deleteEvalForms() = function(id) {
-                EvalForm.deleteEvalForms(id).then(function(data) {
-                    if (data.data.success) {
-                        getEvalForms();
-                    } else {
-                        app.showMoreError = data.data.message;
-                    }
-                });
-            };  
-        });
+        this.addEvalform = function(ef) {
+            console.log('form submitted');
+            console.log(this.ef);
+            $http.post('/api/evalforms', this.ef).then(function(data){
+                console.log(data.data.success);
+                console.log(data.data.message);
+            })
+        };
+    });
 

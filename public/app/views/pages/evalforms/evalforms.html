@@ -1,11 +1,11 @@
 <div class="content">
-    <div class="container-fluid" ng-controller="evalformsControllers">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="header">
                         <ol class="breadcrumb">
-                            <li><a href="/evalforms">ดูแบบประเมินทั้งหมด</a></li>
+                            <li class="active">แบบประเมินทั้งหมด</li>
                             <li><a href="/addevalforms">เพิ่มแบบประเมิน</a></li>
                         </ol>
                     </div>
@@ -24,14 +24,19 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="x in evalform.data">
-                                <td>{{x.evalFormType}}</td>
-                                <td>{{x.evalFormYear}}</td>
-                                <td>{{x.evalTopic}}</td>
-                                <td>{{x.evalWeight}}</td>
-                                <td>{{x.evalCriteria}}</td>
-                                <td><button class="btn btn-danger" ng-click="remove(x._id)">ลบหัวข้อการประเมิน</button></td>
-                                <td><button class="btn btn-warning" ng-click="edit(x._id)">แก้ไขหัวข้อการประเมิน</button></td>
+                                <tr ng-repeat="ef in evalforms.evalforms">
+                                <td>{{ef.evalFormType}}</td>
+                                <td>{{ef.evalTopic}}</td>
+                                <td>{{ef.evalWeight}}</td>
+                                <td>{{ef.evalCriteria}}</td>
+                                <td>
+                                    <!-- edit -->
+                                    <a href="/edit/{{ef._id}}">
+                                        <button type="button" class="btn btn-warning" ng-show="evalforms.editAndDeleteAccess">แก้ไขหัวข้อการประเมิน</button>
+                                    </a>
+                                    <!-- delete -->
+                                        <button type="button" class="btn btn-danger" ng-show="evalforms.editAndDeleteAccess" ng-click="evalforms.deleteEvalForms(ef._id);">ลบหัวข้อการประเมิน</button>
+                                </td>
                                 </tr>
                             </tbody>
                             </table>
