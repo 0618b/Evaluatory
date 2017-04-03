@@ -1,1 +1,1 @@
-angular.module('evalformsApp', ['evalformsRoutes','evalformsControllers','evalformsServices']);
+angular.module('mainApp', ['mainRoutes','selftempsControllers','selftempsServices']);

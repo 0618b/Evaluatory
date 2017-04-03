@@ -10,6 +10,8 @@ var selfheadRoutes      = require('./app/routes/selfheaders')(router);
 var othertempRoutes     = require('./app/routes/othertemplates')(router);
 var otherheadRoutes     = require('./app/routes/otherheaders')(router);
 var usersRoutes         = require('./app/routes/users')(router);
+var mongojs             = require('mongojs');
+var db                  = mongojs('evaluatory',['selftemplates']);
 var path                = require('path'); //Input path module
 
 app.use(morgan('dev')); //Morgan middleware
@@ -32,6 +34,15 @@ mongoose.connect('mongodb://localhost:27017/evaluatory', function(err) {
         console.log('Succesfully connected to MongDB');
     }
 });
+
+// ---------TEST MONGOJS-----------
+app.get('/selftemps', function(req, res) {
+    console.log('GET');
+    db.selftemplates.find(function(err, data){
+        console.log(data);
+        res.json(data);
+    })
+})
 
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/app/views/index.html')); // Set index.html as layout

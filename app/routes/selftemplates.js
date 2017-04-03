@@ -16,6 +16,7 @@ module.exports = function(router) {
     router.get('/selftemps', function(req, res) {
         SelfTemplate.find({}, function(err, docs) {
             res.json(docs);
+            console.log(docs);
         });
     });
     router.get('/selftemps/:id', function (req, res) {
