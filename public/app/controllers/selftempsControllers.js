@@ -1,27 +1,37 @@
 angular.module('selftempsControllers', ['selftempsServices'])
-    .controller('selftempsCtrl', function(SelfTemplate, $scope) {
+    .controller('selftempsCtrl', function(SelfTemplate, $scope, $routeParams) {
         
-        function getAll() {
-           SelfTemplate.getAll().then(function(data) {
+        var app = this;
+
+        function getSelfTemps() {
+           SelfTemplate.getSelfTemps().then(function(data) {
                 $scope.selftemps = data;
-                console.log(data);
-            })
+                    console.log($scope.selftemps);
+           })
         }
 
-        getAll();
+        getSelfTemps();
 
-        this.edit = function(id) {
-            console.log(id);
-            $http.get('/selftemps' + id).then(function(data) {
-                $scope.self_template = data;
-            })
+        app.clone = function() {
+            var cloneObj = JSON.parse(JSON.stringify($scope.selftemps.data));
+                SelfTemplate.clone(cloneObj);
+                   console.log(cloneObj);
         }
 
-        this.update = function(id) {
-            console.log($scope.self_template._id);
-            $http.put('/selftemps/' + $scope.self_template._id, $scope.self_template).then(function(data) {
-                refresh();
-            })
+        app.delete = function($routeParams) {
+            SelfTemplate.delete($routeParams);
+            console.log('Success');
         }
+    })
 
-    });    
+    .controller('stevalCtrl', function($scope, $routeParams, SelfTemplate) {
+        var app = this;
+
+        SelfTemplate.getSelfTemp($routeParams.id).then(function(err, data) {
+            $scope.selftemp = data;
+                console.log($scope.selftemp);
+        })
+        
+
+
+    })

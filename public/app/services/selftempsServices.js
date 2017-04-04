@@ -5,10 +5,13 @@ angular.module('selftempsServices', [])
         stFactory.create = function(data) {
             return $http.post('/api/selftemps', data);
         };
-        stFactory.getAll = function() {
+        stFactory.clone = function(cloneObj) {
+            return $http.post('/api/selftemps', cloneObj);
+        };
+        stFactory.getSelfTemps = function() {
             return $http.get('/api/selftemps/');
         };
-        stFactory.getId = function(id) {
+        stFactory.getSelfTemp = function(id) {
             return $http.get('/api/selftemps/' + id);
         };
         stFactory.edit = function(id) {
@@ -17,5 +20,8 @@ angular.module('selftempsServices', [])
         stFactory.delete = function(id) {
             return $http.delete('/api/selftemps/' + id);
         };
+        stFactory.eval = function(id) {
+            return $http.put('/api/selftemps', id);
+        }
         return stFactory;
     });

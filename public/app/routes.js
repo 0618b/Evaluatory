@@ -8,17 +8,19 @@ angular.module('mainRoutes', ['ngRoute'])
         .when('/evalforms', {
             templateUrl: 'app/views/pages/evalforms/evalforms.html'
         })
-        .when('/selfevals', {
-            templateUrl: 'app/views/pages/evalforms/selfeval.html'
+        .when('/selftemps', {
+            templateUrl: 'app/views/pages/evalforms/selftemp.html',
+            controller: 'selftempsCtrl',
+            controllerAs: 'stCtrl'
         })
-        .when('/otherevals', {
-            templateUrl: 'app/views/pages/evalforms/othereval.html'
+        .when('/selfeval/:id', {
+            templateUrl: 'app/views/pages/evalforms/st-eval.html',
+            controller: 'stevalCtrl',
+            controllerAs: 'seval'
         })
-        /*.when('/addevalforms', {
-            templateUrl: 'app/views/pages/evalforms/addevalforms.html',
-            controller: 'addCtrl',
-            controllerAs: 'add'
-        })*/
+        .when('/othertemps', {
+            templateUrl: 'app/views/pages/evalforms/othertemp.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

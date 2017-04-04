@@ -1,0 +1,48 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="header">
+                        <ol class="breadcrumb">
+                            <li><a href="/evalforms">แบบประเมิน</a></li>
+                            <li><a href="/selftemps">แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น</a></li>
+                            <li class="active">แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</li>
+                        </ol>
+                    </div>
+                <div class="content" ng-controller="selftempsCtrl">
+                    <div class="content table-responsive table-full-width">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>ประเภทแบบประเมิน</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="st in selftemps.data">
+                                <td>
+                                    <p><h4>{{st.self_template.templateName}}</h4></p>
+                                </td>
+                                <td>
+                                        <a href="/edit/{{ st._id }}">
+                                            <button type="button" ng-click="stCtrl.edit();" class="btn btn-primary">ประเมิน</button>
+                                        </a>
+                                </td>
+                                <td>
+                                        <a href="/edit/{{ st._id }}">
+                                            <button type="button" ng-click="stCtrl.edit();" class="btn btn-success">ยืนยันผลการประเมิน</button>
+                                        </a>
+                                </td>   
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>  
+                        <button type="button" ng-click="stCtrl.clone();" class="btn btn-info btn-block">Clone!!!</button>       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

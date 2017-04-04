@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <ol class="breadcrumb">
+                            <li><a href="/evalforms">แบบประเมิน</a></li>
+                            <li class="active">แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น</li>
+                            <li><a href="/othertemps">แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</a></li>
+                        </ol>
+                    </div>
+                <div class="content" ng-controller="selftempsCtrl">
+                    <div class="content table-responsive table-full-width">
+                        <ul class="list-group" ng-repeat="st in selftemps.data">
+                            <li class="list-group-item">
+                                <h4>{{st.self_template.templateName}}</h4>
+                                <a href="/selfeval/{{st._id}}"><button type="button" class="btn btn-primary">ทำแบบประเมิน</button></a>
+                        </ul>
+                    </div>  
+                        <button type="button" ng-click="stCtrl.clone();" class="btn btn-info btn-block">Clone!!!</button>       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
