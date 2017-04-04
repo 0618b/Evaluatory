@@ -3,19 +3,24 @@ angular.module('selftempsControllers', ['selftempsServices'])
         
         var app = this;
 
-        function getSelfTemps() {
+        function refresh() {
            SelfTemplate.getSelfTemps().then(function(data) {
                 $scope.selftemps = data;
-                    console.log($scope.selftemps);
            })
         }
 
-        getSelfTemps();
+        refresh();
 
         app.clone = function() {
-            var cloneObj = JSON.parse(JSON.stringify($scope.selftemps.data));
-                SelfTemplate.clone(cloneObj);
-                   console.log(cloneObj);
+            SelfTemplate.getSelfTemps().then(function(data) {
+            var cloneObj = (JSON.parse(JSON.stringify(data.data[0])));
+                SelfTemplate.clone(cloneObj)
+                if (cloneObj !== null){
+                    console.log(cloneObj);
+                } else {
+                    console.log(err);
+                }
+            })
         }
 
         app.delete = function($routeParams) {
