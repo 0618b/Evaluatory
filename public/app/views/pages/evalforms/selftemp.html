@@ -12,10 +12,12 @@
                     </div>
                 <div class="content" ng-controller="selftempsCtrl">
                     <div class="content table-responsive table-full-width">
-                        <ul class="list-group" ng-repeat="st in selftemps.data">
+                        <ul class="list-group" ng-repeat="s in selftemps">
                             <li class="list-group-item">
-                                <h4>{{st.self_template.templateName}}</h4>
+                            <h4>{{s.self_template.templateName}}</h4>
                                 <a href="/selfeval/{{st._id}}"><button type="button" class="btn btn-primary">ทำแบบประเมิน</button></a>
+                                <button type="button" ng-click="stCtrl.delete();" class="btn btn-danger">ทำแบบประเมิน</button></a>
+                            </li>
                         </ul>
                     </div>  
                         <button type="button" ng-click="stCtrl.clone();" class="btn btn-info btn-block">Clone!!!</button>       
