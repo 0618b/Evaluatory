@@ -15,6 +15,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
             SelfTemplate.getSelfTemps().then(function(data) {
             var cloneObj = JSON.parse(JSON.stringify(data));
                 SelfTemplate.clone(cloneObj.data[0]);
+                    console.log(cloneObj.data.length+1);
                 })
             }
 
