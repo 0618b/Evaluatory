@@ -13,18 +13,13 @@ angular.module('selftempsControllers', ['selftempsServices'])
 
         app.clone = function() {
             SelfTemplate.getSelfTemps().then(function(data) {
-            $scope.cloneObj = (JSON.parse(JSON.stringify(data.data[0])));
-                SelfTemplate.clone($scope.cloneObj);
-                    if ($scope.cloneObj !== null){
-                        console.log($scope.cloneObj._id);
-                    } else {
-                        console.log(err);
-                    }
+            var cloneObj = JSON.parse(JSON.stringify(data));
+                SelfTemplate.clone(cloneObj.data[0]);
                 })
             }
 
         app.delete = function(id) {
-            SelfTemplate.delete(id);
+            SelfTemplate.delete(this.id);
             console.log('Success');
         }
     })
