@@ -13,7 +13,7 @@ angular.module('mainRoutes', ['ngRoute'])
             controller: 'selftempsCtrl',
             controllerAs: 'stCtrl'
         })
-        .when('/selfeval/:id', {
+        .when('/selfevals/:id', {
             templateUrl: 'app/views/pages/evalforms/st-eval.html',
             controller: 'stevalCtrl',
             controllerAs: 'seval'

@@ -6,6 +6,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
         function refresh() {
            SelfTemplate.getSelfTemps().then(function(data) {
                 $scope.selftemps = data;
+                $scope.s2 = data.data[0].self_template;
            })
         }
 
@@ -16,6 +17,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
             var cloneObj = JSON.parse(JSON.stringify(data));
                 SelfTemplate.clone(cloneObj.data[0]);
                     console.log(cloneObj.data.length+1);
+                    console.log(cloneObj.data);
                 })
             }
 
@@ -26,9 +28,8 @@ angular.module('selftempsControllers', ['selftempsServices'])
     })
 
     .controller('stevalCtrl', function($scope, $routeParams, SelfTemplate) {
-        var app = this;
 
-        SelfTemplate.getSelfTemp($routeParams).then(function(err, data) {
+        SelfTemplate.getSelfTemp($routeParams).then(function(data) {
             $scope.selftemp = data;
                 console.log($scope.selftemp);
         })
