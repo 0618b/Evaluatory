@@ -2,10 +2,15 @@ var SelfTemplate = require('../models/selftemplates');
 
 module.exports = function(router) {
 
-    router.post('/selftemps', function(req, res, next) {
-        SelfTemplate.create(req.body, function(err, selftemp) {
-            if (err) return next(err);
-            res.json(selftemp);
+    router.post('/selftemps', function(req, res) {
+        var st = new SelfTemplate();
+        st.self_template = req.body.self_template;
+        st.save(function(err) {
+            if (err) {
+                res.send(err);
+            } else {
+                console.log(req.body);
+            }
         });
     });
     router.get('/selftemps', function(req, res, next) {
