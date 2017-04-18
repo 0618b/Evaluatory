@@ -1,5 +1,6 @@
 {
-    "_id" : ObjectId("58e0b102f730d53efc417dc6"),
+    "evalId" : 1104256000000,
+    "isTemplate" : true,
     "self_template" : {
         "sectionGroup" : [ 
             {
@@ -89,7 +90,6 @@
         ],
         "totalEvaluatedScore" : 0,
         "totalScore" : 70,
-        "createdAt" : "2/4/60",
         "templateName" : "แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น"
     },
     "__v" : 0

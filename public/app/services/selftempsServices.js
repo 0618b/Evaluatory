@@ -2,26 +2,35 @@ angular.module('selftempsServices', [])
     .factory('SelfTemplate', function($http) {
         stFactory = {};
 
-        stFactory.create = function(data) {
+        /*stFactory.create = function(data) {
             return $http.post('/api/selftemps', data);
-        };
-        stFactory.clone = function(cloneObj) {
+        }; UNUSED SERVICES */
+
+        // Clone template
+        stFactory.cloneSelfTemplate = function(cloneObj) {
             return $http.post('/api/selftemps', cloneObj);
         };
-        stFactory.getSelfTemps = function() {
+
+        // Get All template
+        stFactory.getAllSelfTemplates = function() {
             return $http.get('/api/selftemps/');
         };
-        stFactory.getSelfTemp = function(id) {
+
+        // Get template by its id, then edit
+        stFactory.getSelfTemplateById = function(id) {
             return $http.get('/api/selftemps/' + id);
         };
-        stFactory.edit = function(id) {
+
+        // Edit a self-evaluation template
+        stFactory.evalSelfTemplate = function(id) {
             return $http.put('/api/selftemps', id);
         };
-        stFactory.delete = function(id) {
+
+        // Delete a self-evaluation template
+        stFactory.deleteSelfTemplate = function(id) {
             return $http.delete('/api/selftemps/' + id);
         };
-        stFactory.eval = function(id) {
-            return $http.put('/api/selftemps', id);
-        }
-        return stFactory;
+
+        return stFactory; // Return Self-Template Factory Object
+
     });

@@ -6,28 +6,8 @@
                     <div class="header">
                         <a href="/selftemps"><button type="button" class="btn btn-warning">กลับ</button></a>
                     </div>
-                <div class="content" ng-controller="">
-                    <div class="content table-responsive table-full-width">
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ที่</th>
-                                        <th>ประเภทแบบประเมิน</th>
-                                        <th>น้ำหนักคะแนน</th>
-                                        <th>ผลการประเมิน</th>
-                                        <th>เกณฑ์การพิจารณา</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="s in selftemp.data[0].self_template.sectionGroup[0].choiceGroupList[0].choiceList">
-                                        <td>{{s.evalTopic}}</td>
-                                        <td>{{s.evalWeight}}</td>
-                                        <td><input type="text" value="{{s.score}}"/></td>
-                                        <td>{{s.evalCriteria}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>         
+                <div class="content" ng-controller="selftempsCtrl">
+                    <well>Hello from the other side !!!</well>         
                     </div>
                 </div>
             </div>

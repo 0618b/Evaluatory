@@ -180,7 +180,8 @@
             }
         ],
         "totalEvaluatedScore" : 0,
-        "createdAt" : "2/4/60"
+        "templateName" : "แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน",
+        "isTemplate" : true
     },
     "__v" : 0
 }
