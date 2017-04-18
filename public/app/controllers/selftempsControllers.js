@@ -4,20 +4,19 @@ angular.module('selftempsControllers', ['selftempsServices'])
         var app = this;
 
         function refresh() {
-           SelfTemplate.getAllObject().then(function(data) {               
+           SelfTemplate.getAllSelfTemplates().then(function(data) {               
                 $scope.template = data.data[0];
-                $scope.temp = data.data;
+                $scope.templateData = data.data;
            })
         }
         refresh();
 
         app.clone = function() {
-            SelfTemplate.clone($scope.template);
-            var cloneObj = $scope.temp.slice(-1)[0];
-            //console.log(cloneObj._id);
-            refresh();
+            SelfTemplate.cloneSelfTemplate($scope.template); // Clone a template to create a new object
+            var cloneObj = $scope.templateData.slice(-1)[0]; // Select the last element of database to use it as a cloned object
+            refresh(); 
                 $location.url('/selftemps/' + cloneObj._id);
-                    SelfTemplate.getObjectById($routeParams._id).then(function(data) {
+                    SelfTemplate.getSelfTemplateById($routeParams._id).then(function(data) {
                         console.log($routeParams._id);
                     })
 
