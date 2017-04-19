@@ -14,8 +14,9 @@ angular.module('selftempsControllers', ['selftempsServices'])
             var cloneObj = $scope.templateData.slice(-1)[0]; // Select the last element of database to use it as a cloned object
             refresh();
                 $location.url('/selftemps/' + cloneObj._id);
-                    SelfTemplate.getSelfTemplateById({_id: $routeParams.id}, function(selftemp){
-                        console.log($routeParams.id);
+                cloneObj._id = $routeParams.id;
+                    SelfTemplate.getSelfTemplateById(cloneObj.id).then(function(selftemp) {
+                        console.log(selftemp);
                     })
                 }
     })
