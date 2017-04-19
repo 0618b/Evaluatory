@@ -14,25 +14,25 @@ module.exports = function(router) {
         });
     });
     router.get('/selftemps', function(req, res, next) {
-        SelfTemplate.find(function(err, selftemps) {
+        SelfTemplate.find({}, function(err, selftemps) {
             if (err) return next(err);
             res.json(selftemps);
         });
     });
     router.get('/selftemps/:id', function (req, res, next) {
-        SelfTemplate.findById(req.params.id, function (err, selftemp) {
+        SelfTemplate.find({id: req.params.id}, function (err, selftemp) {
             if (err) return next(err);
             res.json(selftemp);
         });
     });
     router.delete('/selftemps/:id', function(req, res, next) {
-        SelfTemplate.findByIdAndRemove(req.params.id, req.body, function(err, selftemp) {
+        SelfTemplate.remove({id :req.params.id}, req.body, function(err, selftemp) {
             if (err) return next(err);
             res.json(selftemp);
         });
     });
     router.put('/selftemps/:id', function(req, res, next) {
-        SelfTemplate.findByIdAndUpdate(req.params.id, req.body, function(err, selftemp) {
+        SelfTemplate.findOneAndUpdate({id: req.params.id}, req.body, function(err, selftemp) {
             if (err) return next(err);
             res.json(selftemp);
         });
