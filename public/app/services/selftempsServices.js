@@ -1,11 +1,12 @@
 angular.module('selftempsServices', [])
-    .factory('SelfTemplate', function($http) {
+    .factory('SelfTemplateService', function($http) {
+        
         stFactory = {};
 
-        /*stFactory.create = function(data) {
+        stFactory.create = function(data) {
             return $http.post('/api/selftemps', data);
-        }; UNUSED SERVICES */
-
+        }; 
+        
         // Clone template
         stFactory.cloneSelfTemplate = function(cloneObj) {
             return $http.post('/api/selftemps', cloneObj);
