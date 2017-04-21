@@ -1,14 +1,88 @@
 <div class="content">
-    <div class="container-fluid">
+    <div class="containefluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="com12">
                 <div class="card">
                     <div class="header">
                         <a href="/selftemps"><button type="button" class="btn btn-warning">ย้อนกลับ</button></a>
                     </div>
-                 <div class="content" ng-controller="selfevalCtrl">
-                    {{ data }}
-                 </div>
+                <div class="content" ncontroller="selfevalCtrl">
+                    <div class="content tablresponsive tablfulwidth">
+                        <table class="table tablhover tablstriped">
+                            <thead>
+                                <tr>
+                                    <th>ที่</th>
+                                    <th class="col-md-4">หัวข้อการประเมิน</th>
+                                    <th class="col-md-1">น้ำหนักคะแนน</th>
+                                    <th class="col-md-1">ผลการประเมิน</th>
+                                    <th class="col-md-6">เกณฑ์การพิจารณา</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><h4>{{data.data.self_template.sectionGroup[0].topic}}</h4></td>
+                                        <td><h4>{{data.data.self_template.sectionGroup[0].choiceHeader}}</h4></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].groupNumber}}</b></td>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].groupName}}</b></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr ng-repeat="x in data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList">
+                                        <td>{{x.rowNumber}}</td>
+                                        <td>{{x.evalTopic}}</td>
+                                        <td align="center">{{x.evalWeight}}</td>
+                                        <td><select class="form-control" id="1" value="{{x.score}}"><option>3</option><option>6</option></select></td>
+                                        <td>{{x.evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupNumber}}</b></td>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupName}}</b></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr ng-repeat="x in data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList">
+                                        <td>{{x.rowNumber}}</td>
+                                        <td>{{x.evalTopic}}</td>
+                                        <td align="center">{{x.evalWeight}}</td>
+                                        <td><select class="form-control" id="1" value="{{x.score}}"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></td>
+                                        <td>{{x.evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupNumber}}</b></td>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupName}}</b></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr ng-repeat="x in data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList">
+                                        <td>{{x.rowNumber}}</td>
+                                        <td>{{x.evalTopic}}</td>
+                                        <td align="center">{{x.evalWeight}}</td>
+                                        <td><select class="form-control" id="1" value="{{x.score}}"><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></td>
+                                        <td>{{x.evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
             </div>
         </div>
     </div>
