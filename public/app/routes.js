@@ -14,8 +14,8 @@ angular.module('mainRoutes', ['ngRoute'])
         })
         .when('/selftemps/:id', {
             templateUrl: '/app/views/pages/evalforms/st-eval.html',
-            controller: 'selftempsCtrl',
-            controllerAs: 'stCtrl'
+            controller: 'selfevalCtrl',
+            controllerAs: 'seCtrl'
         })
         .when('/othertemps', {
             templateUrl: '/app/views/pages/evalforms/othertemp.html'
