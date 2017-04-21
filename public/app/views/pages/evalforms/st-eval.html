@@ -6,7 +6,7 @@
                     <div class="header">
                         <a href="/selftemps"><button type="button" class="btn btn-warning">ย้อนกลับ</button></a>
                     </div>
-                <div class="content" ncontroller="selfevalCtrl">
+                <div class="content" ng-controller="selfevalCtrl">
                     <div class="content tablresponsive tablfulwidth">
                         <table class="table tablhover tablstriped">
                             <thead>
@@ -41,7 +41,12 @@
                                         <td>{{x.rowNumber}}</td>
                                         <td>{{x.evalTopic}}</td>
                                         <td align="center">{{x.evalWeight}}</td>
-                                        <td><select class="form-control" id="1" value="{{x.score}}"><option>3</option><option>6</option></select></td>
+                                        <td>
+                                            <select class="form-control" value="{{x.score}}">
+                                                <option>3</option>
+                                                <option>6</option>
+                                            </select>
+                                        </td>
                                         <td>{{x.evalCriteria}}</td>
                                     </tr>
                                 </tbody>
@@ -83,9 +88,10 @@
                                 </tbody>
                             </table>
                         </div>
+                    <button type="button" ng-click="seCtrl.eval();" class="btn btn-block btn-success">บันทึก</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-    </div>
 
