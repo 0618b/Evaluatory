@@ -27,20 +27,18 @@ angular.module('selftempsControllers', ['selftempsServices'])
         SelfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
             if (data.status === 200) {
                 $scope.data = JSON.parse(JSON.stringify(data));
-                $scope.self_template = $scope.data.data.self_template;
-                app.currentSelfTemp = data.data._id
-                console.log(data);
             } else {
-                alert('Internal Server Error 500');
+                alert('Bad Request 400');
             }
         });
 
         app.eval = function() {
-            var selftempObj = {};
-            selftempObj._id = app.currentSelfTemp;
-            selftempObj.self_template = $scope.self_template;
-            SelfTemplateService.evalSelfTemplate(app.currentSelfTemp).then(function(data) {
-                console.log(app.currentSelfTemp);
+            SelfTemplateService.evalSelfTemplate($routeParams.id).then(function(data) {
+                if (data.status === 200) {
+                    console.log('Success');
+                } else {
+                    console.log('Failed');
+                }
             });
         }
     });
