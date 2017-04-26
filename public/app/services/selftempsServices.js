@@ -1,12 +1,12 @@
 angular.module('selftempsServices', [])
-    .factory('SelfTemplateService', function($http) {
-        
+    .factory('selfTemplateService', function($http) {
+
         stFactory = {};
 
         stFactory.create = function(data) {
             return $http.post('/api/selftemps', data);
-        }; 
-        
+        };
+
         // Clone template
         stFactory.cloneSelfTemplate = function(cloneObj) {
             return $http.post('/api/selftemps', cloneObj);
@@ -23,8 +23,8 @@ angular.module('selftempsServices', [])
         };
 
         // Edit a self-evaluation template
-        stFactory.evalSelfTemplate = function(id) {
-            return $http.put('/api/selftemps', id);
+        stFactory.evalSelfTemplate = function(selftemp) {
+            return $http.put('/api/selftemps', selftemp);
         };
 
         // Delete a self-evaluation template

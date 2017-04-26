@@ -3,29 +3,28 @@ angular.module('mainRoutes', ['ngRoute'])
 
         //AngularJS route handler
         $routeProvider
-
-        .when('/home', {
-            templateUrl: '/app/views/pages/homepage/home.html'
-        })
-        .when('/selftemps', {
-            templateUrl: '/app/views/pages/evalforms/selftemp.html',
-            controller: 'selftempsCtrl',
-            controllerAs: 'stCtrl'
-        })
-        .when('/selftemps/:id', {
-            templateUrl: '/app/views/pages/evalforms/st-eval.html',
-            controller: 'selfevalCtrl',
-            controllerAs: 'seCtrl'
-        })
-        .when('/othertemps', {
-            templateUrl: '/app/views/pages/evalforms/othertemp.html'
-        })
-        .otherwise({
-            redirectTo: '/home'
-        });
+            .when('/home', {
+                templateUrl: '/app/views/pages/homepage/home.html'
+            })
+            .when('/selftemps', {
+                templateUrl: '/app/views/pages/evalforms/selftemp.html',
+                controller: 'selftempsCtrl',
+                controllerAs: 'stCtrl'
+            })
+            .when('/selftemps/:id', {
+                templateUrl: '/app/views/pages/evalforms/st-eval.html',
+                controller: 'selfevalCtrl',
+                controllerAs: 'seCtrl'
+            })
+            .when('/othertemps', {
+                templateUrl: '/app/views/pages/evalforms/othertemp.html'
+            })
+            .otherwise({
+                redirectTo: '/home'
+            });
 
         $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
+            enabled: true,
+            requireBase: false
+        });
     });
-});

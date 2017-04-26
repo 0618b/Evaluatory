@@ -9,21 +9,19 @@
                             <li><a href="/othertemps">แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</a></li>
                         </ol>
                     </div>
-                <div class="content" ng-controller="selftempsCtrl">
-                    <div class="content table-responsive table-full-width">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                            <h4>{{template.self_template.templateName}}</h4>
-                                <button type="button" ng-click="stCtrl.clone();" class="btn btn-info">เพิ่มแบบประเมิน</button>
-                                <button type="button" ng-click="stCtrl.submit();" class="btn btn-success">ยืนยันแบบประเมิน</button>
-                            </li>
-                        </ul>
-                        </div>         
+                    <div class="content" ng-controller="selftempsCtrl">
+                        <div class="content table-responsive table-full-width">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h4>{{template.self_template.templateName}}</h4>
+                                    <button type="button" ng-click="clone();" class="btn btn-info">เพิ่มแบบประเมิน</button>
+                                    <button type="button" ng-click="submit();" class="btn btn-success">ยืนยันแบบประเมิน</button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-

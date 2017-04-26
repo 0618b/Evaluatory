@@ -19,23 +19,26 @@ module.exports = function(router) {
             res.json(selftemps);
         });
     });
-    router.get('/selftemps/:id', function (req, res, next) {
-        SelfTemplate.findById({_id: req.params.id}, function (err, selftemp) {
+    router.get('/selftemps/:id', function(req, res, next) {
+        var id = req.params.id;
+        SelfTemplate.find({ _id: id }, function(err, selftemp) {
             if (err) return next(err);
             res.json(selftemp);
         });
     });
     router.delete('/selftemps/:id', function(req, res, next) {
-        var deleteObj = req.params.id;
-        SelfTemplate.findOneAndRemove({_id: deleteObj}, req.body, function(err, selftemp) {
+        var id = req.params.id;
+        SelfTemplate.findOneAndRemove(id, function(err) {
             if (err) return next(err);
-            res.json(selftemp);
+            res.send('Deleted');
         });
     });
     router.put('/selftemps/:id', function(req, res, next) {
-        SelfTemplate.findByIdAndUpdate({_id: req.params.id}, req.body, function(err, selftemp) {
+        var id = req.params.id;
+        var obj = req.body;
+        SelfTemplate.findByIdAndUpdate(id, { self_template: obj.self_template }, function(err, selftemp) {
             if (err) return next(err);
-            res.json(selftemp);
+            res.send('Updated');
         });
     });
 
