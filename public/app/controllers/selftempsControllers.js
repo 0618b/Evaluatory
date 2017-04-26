@@ -30,10 +30,10 @@ angular.module('selftempsControllers', ['selftempsServices'])
         }
     });
 
-    $scope.eval = function(selftemp) {
-        console.log(selftemp);
-        if (selftemp != null) {
-            selfTemplateService.evalSelfTemplate($routeParams.id, selftemp).then(function(response) {
+    $scope.eval = function(self_template) {
+        console.log(self_template);
+        if (self_template != null) {
+            selfTemplateService.evalSelfTemplate(self_template).then(function(response) {
                 if (response.data === "Updated!") {
                     console.log('Yay!');
                 } else {
