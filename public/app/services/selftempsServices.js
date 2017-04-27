@@ -1,4 +1,4 @@
-angular.module('selftempsServices', [])
+angular.module('selftempsServices', ['ngResource'])
     .factory('selfTemplateService', function($http) {
 
         stFactory = {};
