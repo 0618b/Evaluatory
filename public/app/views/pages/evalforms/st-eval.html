@@ -7,7 +7,7 @@
                         <a href="/selftemps"><button type="button" class="btn btn-warning">ย้อนกลับ</button></a>
                     </div>
                     <div class="content" ng-controller="selfevalCtrl">
-                        <div class="content tablresponsive tablfulwidth">
+                        <div class="content tablresponsive tablfulwidth" ng-submit="evalSelfTemp(newSelfTemplate);">
                             <table class="table tablhover tablstriped">
                                 <thead>
                                     <tr>
@@ -92,7 +92,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button type="button" ng-click="eval();" class="btn btn-block btn-success">บันทึก</button>
+                        <button type="submit" class="btn btn-block btn-success">บันทึก</button>
                     </div>
                 </div>
             </div>

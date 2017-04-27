@@ -25,23 +25,22 @@ angular.module('selftempsControllers', ['selftempsServices'])
             $scope.data = JSON.parse(JSON.stringify(data));
             $scope.self_template = data.data.self_template;
             $scope.currentSelfTemp = data.data._id;
+            console.log($scope.data);
         } else {
             alert('Bad Request 400');
         }
     });
 
-    $scope.eval = function(self_template) {
-        console.log(self_template);
-        if (self_template != null) {
-            selfTemplateService.evalSelfTemplate(self_template).then(function(response) {
-                if (response.data === "Updated!") {
-                    console.log('Yay!');
-                } else {
-                    console.log('Error1');
-                }
-            });
-        } else {
-            console.log('Error2');
-        }
+    $scope.evalSelfTemp = function() {
+        var selftempObj = {};
+        selftempObj._id = $scope.currentSelfTemp;
+        selftempObj.self_template = $scope.newSelfTemplate;
+        selfTemplateService.evalSelfTemplate($routeParams.id, $scope.self_template).then(function(data) {
+            if (data.status === 200) {
+                console.log('Success');
+            } else {
+                console.log('Error1');
+            }
+        });
     }
 });

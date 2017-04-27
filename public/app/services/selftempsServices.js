@@ -23,8 +23,8 @@ angular.module('selftempsServices', [])
         };
 
         // Edit a self-evaluation template
-        stFactory.evalSelfTemplate = function(self_template) {
-            return $http.put('/api/selftemps', self_template);
+        stFactory.evalSelfTemplate = function(id) {
+            return $http.put('/api/selftemps', id);
         };
 
         // Delete a self-evaluation template
