@@ -32,12 +32,10 @@ angular.module('selftempsControllers', ['selftempsServices'])
     });
 
     $scope.evalSelfTemp = function() {
-        var selftempObj = {};
-        selftempObj._id = $scope.currentSelfTemp;
-        selftempObj.self_template = $scope.newSelfTemplate;
         selfTemplateService.evalSelfTemplate($routeParams.id, $scope.self_template).then(function(data) {
             if (data.status === 200) {
                 console.log('Success');
+                console.log(data);
             } else {
                 console.log('Error1');
             }

@@ -33,9 +33,11 @@ module.exports = function(router) {
     });
     router.put('/selftemps/:id', function(req, res, next) {
         SelfTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, selftemp) {
-            if (err) return next(err);
-            res.json('Updated');
-            res.json(selftemp);
+            if (err) {
+                return res.send(err);
+            } else {
+                res.json({ message: 'Updated!' });
+            }
         });
     });
 
