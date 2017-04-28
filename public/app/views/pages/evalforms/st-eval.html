@@ -42,17 +42,17 @@
                                         </tr>
                                     </tbody>
                                     <tbody>
-                                        <tr ng-repeat="x in data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList ">
-                                            <td>{{x.rowNumber}}</td>
-                                            <td>{{x.evalTopic}}</td>
-                                            <td align="center ">{{x.evalWeight}}</td>
+                                        <tr>
+                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].rowNumber}}</td>
+                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
+                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
                                             <td>
-                                                <select class="form-control" name="choicegroup1" value="{{x.score}}" ng-model="x.score">
+                                                <select class="form-control" name="choicegroup1" ng-model="self_template">
                                                 <option>3</option>
                                                 <option>6</option>
                                             </select>
                                             </td>
-                                            <td>{{x.evalCriteria}}</td>
+                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalCriteria}}</td>
                                         </tr>
                                     </tbody>
                                     <tbody>
@@ -99,14 +99,14 @@
                                             <td>{{x.rowNumber}}</td>
                                             <td>{{x.evalTopic}}</td>
                                             <td align="center ">{{x.evalWeight}}</td>
-                                            <td><select class="form-control " id="1 " value="{{x.score}} "><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></td>
+                                            <td><select class="form-control" value="{{x.score}} "><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></td>
                                             <td>{{x.evalCriteria}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </form>
                         </div>
-                        <button ng-click="evalSelfTemp()" class="btn btn-block btn-success">บันทึก</button>
+                        <button ng-click="evalSelfTemp(newSelftemp)" class="btn btn-block btn-success">บันทึก</button>
                     </div>
                 </div>
             </div>

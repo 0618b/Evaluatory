@@ -36,7 +36,7 @@ module.exports = function(router) {
             if (err) {
                 return res.send(err);
             } else {
-                res.json({ message: 'Updated!' });
+                res.send(selftemp);
             }
         });
     });

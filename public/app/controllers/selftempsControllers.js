@@ -32,13 +32,12 @@ angular.module('selftempsControllers', ['selftempsServices'])
     });
 
     $scope.evalSelfTemp = function() {
-        selfTemplateService.evalSelfTemplate($routeParams.id, $scope.self_template).then(function(data) {
-            if (data.status === 200) {
-                console.log('Success');
-                console.log(data);
-            } else {
-                console.log('Error1');
-            }
-        });
+        var evalData = {
+            self_template: $scope.self_template
+        }
+        var parse = JSON.stringify(evalData);
+        selfTemplateService.evalSelfTemplate($routeParams.id, parse).then(function(data) {
+            console.log(data);
+        })
     }
 });
