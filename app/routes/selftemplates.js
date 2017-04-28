@@ -7,9 +7,9 @@ module.exports = function(router) {
         st.self_template = req.body.self_template;
         st.save(function(err) {
             if (err) {
-                res.send(err);
+                res.json('Error');
             } else {
-                console.log(req.body);
+                res.json('Created!');
             }
         });
     });
@@ -28,14 +28,14 @@ module.exports = function(router) {
     router.delete('/selftemps/:id', function(req, res, next) {
         SelfTemplate.findOneAndRemove({ _id: req.params.id }, function(err) {
             if (err) return next(err);
-            res.send('Deleted');
+            res.json('Deleted');
         });
     });
     router.put('/selftemps/:id', function(req, res, next) {
         SelfTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, selftemp) {
             if (err) return next(err);
-            res.send('Updated');
-            res.send(selftemp);
+            res.json('Updated');
+            res.json(selftemp);
         });
     });
 
