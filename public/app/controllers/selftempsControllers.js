@@ -35,10 +35,6 @@ angular.module('selftempsControllers', ['selftempsServices'])
         var evalData = {
             "self_template": $scope.self_template
         }
-
-        // Convert data to the JSON string
-        //var parseData = JSON.stringify(evalData);
-
         selfTemplateService.evalSelfTemplate($routeParams.id, evalData).then(function(data) {
             console.log(data.data);
         })

@@ -3,10 +3,6 @@ angular.module('selftempsServices', [])
 
         stFactory = {};
 
-        stFactory.create = function(data) {
-            return $http.post('/api/selftemps', data);
-        };
-
         // Clone template
         stFactory.cloneSelfTemplate = function(cloneObj) {
             return $http.post('/api/selftemps', cloneObj);
