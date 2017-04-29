@@ -2,6 +2,7 @@ var User = require('../models/users');
 
 module.exports = function(router) {
 
+    // Create new user
     router.post('/users', function(req, res) {
         var u = new User();
         u.username = req.body.username;
@@ -74,6 +75,40 @@ module.exports = function(router) {
             }
         });
     });
+
+    router.post('/authenticate', function(req, res) {
+        var loginUser = (req.body.username).toLowerCase();
+        User.findOne({ username: loginUser }).select('username password').exec(function(err, user) {
+            if (err) throw err;
+            if (!user) {
+                res.json({
+                    success: false,
+                    msg: 'กรุณาป้อนชื่อผู้ใช้งานและรหัสผ่านให้ถูกต้อง'
+                });
+            } else if (user) {
+                if (!req.body.password) {
+                    res.json({
+                        success: false,
+                        msg: 'กรุณาป้อนชื่อผู้ใช้งานและรหัสผ่านให้ถูกต้อง'
+                    })
+                } else {
+                    var validPassword = user.comparePassword(req.body.password);
+                    if (!validPassword) {
+                        res.json({
+                            success: false,
+                            msg: 'กรุณาป้อนชื่อผู้ใช้งานและรหัสผ่านให้ถูกต้อง'
+                        })
+                    } else {
+                        res.json({
+                            success: true,
+                            msg: 'เข้าสู่ระบบสำเร็จ'
+                        })
+                    }
+                }
+
+            }
+        })
+    })
 
     return router;
 
