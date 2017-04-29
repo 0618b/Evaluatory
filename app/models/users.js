@@ -1,9 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var validate = require('mongoose-validator');
 var bcrypt = require('bcrypt-nodejs');
 
-var userSchema = new Schema ({
+var userSchema = new Schema({
     username: { type: String, lowercase: true, required: true, unique: true },
     password: { type: String, required: true },
     firstName: { type: String, required: true },
@@ -20,9 +19,8 @@ var userSchema = new Schema ({
     subjectGroupRole: { type: String, default: 'member' },
     workGroupRole: { type: String, default: 'member' },
     classGroupRole: { type: String, default: 'member' },
-    //profileImg: File,
     createdAt: { type: Date, default: Date.now }
-});
+})
 
 userSchema.pre('save', function(next) {
     var user = this;

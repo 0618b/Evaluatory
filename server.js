@@ -1,23 +1,23 @@
-var express             = require('express'); //Express JS framework
-var app                 = express(); //Invoke express to variable for use in the application
-var port                = process.env.PORT || 3000;
-var morgan              = require('morgan'); //Import morgan package
-var mongoose            = require('mongoose'); //HTTP request logger middleware for Node.js
-var bodyParser          = require('body-parser');
-var router              = express.Router();
-var selftempRoutes      = require('./app/routes/selftemplates')(router);
-var selfheadRoutes      = require('./app/routes/selfheaders')(router);
-var othertempRoutes     = require('./app/routes/othertemplates')(router);
-var otherheadRoutes     = require('./app/routes/otherheaders')(router);
-var usersRoutes         = require('./app/routes/users')(router);
-var path                = require('path'); //Input path module
+var express = require('express'); //Express JS framework
+var app = express(); //Invoke express to variable for use in the application
+var port = process.env.PORT || 3000;
+var morgan = require('morgan'); //Import morgan package
+var mongoose = require('mongoose'); //HTTP request logger middleware for Node.js
+var bodyParser = require('body-parser');
+var router = express.Router();
+var selftempRoutes = require('./app/routes/selftemplates')(router);
+var selfheadRoutes = require('./app/routes/selfheaders')(router);
+var othertempRoutes = require('./app/routes/othertemplates')(router);
+var otherheadRoutes = require('./app/routes/otherheaders')(router);
+var usersRoutes = require('./app/routes/users')(router);
+var path = require('path'); //Input path module
 
 app.use(morgan('dev')); //Morgan middleware
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static(__dirname + '/public'));
 
-app.use('/api', selftempRoutes);  // Assign name to end points (e.g., '/api/management/', '/api/users' ,etc. 
+app.use('/api', selftempRoutes); // Assign name to end points (e.g., '/api/management/', '/api/users' ,etc. 
 app.use('/api', selfheadRoutes);
 app.use('/api', othertempRoutes);
 app.use('/api', otherheadRoutes);

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var selfTemplateSchema = new Schema ({
+var selfTemplateSchema = new Schema({
     self_template: {}
 });
 
