@@ -33,11 +33,14 @@ angular.module('selftempsControllers', ['selftempsServices'])
 
     $scope.evalSelfTemp = function() {
         var evalData = {
-            self_template: $scope.self_template
+            "self_template": $scope.self_template
         }
-        var parse = JSON.stringify(evalData);
-        selfTemplateService.evalSelfTemplate($routeParams.id, parse).then(function(data) {
-            console.log(data);
+
+        // Convert data to the JSON string
+        //var parseData = JSON.stringify(evalData);
+
+        selfTemplateService.evalSelfTemplate($routeParams.id, evalData).then(function(data) {
+            console.log(data.data);
         })
     }
 });

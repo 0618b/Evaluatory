@@ -47,7 +47,7 @@
                                             <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
                                             <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
                                             <td>
-                                                <select class="form-control" name="choicegroup1" ng-model="self_template">
+                                                <select class="form-control" id="cl1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score">
                                                 <option>3</option>
                                                 <option>6</option>
                                             </select>
@@ -106,7 +106,7 @@
                                 </table>
                             </form>
                         </div>
-                        <button ng-click="evalSelfTemp(newSelftemp)" class="btn btn-block btn-success">บันทึก</button>
+                        <button ng-click="evalSelfTemp()" class="btn btn-block btn-success">บันทึก</button>
                     </div>
                 </div>
             </div>
