@@ -3,23 +3,22 @@ var User = require('../models/users');
 module.exports = function(router) {
 
     router.post('/users', function(req, res) {
-        var u = new User({
-            username: req.body.username,
-            password: req.body.password,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            position: req.body.position,
-            positionLevel: req.body.positionLevel,
-            positionCategory: req.body.positionCategory,
-            belongTo: req.body.belongTo,
-            subjectGroup: req.body.subjectGroup,
-            workGroup: req.body.workGroup,
-            classGroup: req.body.classGroup,
-            permission: req.body.permission,
-            subjectGroupRole: req.body.subjectGroupRole,
-            workGroupRole: req.body.workGroupRole,
-            classGroupRole: req.body.classGroupRole
-        })
+        var u = new User();
+        u.username = req.body.username;
+        u.password = req.body.password;
+        u.firstName = req.body.firstName;
+        u.lastName = req.body.lastName;
+        u.position = req.body.position;
+        u.positionLevel = req.body.positionLevel;
+        u.positionCategory = req.body.positionCategory;
+        u.positionNumber = req.body.positionNumber;
+        u.belongTo = req.body.belongTo;
+        u.subjectGroup = req.body.subjectGroup;
+        u.workGroup = req.body.workGroup;
+        u.classGroup = req.body.classGroup;
+        u.subjectGroupRole = req.body.subjectGroupRole;
+        u.workGroupRole = req.body.workGroupRole;
+        u.classGroupRole = req.body.classGroupRole;
         u.save(function(err) {
             if (err) {
                 res.json({
