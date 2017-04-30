@@ -1,1 +1,1 @@
-angular.module('mainApp', ['mainRoutes','selftempsControllers','selftempsServices']);
+angular.module('mainApp', ['mainRoutes', 'selftempsControllers', 'selftempsServices', 'usersControllers', 'usersServices', 'mainControllers', 'authServices']);

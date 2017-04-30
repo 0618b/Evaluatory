@@ -10,17 +10,16 @@ angular.module('mainRoutes', ['ngRoute'])
                 templateUrl: '/app/views/pages/users/user.html'
             })
             .when('/login', {
-                templateUrl: '/app/views/pages/users/login.html'
+                templateUrl: '/app/views/pages/users/login.html',
+                controller: 'mainCtrl'
             })
             .when('/selftemps', {
                 templateUrl: '/app/views/pages/evalforms/selftemp.html',
-                controller: 'selftempsCtrl',
-                controllerAs: 'stCtrl'
+                controller: 'selftempsCtrl'
             })
             .when('/selftemps/:id', {
                 templateUrl: '/app/views/pages/evalforms/st-eval.html',
-                controller: 'selfevalCtrl',
-                controllerAs: 'seCtrl'
+                controller: 'selfevalCtrl'
             })
             .when('/othertemps', {
                 templateUrl: '/app/views/pages/evalforms/othertemp.html'

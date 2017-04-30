@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" ng-controller="mainCtrl">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
@@ -13,7 +13,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Username:</label>
-                                        <input type="text" class="form-control input-lg" placeholder="ชื่อผู้ใช้งาน" required="required">
+                                        <input type="text" class="form-control input-lg" placeholder="ชื่อผู้ใช้งาน" ng-model="loginData.username">
                                     </div>
                                 </div>
                             </div>
@@ -21,12 +21,12 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Password:</label>
-                                        <input type="password" class="form-control input-lg" placeholder="รหัสผ่าน" required="required">
+                                        <input type="password" class="form-control input-lg" placeholder="รหัสผ่าน" ng-model="loginData.password">
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <input type="submit" class="btn btn-lg btn-success btn-block" value="เข้าสู่ระบบ">
+                                <button ng-click="doLogin(loginData)" class="btn btn-block btn-success">เข้าสู่ระบบ</button>
                             </div>
                         </div>
                     </div>

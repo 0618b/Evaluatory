@@ -27,10 +27,6 @@ angular.module('usersServices', [])
             return $http.delete('/api/users/' + id);
         };
 
-        userFactory.login = function(loginData) {
-            return $http.post('/api/authenticate', loginData);
-        };
-
         return userFactory; // Return Self-Template Factory Object
 
     });
