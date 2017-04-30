@@ -13,7 +13,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
         $scope.clone = function() {
             selfTemplateService.cloneSelfTemplate($scope.template); // Clone a template to create a new object
             var cloneObj = $scope.templateData.slice(-1)[0]; // Select the last element of database to use it as a cloned object
-            $location.url('/selftemps/' + cloneObj._id);
+            $location.url('/selftemps/' + cloneObj._id); // redirect to the evaluation page with an id
             $routeParams.id = cloneObj._id;
         }
     })
@@ -21,13 +21,11 @@ angular.module('selftempsControllers', ['selftempsServices'])
 .controller('selfevalCtrl', function(selfTemplateService, $scope, $routeParams) {
 
     selfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
-        if (data.status === 200) {
-            $scope.data = JSON.parse(JSON.stringify(data));
+        if (data.status === 200) { // check that data is OK
+            $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings
             $scope.self_template = data.data.self_template;
-            $scope.currentSelfTemp = data.data._id;
-            console.log($scope.data);
         } else {
-            alert('Bad Request 400');
+            alert('Bad Request 400'); // catch the error
         }
     });
 

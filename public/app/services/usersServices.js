@@ -3,28 +3,32 @@ angular.module('usersServices', [])
 
         userFactory = {};
 
-        stFactory.createUser = function(user) {
-            return $http.post('/api/users', user);
+        userFactory.createUser = function(userData) {
+            return $http.post('/api/users', userData);
         };
 
         // Get All users
-        stFactory.getAllUsers = function() {
+        userFactory.getAllUsers = function() {
             return $http.get('/api/users');
         };
 
         // Get single user by id
-        stFactory.getUserById = function(id) {
+        userFactory.getUserById = function(id) {
             return $http.get('/api/users/' + id);
         };
 
         // Edit an user
-        stFactory.updateUser = function(user) {
-            return $http.put('/api/user', user._id);
+        userFactory.updateUser = function(id, user) {
+            return $http.put('/api/user/' + id, user);
         };
 
         // Delete user
-        stFactory.deleteUser = function(id) {
+        userFactory.deleteUser = function(id) {
             return $http.delete('/api/users/' + id);
+        };
+
+        userFactory.login = function(loginData) {
+            return $http.post('/api/authenticate', loginData);
         };
 
         return userFactory; // Return Self-Template Factory Object
