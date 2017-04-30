@@ -1,4 +1,6 @@
 var User = require('../models/users');
+var jwt = require('jsonwebtoken');
+var magic = 'avadakedavra';
 
 module.exports = function(router) {
 
@@ -77,8 +79,8 @@ module.exports = function(router) {
     });
 
     router.post('/authenticate', function(req, res) {
-        var loginUser = (req.body.username).toLowerCase();
-        User.findOne({ username: loginUser }).select('username password').exec(function(err, user) {
+        var loginUser = (req.body.username);
+        User.findOne({ username: loginUser }).select('username password firstName lastName position positionLevel positionCategory positionNumber belongTo subjectGroup workGroup classGroup subjectGroupRole workGroupRole classGroupRole').exec(function(err, user) {
             if (err) throw err;
             if (!user) {
                 res.json({
@@ -99,9 +101,27 @@ module.exports = function(router) {
                             msg: 'กรุณาป้อนชื่อผู้ใช้งานและรหัสผ่านให้ถูกต้อง'
                         })
                     } else {
+                        var token = jwt.sign({
+                            username: user.username,
+                            password: user.password,
+                            firstName: user.firstName,
+                            lastName: user.lastName,
+                            position: user.position,
+                            positionLevel: user.positionLevel,
+                            positionCategory: user.positionCategory,
+                            positionNumber: user.positionNumber,
+                            belongTo: user.belongTo,
+                            subjectGroup: user.subjectGroup,
+                            workGroup: user.workGroup,
+                            classGroup: user.classGroup,
+                            subjectGroupRole: user.subjectGroupRole,
+                            workGroupRole: user.workGroupRole,
+                            classGroupRole: user.classGroupRole
+                        }, magic, { expiresIn: '15m' })
                         res.json({
                             success: true,
-                            msg: 'เข้าสู่ระบบสำเร็จ'
+                            msg: 'เข้าสู่ระบบสำเร็จ',
+                            token: token
                         })
                     }
                 }
