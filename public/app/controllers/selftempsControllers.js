@@ -18,7 +18,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
         }
     })
 
-.controller('selfevalCtrl', function(selfTemplateService, $scope, $routeParams) {
+.controller('selfevalCtrl', function(selfTemplateService, $scope, $routeParams, $location) {
 
     selfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
         if (data.status === 200) { // check that data is OK
@@ -35,6 +35,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
             if (response.statusText === "OK") {
                 console.log('บันทึกผลการประเมินเรียบร้อยแล้ว');
                 $scope.msgAlert = 'บันทึกผลการประเมินเรียบร้อยแล้ว';
+                $location.url('/home'); // redirect
             } else {
                 console.log('กรุณากรอกผลการประเมินให้ครบทุกช่อง');
                 $scope.msgAlert = 'กรุณากรอกผลการประเมินให้ครบทุกช่อง';
