@@ -23,13 +23,13 @@ angular.module('selftempsControllers', ['selftempsServices'])
     selfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
         if (data.status === 200) { // check that data is OK
             $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings
-            //$scope.self_template = data.data.self_template;   
+            $scope.self_template = data.data.self_template;
         } else {
             alert('Bad Request 400'); // catch the error
         }
     });
 
-    $scope.evalSelfTemp = function() {
+    $scope.evalSelfTemp = function(evalData) {
         var evalData = {
             "self_template": $scope.self_template
         }
