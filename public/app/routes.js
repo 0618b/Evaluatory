@@ -10,8 +10,10 @@ angular.module('mainRoutes', ['ngRoute'])
                 templateUrl: '/app/views/pages/users/user.html'
             })
             .when('/login', {
-                templateUrl: '/app/views/pages/users/login.html',
-                controller: 'mainCtrl'
+                templateUrl: '/app/views/pages/users/login.html'
+            })
+            .when('/logout', {
+                templateUrl: '/app/views/pages/users/logout.html'
             })
             .when('/selftemps', {
                 templateUrl: '/app/views/pages/evalforms/selftemp.html',
