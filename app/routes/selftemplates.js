@@ -5,6 +5,9 @@ module.exports = function(router) {
     router.post('/selftemps', function(req, res) {
         var st = new SelfTemplate();
         st.self_template = req.body.self_template;
+        st.totalScore = req.body.totalScore;
+        st.isCloned = req.body.isCloned;
+        st.isSubmitted = req.body.isSubmitted;
         st.save(function(err) {
             if (err) {
                 res.json('Error');
