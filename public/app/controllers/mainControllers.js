@@ -1,4 +1,4 @@
-angular.module('mainControllers', ['authServices'])
+angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
     .controller('mainCtrl', function(authServices, $scope, $location, $routeParams, $timeout, $rootScope) {
 
         $scope.doLogout = function() {
@@ -16,6 +16,7 @@ angular.module('mainControllers', ['authServices'])
                     $rootScope.showLoginButton = false;
                     $scope.msg = data.data.msg;
                     alert($scope.msg);
+                    $modalInstance.dismiss('cancel');
                     $timeout(function() {
                         $location.url('/home');
                     }, 2000)
