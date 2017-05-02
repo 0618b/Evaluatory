@@ -1,6 +1,23 @@
 angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
     .controller('mainCtrl', function(authServices, $scope, $location, $routeParams, $timeout, $rootScope) {
 
+        $scope.loadme = false;
+
+        $rootScope.$on('$routeChangeStart', function() {
+            if (authServices.isLoggedIn()) {
+                $scope.showLoginButton = false;
+                authServices.getUser().then(function(data) {
+                    console.log(data);
+                    $scope.loadme = true;
+                });
+                console.log('Logged in');
+            } else {
+                $scope.showLoginButton = true;
+                $scope.loadme = false;
+                console.log('Not logged in');
+            }
+        });
+
         $scope.doLogout = function() {
             $rootScope.showLoginButton = true;
             authServices.logout();
@@ -16,7 +33,6 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                     $rootScope.showLoginButton = false;
                     $scope.msg = data.data.msg;
                     alert($scope.msg);
-                    $modalInstance.dismiss('cancel');
                     $timeout(function() {
                         $location.url('/home');
                     }, 2000)
@@ -26,13 +42,4 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                 };
             });
         };
-
-        if (authServices.isLoggedIn()) {
-            $rootScope.showLoginButton = false;
-            console.log('Logged in');
-        } else {
-            $rootScope.showLoginButton = true;
-            console.log('Not logged in');
-        }
-
     });

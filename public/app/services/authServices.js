@@ -20,6 +20,14 @@ angular.module('authServices', [])
             };
         };
 
+        authFactory.getUser = function() {
+            if (authToken.getToken()) {
+                return $http.post('/api/me');
+            } else {
+                $q.reject({ msg: 'User has no token' });
+            };
+        };
+
         // Function to logout the user
         authFactory.logout = function() {
             authToken.setToken();
@@ -49,4 +57,17 @@ angular.module('authServices', [])
     }
 
     return authTokenFactory;
+})
+
+.factory('authInterceptors', function(authToken) {
+    var authInterceptorsFactory = {};
+
+    authInterceptorsFactory.request = function(config) {
+        var token = authToken.getToken();
+        if (token) config.headers['x-access-token'] = token;
+
+        return config;
+    }
+
+    return authInterceptorsFactory;
 })
