@@ -73,8 +73,8 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" ng-show="showLoginButton=true"><i class="pe-7s-users"> เข้าสู่ระบบ</i></button>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#logoutModal" ng-show="showLoginButton=false"><i class="pe-7s-power"> ออกจากระบบ</i></button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" ng-hide="!showLoginButton"><i class="pe-7s-users"> เข้าสู่ระบบ</i></button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#logoutModal" ng-hide="showLoginButton"><i class="pe-7s-power"> ออกจากระบบ</i></button>
                             </li>
                         </ul>
                     </div>
@@ -177,7 +177,7 @@
                 <h3 align="center" class="modal-title">ออกจากระบบ</h3>
             </div>
             <div class="modal-body">
-                <p>ท่านแน่ใจหรือไม่ว่าต้องการออกจากระบบ?</p>
+                <p>ท่านแน่ใจหรือไม่ว่าต้องการออกจากระบบ ?</p>
             </div>
             <div class="modal-footer">
                 <button ng-click="doLogout()" class="btn btn-primary" data-dismiss="modal">ออกจากระบบ</button>

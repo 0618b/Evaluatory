@@ -2,6 +2,7 @@ angular.module('mainControllers', ['authServices'])
     .controller('mainCtrl', function(authServices, $scope, $location, $routeParams, $timeout, $rootScope) {
 
         $scope.doLogout = function() {
+            $rootScope.showLoginButton = true;
             authServices.logout();
             $location.url('/logout');
             $timeout(function() {
@@ -12,6 +13,7 @@ angular.module('mainControllers', ['authServices'])
         $scope.doLogin = function(loginData) {
             authServices.login(this.loginData).then(function(data) {
                 if (data.data.success === true) {
+                    $rootScope.showLoginButton = false;
                     $scope.msg = data.data.msg;
                     alert($scope.msg);
                     $timeout(function() {
@@ -25,10 +27,10 @@ angular.module('mainControllers', ['authServices'])
         };
 
         if (authServices.isLoggedIn()) {
-            $scope.showLoginButton = false;
+            $rootScope.showLoginButton = false;
             console.log('Logged in');
         } else {
-            $scope.showLoginButton = true;
+            $rootScope.showLoginButton = true;
             console.log('Not logged in');
         }
 
