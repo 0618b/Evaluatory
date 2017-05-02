@@ -9,9 +9,6 @@ angular.module('mainRoutes', ['ngRoute'])
             .when('/users', {
                 templateUrl: '/app/views/pages/users/user.html'
             })
-            .when('/login', {
-                templateUrl: '/app/views/pages/users/login.html'
-            })
             .when('/logout', {
                 templateUrl: '/app/views/pages/users/logout.html'
             })
