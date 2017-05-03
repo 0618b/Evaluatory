@@ -4,7 +4,6 @@
             <div class="com12">
                 <div class="card">
                     <div class="header">
-                        <a href="/selftemps"><button type="button" class="btn btn-warning">ย้อนกลับ</button></a>
                     </div>
                     <div class="content" ng-controller="selfevalCtrl">
                         <div class="content tablresponsive tablfulwidth">
@@ -48,7 +47,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
                                         <td>
-                                            <select type="number" class="form-control" id="q1.1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score">
+                                            <select class="form-control" id="q1.1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score">
                                                 <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
@@ -227,7 +226,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button type="button" ng-click="evalSelfTemp()" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
+                        <button ng-click="evalSelfTemp()" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
+                        <button ng-show="isEvaluated" ng-click="viewScore()" class="btn btn-block btn-lg btn-info">ตรวจสอบผลการประเมิน</button>
                     </div>
                 </div>
             </div>

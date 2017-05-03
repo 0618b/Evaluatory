@@ -26,6 +26,11 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 controller: 'selfevalCtrl',
                 authenticated: true
             })
+            .when('/selfscores/:id', {
+                templateUrl: '/app/views/pages/evalforms/selfscores.html',
+                controller: 'selfevalCtrl',
+                authenticated: true
+            })
             .when('/othertemps', {
                 templateUrl: '/app/views/pages/evalforms/othertemp.html',
                 authenticated: true
