@@ -10,7 +10,7 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 templateUrl: '/app/views/pages/homepage/home.html'
             })
             .when('/users', {
-                templateUrl: '/app/views/pages/users/user.html',
+                templateUrl: '/app/views/pages/users/users.html',
                 authenticated: true
             })
             .when('/logout', {
@@ -33,6 +33,10 @@ var app = angular.module('mainRoutes', ['ngRoute'])
             })
             .when('/othertemps', {
                 templateUrl: '/app/views/pages/evalforms/othertemp.html',
+                authenticated: true
+            })
+            .when('/summary', {
+                templateUrl: '/app/views/pages/evalforms/summaryScores.html',
                 authenticated: true
             })
             .when('/404', {

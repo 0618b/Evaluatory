@@ -4,6 +4,7 @@ angular.module('usersControllers', ['usersServices'])
         function getAllUsers() {
             userServices.getAllUsers().then(function(data) {
                 $scope.users = data.data;
+                console.log(data);
             })
         }
 
@@ -13,6 +14,8 @@ angular.module('usersControllers', ['usersServices'])
             userServices.createUser(this.userData).then(function(response) {
                 if (response.status === 200) {
                     console.log(response);
+                } else {
+                    console.log('Error!');
                 }
             })
         }
