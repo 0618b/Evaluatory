@@ -8,218 +8,226 @@
                     </div>
                     <div class="content" ng-controller="selfevalCtrl">
                         <div class="content tablresponsive tablfulwidth">
-                            <form name="selfevalform">
-                                <table class="table tablhover tablstriped ">
-                                    <thead>
-                                        <tr>
-                                            <th>ที่</th>
-                                            <th class="col-md-4 ">หัวข้อการประเมิน</th>
-                                            <th class="col-md-1 ">น้ำหนักคะแนน</th>
-                                            <th class="col-md-1 ">ผลการประเมิน</th>
-                                            <th class="col-md-6 ">เกณฑ์การพิจารณา</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <h4>{{data.data.self_template.sectionGroup[0].topic}}</h4>
-                                            </td>
-                                            <td>
-                                                <h4>{{data.data.self_template.sectionGroup[0].choiceHeader}}</h4>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- Choice group list 1 -->
-                                        <tr>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].groupNumber}}</b></td>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].groupName}}</b></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.1 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
-                                            <td>
-                                                <select type="number" class="form-control" id="q1.1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score">
+                            <table class="table tablhover tablstriped ">
+                                <thead>
+                                    <tr>
+                                        <th>ที่</th>
+                                        <th class="col-md-4 ">หัวข้อการประเมิน</th>
+                                        <th class="col-md-1 ">น้ำหนักคะแนน</th>
+                                        <th class="col-md-1 ">ผลการประเมิน</th>
+                                        <th class="col-md-6 ">เกณฑ์การพิจารณา</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].topic}}</h4>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceHeader}}</h4>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- Choice group list 1 -->
+                                    <tr>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].groupNumber}}</b></td>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].groupName}}</b></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 1.1 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
+                                        <td>
+                                            <select class="form-control" id="q1.1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score" required>
+                                                <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
                                             </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.2 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalWeight}}</td>
-                                            <td>
-                                                <select type="number" class="form-control" id="q1.2" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 1.2 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalWeight}}</td>
+                                        <td>
+                                            <select required class="form-control" id="q1.2" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score">
+                                                <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
                                             </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.3 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight}}</td>
-                                            <td>
-                                                <select type="number" class="form-control" id="q1.3" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 1.3 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight}}</td>
+                                        <td>
+                                            <select required type="number" class="form-control" id="q1.3" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score">
+                                                <option selected value="0">-</option>
                                                 <option value="6">6</option>
                                             </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.4 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalWeight}}</td>
-                                            <td>
-                                                <select type="number" class="form-control" id="q1.4" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 1.4 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalWeight}}</td>
+                                        <td>
+                                            <select required class="form-control" id="q1.4" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].score">
+                                                <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
                                             </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.5 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalWeight}}</td>
-                                            <td>
-                                                <select type="number" class="form-control" id="q1.5" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 1.5 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalWeight}}</td>
+                                        <td>
+                                            <select required class="form-control" id="q1.5" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score">
+                                                <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
                                             </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- Choice group list 2 -->
-                                        <tr>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupNumber}}</b></td>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupName}}</b></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 2.1 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalWeight}}</td>
-                                            <td><select class="form-control" id="q2.1" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- Choice group list 2 -->
+                                    <tr>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupNumber}}</b></td>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupName}}</b></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 2.1 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalWeight}}</td>
+                                        <td><select required class="form-control" id="q2.1" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score">
+                                                    <option selected value="0">-</option>
                                                     <option>6</option>
                                                     <option>7</option>
                                                     <option>8</option>
                                                     <option>9</option>
                                                     <option>10</option>
                                                 </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 2.2 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalWeight}}</td>
-                                            <td><select class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 2.2 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalWeight}}</td>
+                                        <td><select required class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score">
+                                                    <option selected value="0">-</option>
                                                     <option>2</option>
                                                     <option>5</option>
                                                 </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 2.3 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalWeight}}</td>
-                                            <td><select class="form-control" id="q2.3" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 2.3 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalWeight}}</td>
+                                        <td><select required class="form-control" id="q2.3" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score">
+                                                    <option selected value="0">-</option>
                                                     <option>2</option>
                                                     <option>5</option>
                                                     <option>10</option>
                                                 </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- Choice group list 3 -->
-                                        <tr>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupNumber}}</b></td>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupName}}</b></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 3.1 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalWeight}}</td>
-                                            <td><select class="form-control" id="q3.1" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- Choice group list 3 -->
+                                    <tr>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupNumber}}</b></td>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupName}}</b></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 3.1 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalWeight}}</td>
+                                        <td><select required class="form-control" id="q3.1" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score">
+                                                <option selected value="0">-</option>
                                                 <option>6</option>
                                                 <option>7</option>
                                                 <option>8</option>
                                                 <option>9</option>
                                                 <option>10</option>
                                                 </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 3.2 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].rowNumber}}</td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight}}</td>
-                                            <td><select class="form-control" id="q3.2" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score">
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <!-- question 3.2 -->
+                                    <tr>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalTopic}}</td>
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight}}</td>
+                                        <td><select required class="form-control" id="q3.2" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score">
+                                                <option selected value="0">-</option>
                                                 <option>6</option>
                                                 <option>7</option>
                                                 <option>8</option>
                                                 <option>9</option>
                                                 <option>10</option>
                                                 </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </form>
+                                        </td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalCriteria}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" ng-click="evalSelfTemp(evalData)" class="btn btn-block btn-success">บันทึกผลการประเมิน</button>
                         </div>
-                        <button ng-click="evalSelfTemp(evalData)" class="btn btn-block btn-success">บันทึกผลการประเมิน</button>
                     </div>
                 </div>
             </div>

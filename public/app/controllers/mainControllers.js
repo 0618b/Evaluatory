@@ -28,7 +28,7 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
             $location.url('/logout');
             $timeout(function() {
                 $location.url('/home');
-            }, 2000)
+            }, 1000)
         };
 
         $scope.doLogin = function(loginData) {

@@ -9,7 +9,7 @@ angular.module('usersControllers', ['usersServices'])
 
         getAllUsers();
 
-        $scope.create = function(userData) {
+        $scope.createUser = function(userData) {
             userServices.createUser(this.userData).then(function(response) {
                 if (response.status === 200) {
                     console.log(response);

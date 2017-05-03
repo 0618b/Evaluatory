@@ -39,7 +39,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
             if (response.statusText === "OK") {
                 console.log('บันทึกผลการประเมินเรียบร้อยแล้ว');
                 $scope.msgAlert = 'บันทึกผลการประเมินเรียบร้อยแล้ว';
-                $location.url('/home'); // redirect
+                console.log(response);
             } else {
                 console.log('กรุณากรอกผลการประเมินให้ครบทุกช่อง');
                 $scope.msgAlert = 'กรุณากรอกผลการประเมินให้ครบทุกช่อง';
