@@ -1,18 +1,23 @@
 angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
-    .controller('mainCtrl', function(authServices, $scope, $location, $routeParams, $timeout, $rootScope) {
-
+    .controller('mainCtrl', function(authServices, $scope, $location, $routeParams, $window, $interval, $timeout, $rootScope) {
+        var app = this;
         $scope.loadme = false;
 
+        var hideLogInModal = function() {
+            $("#loginModal").modal('hide'); // Hide modal once criteria met
+        };
+
         $rootScope.$on('$routeChangeStart', function() {
+            //check if user is logged in
             if (authServices.isLoggedIn()) {
-                $scope.showLoginButton = false;
+                $rootScope.showLoginButton = false;
                 authServices.getUser().then(function(data) {
                     console.log(data);
                     $scope.loadme = true;
                 });
                 console.log('Logged in');
             } else {
-                $scope.showLoginButton = true;
+                $rootScope.showLoginButton = true;
                 $scope.loadme = false;
                 console.log('Not logged in');
             }
@@ -32,7 +37,7 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                 if (data.data.success === true) {
                     $rootScope.showLoginButton = false;
                     $scope.msg = data.data.msg;
-                    alert($scope.msg);
+                    hideLogInModal();
                     $timeout(function() {
                         $location.url('/home');
                     }, 2000)
