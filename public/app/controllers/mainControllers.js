@@ -1,6 +1,5 @@
 angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
     .controller('mainCtrl', function(authServices, $scope, $location, $routeParams, $window, $interval, $timeout, $rootScope) {
-        var app = this;
         $scope.loadme = false;
 
         var hideLogInModal = function() {
@@ -37,6 +36,8 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                 if (data.data.success === true) {
                     $rootScope.showLoginButton = false;
                     $scope.msg = data.data.msg;
+                    this.loginData = '';
+                    alert($scope.msg)
                     hideLogInModal();
                     $timeout(function() {
                         $location.url('/home');

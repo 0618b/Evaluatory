@@ -54,7 +54,7 @@ app.run(['$rootScope', 'authServices', '$location', 'userServices', function($ro
                     event.preventDefault(); // If not logged in, prevent accessing route
                     $location.url('/home'); // Redirect to home instead
                     $rootScope.alert = 'กรุณาเข้าสู่ระบบก่อนค่ะ';
-                    console.log($rootScope.alert);
+                    alert($rootScope.alert);
                 } else if (next.$$route.authenticated === false) {
                     // If authentication is not required, make sure is not logged in
                     if (Auth.isLoggedIn()) {
