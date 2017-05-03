@@ -3,6 +3,9 @@ var app = angular.module('mainRoutes', ['ngRoute'])
 
         //AngularJS route handler
         $routeProvider
+            .when('/', {
+                templateUrl: '/app/views/pages/homepage/home.html'
+            })
             .when('/home', {
                 templateUrl: '/app/views/pages/homepage/home.html'
             })

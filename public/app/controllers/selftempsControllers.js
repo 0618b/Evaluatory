@@ -33,17 +33,10 @@ angular.module('selftempsControllers', ['selftempsServices'])
         }
     });
 
-    $scope.evalSelfTemp = function(evalData) {
-        var parseData = { "self_template": this.self_template } // saving the eval data then parse as an object
+    $scope.evalSelfTemp = function() {
+        parseData = { "self_template": self_template } // saving the eval data then parse as an object
         selfTemplateService.evalSelfTemplate($routeParams.id, parseData).then(function(response) {
-            if (response.statusText === "OK") {
-                console.log('บันทึกผลการประเมินเรียบร้อยแล้ว');
-                $scope.msgAlert = 'บันทึกผลการประเมินเรียบร้อยแล้ว';
-                console.log(response);
-            } else {
-                console.log('กรุณากรอกผลการประเมินให้ครบทุกช่อง');
-                $scope.msgAlert = 'กรุณากรอกผลการประเมินให้ครบทุกช่อง';
-            }
+            console.log(response.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0]);
         })
     }
 });

@@ -11,14 +11,11 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
             if (authServices.isLoggedIn()) {
                 $rootScope.showLoginButton = false;
                 authServices.getUser().then(function(data) {
-                    console.log(data);
                     $scope.loadme = true;
                 });
-                console.log('Logged in');
             } else {
                 $rootScope.showLoginButton = true;
                 $scope.loadme = false;
-                console.log('Not logged in');
             }
         });
 
