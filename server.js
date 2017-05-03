@@ -25,7 +25,7 @@ app.use('/api', usersRoutes);
 
 // <------- Currently Local ------->
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/evaluatory', function(err) {
+mongoose.connect('mongodb://admin:Game0914825035@ds129641.mlab.com:29641/evaluatory', function(err) {
     if (err) {
         console.log('Not connected to the database: ' + err);
     } else {
