@@ -39,6 +39,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
         selfTemplateService.evalSelfTemplate($routeParams.id, parseData).then(function(response) {
             console.log(response.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0]);
             $scope.isEvaluated = true;
+            alert('บันทึกผลการประเมินเรียบร้อยแล้ว');
         });
     };
 

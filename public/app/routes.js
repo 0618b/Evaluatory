@@ -14,7 +14,8 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 authenticated: true
             })
             .when('/addUser', {
-                templateUrl: '/app/views/pages/users/adduser.html'
+                templateUrl: '/app/views/pages/users/adduser.html',
+                authenticated: true
             })
             .when('/logout', {
                 templateUrl: '/app/views/pages/users/logout.html'

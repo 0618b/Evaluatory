@@ -226,7 +226,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button ng-click="evalSelfTemp()" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
+                        <button ng-show="!isEvaluated" ng-click="evalSelfTemp()" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
                         <button ng-show="isEvaluated" ng-click="viewScore()" class="btn btn-block btn-lg btn-info">ตรวจสอบผลการประเมิน</button>
                     </div>
                 </div>
