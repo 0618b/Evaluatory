@@ -17,7 +17,8 @@ var userSchema = new Schema({
     classGroup: { type: String, required: true },
     subjectGroupRole: { type: String, required: true },
     workGroupRole: { type: String, required: true },
-    classGroupRole: { type: String, required: true }
+    classGroupRole: { type: String, required: true },
+    permission: { type: String, required: true, default: 'user' }
 });
 
 userSchema.pre('save', function(next) {

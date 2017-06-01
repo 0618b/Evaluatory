@@ -22,6 +22,7 @@ module.exports = function(router) {
         u.subjectGroupRole = req.body.subjectGroupRole;
         u.workGroupRole = req.body.workGroupRole;
         u.classGroupRole = req.body.classGroupRole;
+        u.permission = req.body.permission;
         u.save(function(err) {
             if (err) {
                 res.json({
@@ -116,7 +117,8 @@ module.exports = function(router) {
                             classGroup: user.classGroup,
                             subjectGroupRole: user.subjectGroupRole,
                             workGroupRole: user.workGroupRole,
-                            classGroupRole: user.classGroupRole
+                            classGroupRole: user.classGroupRole,
+                            permission: user.permission
                         }, magic, { expiresIn: '15m' })
                         res.json({
                             success: true,
