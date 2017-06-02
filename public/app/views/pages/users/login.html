@@ -1,33 +1,15 @@
 <div class="content" ng-controller="mainCtrl">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="content">
                         <div class="content table-responsive table-full-width">
                             <div class="header">
-                                <h3 align="center">กรุณากรอกชื่อผู้ใช้งานและรหัสผ่าน</h3>
+                                <center><img id="spinner" ng-src="assets/img/spinner.gif"></center>
+                                <h3 align="center">กำลังเข้าสู่ระบบ..</h3>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Username:</label>
-                                        <input type="text" class="form-control input-lg" placeholder="ชื่อผู้ใช้งาน" ng-model="loginData.username">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Password:</label>
-                                        <input type="password" class="form-control input-lg" placeholder="รหัสผ่าน" ng-model="loginData.password">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <button ng-click="doLogin(loginData)" class="btn btn-block btn-success">เข้าสู่ระบบ</button>
-                            </div>
                         </div>
                     </div>
                 </div>

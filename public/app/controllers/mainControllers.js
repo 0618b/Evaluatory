@@ -34,7 +34,11 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                     $rootScope.showLoginButton = false;
                     $scope.msg = data.data.msg;
                     this.loginData = '';
-                    alert($scope.msg)
+                    swal(
+                        'Good job!',
+                        'You clicked the button!',
+                        'success'
+                    );
                     hideLogInModal();
                     $timeout(function() {
                         $location.url('/home');
