@@ -69,8 +69,12 @@ app.run(['$rootScope', 'authServices', '$location', 'userServices', function($ro
                 if (!authServices.isLoggedIn()) {
                     event.preventDefault(); // If not logged in, prevent accessing route
                     $location.url('/home'); // Redirect to home instead
-                    $rootScope.alert = 'กรุณาเข้าสู่ระบบก่อนค่ะ';
-                    alert($rootScope.alert);
+                    $rootScope.alert = 'กรุณาเข้าสู่ระบบก่อน';
+                    swal({
+                        title: $rootScope.alert,
+                        type: 'error',
+                        timer: 2000
+                    })
 
                     // else if permission loop
 

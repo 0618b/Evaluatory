@@ -22,10 +22,14 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
         $scope.doLogout = function() {
             $rootScope.showLoginButton = true;
             authServices.logout();
-            $location.url('/logout');
+            swal({
+                title: 'กำลังออกจากระบบ',
+                imageUrl: 'assets/img/spinner.gif',
+                timer: 800
+            })
             $timeout(function() {
                 $location.url('/home');
-            }, 1000)
+            }, 800)
         };
 
         $scope.doLogin = function(loginData) {
@@ -34,18 +38,19 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                     $rootScope.showLoginButton = false;
                     $scope.msg = data.data.msg;
                     this.loginData = '';
-                    swal(
-                        'Good job!',
-                        'You clicked the button!',
-                        'success'
-                    );
                     hideLogInModal();
-                    $timeout(function() {
-                        $location.url('/home');
-                    }, 2000)
+                    swal({
+                        title: $scope.msg,
+                        type: 'success',
+                        timer: 2000
+                    })
                 } else {
                     $scope.msg = data.data.msg;
-                    alert($scope.msg);
+                    swal({
+                        title: $scope.msg,
+                        type: 'error',
+                        timer: 2000
+                    })
                 };
             });
         };
