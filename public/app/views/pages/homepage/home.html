@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" ng-hide="showLoginButton">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -46,6 +46,20 @@
                 <div class="card ">
                     <div class="content">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content" ng-hide="!showLoginButton">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="content">
+                        Hello from the other side
                     </div>
                 </div>
             </div>
