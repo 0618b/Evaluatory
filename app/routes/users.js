@@ -123,7 +123,8 @@ module.exports = function(router) {
                         res.json({
                             success: true,
                             msg: 'เข้าสู่ระบบสำเร็จ',
-                            token: token
+                            token: token,
+                            user: user
                         })
                     }
                 }

@@ -7,7 +7,8 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 templateUrl: '/app/views/pages/homepage/home.html'
             })
             .when('/home', {
-                templateUrl: '/app/views/pages/homepage/home.html'
+                templateUrl: '/app/views/pages/homepage/home.html',
+                controller: 'mainCtrl'
             })
             .when('/users', {
                 templateUrl: '/app/views/pages/users/users.html',
