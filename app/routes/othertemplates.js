@@ -5,9 +5,17 @@ module.exports = function(router) {
     router.post('/othertemps', function(req, res) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
-        ot.save(function(err) {
-            if (err) {
-                res.send(err);
+        ot.totalScore = req.body.totalScore;
+        ot.isCloned = req.body.isCloned;
+        ot.isSubmitted = req.body.isSubmitted;
+        ot.evaluatedBy = req.body.evaluatedBy;
+        ot.save(function(error) {
+            if (!error) {
+                OtherTemplate.find({})
+                    .populate('evaluatedBy')
+                    .exec(function(error, othertemplates) {
+                        console.log(JSON.stringify(othertemplates, null, '\t'))
+                    })
             } else {
                 console.log(req.body);
             }
@@ -18,19 +26,19 @@ module.exports = function(router) {
             res.json(docs);
         });
     });
-    router.get('/othertemps/:id', function (req, res) {
-        OtherTemplate.find({_id:req.params.id}, function (err, docs) {
+    router.get('/othertemps/:id', function(req, res) {
+        OtherTemplate.find({ _id: req.params.id }, function(err, docs) {
             res.json(docs);
         });
     });
     router.delete('/othertemps/:id', function(req, res) {
-        OtherTemplate.remove({_id:req.params.id}, function(err, docs) {
+        OtherTemplate.remove({ _id: req.params.id }, function(err, docs) {
             res.json(docs);
-            res.send('Deleted'); 
+            res.send('Deleted');
         });
     });
     router.put('/othertemps/:id', function(req, res) {
-        OtherTemplate.findOneAndUpdate({_id:req.params.id}, req.body, function(err, data) {
+        OtherTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, data) {
             res.json(data);
         });
     });

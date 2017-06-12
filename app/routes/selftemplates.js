@@ -8,9 +8,14 @@ module.exports = function(router) {
         st.totalScore = req.body.totalScore;
         st.isCloned = req.body.isCloned;
         st.isSubmitted = req.body.isSubmitted;
-        st.save(function(err) {
-            if (err) {
-                res.json('Error');
+        st.evaluatedBy = req.body.evaluatedBy;
+        st.save(function(error) {
+            if (!error) {
+                SelfTemplate.find({})
+                    .populate('evaluatedBy')
+                    .exec(function(error, selftemplates) {
+                        console.log(JSON.stringify(selftemplates, null, '\t'))
+                    })
             } else {
                 res.json('Created!');
             }
