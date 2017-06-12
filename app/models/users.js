@@ -7,17 +7,26 @@ var userSchema = new Schema({
     password: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    position: { type: String, required: true },
-    positionLevel: { type: String, required: true },
-    positionCategory: { type: String, required: true },
-    positionNumber: { type: String, required: true, unique: true },
+    position: {
+        positionName: String,
+        positionLevel: String,
+        positionCategory: String,
+        positionNumber: String,
+        required: true
+    },
     belongTo: { type: String, required: true },
-    subjectGroup: { type: String, required: true },
-    workGroup: { type: String, required: true },
-    classGroup: { type: String, required: true },
-    subjectGroupRole: { type: String, required: true },
-    workGroupRole: { type: String, required: true },
-    classGroupRole: { type: String, required: true },
+    group: {
+        subjectGroup: String,
+        workGroup: String,
+        classGroup: String,
+        required: true
+    },
+    groupRole: {
+        subjectGroupRole: String,
+        workGroupRole: String,
+        classGroupRole: String,
+        required: true
+    },
     permission: { type: String, required: true, default: 'user' }
 });
 

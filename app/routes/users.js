@@ -12,16 +12,9 @@ module.exports = function(router) {
         u.firstName = req.body.firstName;
         u.lastName = req.body.lastName;
         u.position = req.body.position;
-        u.positionLevel = req.body.positionLevel;
-        u.positionCategory = req.body.positionCategory;
-        u.positionNumber = req.body.positionNumber;
         u.belongTo = req.body.belongTo;
-        u.subjectGroup = req.body.subjectGroup;
-        u.workGroup = req.body.workGroup;
-        u.classGroup = req.body.classGroup;
-        u.subjectGroupRole = req.body.subjectGroupRole;
-        u.workGroupRole = req.body.workGroupRole;
-        u.classGroupRole = req.body.classGroupRole;
+        u.group = req.body.group;
+        u.groupRole = req.body.groupRole;
         u.permission = req.body.permission;
         u.save(function(err) {
             if (err) {
@@ -108,16 +101,9 @@ module.exports = function(router) {
                             firstName: user.firstName,
                             lastName: user.lastName,
                             position: user.position,
-                            positionLevel: user.positionLevel,
-                            positionCategory: user.positionCategory,
-                            positionNumber: user.positionNumber,
                             belongTo: user.belongTo,
-                            subjectGroup: user.subjectGroup,
-                            workGroup: user.workGroup,
-                            classGroup: user.classGroup,
-                            subjectGroupRole: user.subjectGroupRole,
-                            workGroupRole: user.workGroupRole,
-                            classGroupRole: user.classGroupRole,
+                            group: user.group,
+                            groupRole: user.groupRole,
                             permission: user.permission
                         }, magic, { expiresIn: '15m' })
                         res.json({
