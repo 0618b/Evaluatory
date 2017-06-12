@@ -12,20 +12,17 @@ var userSchema = new Schema({
         positionLevel: String,
         positionCategory: String,
         positionNumber: String,
-        required: true
     },
     belongTo: { type: String, required: true },
     group: {
         subjectGroup: String,
         workGroup: String,
         classGroup: String,
-        required: true
     },
     groupRole: {
         subjectGroupRole: String,
         workGroupRole: String,
         classGroupRole: String,
-        required: true
     },
     permission: { type: String, required: true, default: 'user' }
 });
