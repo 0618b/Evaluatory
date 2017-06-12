@@ -37,8 +37,6 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                 if (data.data.success === true) {
                     $rootScope.showLoginButton = false;
                     $scope.msg = data.data.msg;
-                    $scope.userData = data;
-                    console.log($scope.userData);
                     this.loginData = '';
                     hideLogInModal();
                     swal({
@@ -56,4 +54,5 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                 };
             });
         };
+
     });
