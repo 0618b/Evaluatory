@@ -18,9 +18,6 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 templateUrl: '/app/views/pages/users/adduser.html',
                 authenticated: true
             })
-            .when('/logout', {
-                templateUrl: '/app/views/pages/users/logout.html'
-            })
             .when('/selftemps', {
                 templateUrl: '/app/views/pages/evalforms/selftemp.html',
                 controller: 'selftempsCtrl',
