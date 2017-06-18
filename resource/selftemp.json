@@ -80,6 +80,7 @@
     },
     "isSubmitted": false,
     "isCloned": false,
+    "isEvaluated": false,
     "totalScore": 0,
     "evaluatedBy": "",
     "__v": 0

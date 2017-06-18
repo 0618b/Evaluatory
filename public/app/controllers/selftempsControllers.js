@@ -1,9 +1,7 @@
 angular.module('selftempsControllers', ['selftempsServices'])
     .controller('selftempsCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
-        $scope.isEvaluated = false;
-        $scope.isClonned = false;
-        $scope.isSubmitted = false;
+        $scope.testFlag = false;
 
         function getAllSelfTemplates() {
             selfTemplateService.getAllSelfTemplates().then(function(data) {
@@ -18,7 +16,9 @@ angular.module('selftempsControllers', ['selftempsServices'])
             selfTemplateService.cloneSelfTemplate($scope.template); // Clone a template to create a new object
             var cloneObj = $scope.templateData.slice(-1)[0]; // Select the last element of database to use it as a cloned object
             $location.url('/selftemps/' + cloneObj._id); // redirect to the evaluation page with an id
+            cloneObj.isCloned = true;
             $routeParams.id = cloneObj._id;
+            $scope.testFlag = true;
         };
     })
 
