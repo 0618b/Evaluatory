@@ -28,17 +28,19 @@ angular.module('selftempsControllers', ['selftempsServices'])
         if (data.status === 200) { // check that data is OK
             $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
             $scope.self_template = data.data.self_template;
-            console.log(data);
         } else {
-            alert('Bad Request 400'); // catch the error
+            swal({
+                title: 'มีบางอย่างผิดพลาด',
+                type: 'danger',
+                timer: 2000
+            })
         }
     });
 
     $scope.evalSelfTemp = function() {
         var parseData = { "self_template": this.self_template } // saving the eval data then parse as an object
         selfTemplateService.evalSelfTemplate($routeParams.id, parseData).then(function(response) {
-            console.log(response.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0]);
-            $scope.isEvaluated = true;
+            response.isEvaluated = true;
             swal({
                 title: 'บันทึกผลการประเมินเรียบร้อยแล้ว',
                 type: 'success',
