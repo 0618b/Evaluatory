@@ -70,17 +70,14 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap', 'userServices
                         userServices.getPermission().then(function(data) {
                             if (data.data.permission === 'admin') {
                                 $scope.isAdmin = true;
-                                $scope.loadme = true;
                             } else {
                                 $scope.isAdmin = false;
-                                $scope.loadme = true;
                             }
                         })
                     }
                 });
             } else {
                 $scope.isLoggedIn = false;
-                $scope.loadme = true;
             }
 
         });

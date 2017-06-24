@@ -88,7 +88,7 @@ app.run(['$rootScope', 'authServices', '$location', 'userServices', function($ro
                     // If authentication is not required, make sure is not logged in
                     if (Auth.isLoggedIn()) {
                         event.preventDefault(); // If user is logged in, prevent accessing route
-                        $location.path('/home'); // Redirect to profile instead
+                        $location.url('/home'); // Redirect to profile instead
                     }
                 }
             }
