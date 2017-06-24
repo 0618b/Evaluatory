@@ -6,6 +6,49 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
             $("#loginModal").modal('hide'); // Hide modal once criteria met
         };
 
+        if (authServices.isLoggedIn()) {
+            // Check Token
+            authServices.getUser().then(function(data) {
+                // Check if the returned user is undefined (Expired)
+                if (data.data.username === undefined) {
+                    authServices.logout(); //Log user out
+                    $scope.isLoggedIn = false; //Set session
+                    $location.url('/home');
+                    $scope.loadme = true;
+                }
+            })
+        }
+
+        $scope.checkSession = function() {
+            if (authServices.isLoggedIn()) {
+                $scope.checkingSession = true; // Use variable to keep track if the interval is already running
+                // Run interval ever 30000 milliseconds (30 seconds) 
+                var interval = $interval(function() {
+                    var token = $window.localStorage.getItem('token'); // Retrieve the user's token from the client local storage
+                    // Ensure token is not null (will normally not occur if interval and token expiration is setup properly)
+                    if (token === null) {
+                        $interval.cancel(interval);
+                    } else {
+                        // Parse JSON Web Token using AngularJS for timestamp conversion
+                        self.parseJwt = function(token) {
+                            var base64Url = token.split('.')[1];
+                            var base64 = base64Url.replace('-', '+').replace('_', '/');
+                            return JSON.parse($window.atob(base64));
+                        };
+                        var expireTime = self.parseJwt(token); // Save parsed token into variable
+                        var timeStamp = Math.floor(Date.now() / 1000); // Get current datetime timestamp
+                        var timeCheck = expireTime.exp - timeStamp; // Subtract to get remaining time of token
+                        // Check if token has less than 30 minutes till expiration
+                        if (timeCheck <= 1800) {
+                            $interval.cancel(interval); //Stop interval
+                        }
+                    }
+                }, 3000);
+            }
+        };
+
+        $scope.checkSession(); // Ensure check is ran check, even if user refreshes
+
         $rootScope.$on('$routeChangeStart', function() {
             //check if user is logged in
             if (authServices.isLoggedIn()) {
