@@ -57,7 +57,7 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                 $rootScope.showLoginButton = false;
                 authServices.getUser().then(function(data) {
                     if (data.data.username === undefined) {
-                        $scope.showLoginButton = true;
+                        $rootScope.showLoginButton = true;
                         $scope.isLoggedIn = false;
                         authServices.logout();
                         $location.url('/home');
@@ -79,6 +79,7 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
                     }
                 });
             } else {
+                $rootScope.showLoginButton = true;
                 $scope.isLoggedIn = false;
                 $scope.loadme = true;
             }
