@@ -1,4 +1,4 @@
-angular.module('mainControllers', ['authServices', 'ui.bootstrap', 'userServices'])
+angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
     .controller('mainCtrl', function(authServices, userServices, $scope, $location, $routeParams, $window, $interval, $timeout, $rootScope) {
         $scope.loadme = false;
 
@@ -66,18 +66,21 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap', 'userServices
                         $scope.isLoggedIn = true;
                         $scope.fullname = data.data.firstName + data.data.lastName;
                         $scope.position = data.data.position.positionName;
-                        $scope.subjectGroup = data.data.group.subjectGroup;
+                        console.log(data);
                         userServices.getPermission().then(function(data) {
                             if (data.data.permission === 'admin') {
                                 $scope.isAdmin = true;
+                                $scope.loadme = true;
                             } else {
                                 $scope.isAdmin = false;
+                                $scope.loadme = true;
                             }
                         })
                     }
                 });
             } else {
                 $scope.isLoggedIn = false;
+                $scope.loadme = true;
             }
 
         });

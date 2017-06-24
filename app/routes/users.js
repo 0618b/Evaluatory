@@ -74,7 +74,7 @@ module.exports = function(router) {
 
     router.post('/authenticate', function(req, res) {
         var loginUser = (req.body.username);
-        User.findOne({ username: loginUser }).select('username password firstName lastName position positionLevel positionCategory positionNumber belongTo subjectGroup workGroup classGroup subjectGroupRole workGroupRole classGroupRole').exec(function(err, user) {
+        User.findOne({ username: loginUser }).select('username password firstName lastName position belongTo group groupRole').exec(function(err, user) {
             if (err) throw err;
             if (!user) {
                 res.json({
