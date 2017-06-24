@@ -73,14 +73,22 @@ app.run(['$rootScope', 'authServices', '$location', 'userServices', function($ro
                         type: 'error',
                         timer: 2000
                     })
-
-                    // else if permission loop
-
+                } else if (next.$$route.permission) {
+                    // function: get current user permission to see if authorized on route
+                    userServices.getPermission().then(function(data) {
+                        // Check if user's permission matches at least one in the array
+                        if (next.$$route.permission[0] !== data.data.permission) {
+                            if (next.$$route.permission[1] !== data.data.permission) {
+                                event.preventDefault(); // If at least one role does not match, prevent accessing route
+                                $location.url('/home'); // Redirect to home instead
+                            }
+                        }
+                    });
                 } else if (next.$$route.authenticated === false) {
                     // If authentication is not required, make sure is not logged in
                     if (Auth.isLoggedIn()) {
                         event.preventDefault(); // If user is logged in, prevent accessing route
-                        $location.path('/profile'); // Redirect to profile instead
+                        $location.path('/home'); // Redirect to profile instead
                     }
                 }
             }

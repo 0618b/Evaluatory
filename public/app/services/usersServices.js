@@ -17,6 +17,11 @@ angular.module('usersServices', [])
             return $http.get('/api/users/' + id);
         };
 
+        // Get permission
+        userFactory.getPermission = function() {
+            return $http.get('/api/permission/');
+        };
+
         // Edit an user
         userFactory.updateUser = function(id, user) {
             return $http.put('/api/user/' + id, user);

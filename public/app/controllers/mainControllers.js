@@ -1,5 +1,5 @@
-angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
-    .controller('mainCtrl', function(authServices, $scope, $location, $routeParams, $window, $interval, $timeout, $rootScope) {
+angular.module('mainControllers', ['authServices', 'ui.bootstrap', 'userServices'])
+    .controller('mainCtrl', function(authServices, userServices, $scope, $location, $routeParams, $window, $interval, $timeout, $rootScope) {
         $scope.loadme = false;
 
         var hideLogInModal = function() {
@@ -50,16 +50,39 @@ angular.module('mainControllers', ['authServices', 'ui.bootstrap'])
         $scope.checkSession(); // Ensure check is ran check, even if user refreshes
 
         $rootScope.$on('$routeChangeStart', function() {
-            //check if user is logged in
+            if (!$scope.checkingSession) $scope.checkSession();
+
+            //Check if user is logged in
             if (authServices.isLoggedIn()) {
                 $rootScope.showLoginButton = false;
                 authServices.getUser().then(function(data) {
-                    $scope.loadme = true;
+                    if (data.data.username === undefined) {
+                        $scope.showLoginButton = true;
+                        $scope.isLoggedIn = false;
+                        authServices.logout();
+                        $location.url('/home');
+                    } else {
+                        $rootScope.showLoginButton = false;
+                        $scope.isLoggedIn = true;
+                        $scope.fullname = data.data.firstName + data.data.lastName;
+                        $scope.position = data.data.position.positionName;
+                        $scope.subjectGroup = data.data.group.subjectGroup;
+                        userServices.getPermission().then(function(data) {
+                            if (data.data.permission === 'admin') {
+                                $scope.isAdmin = true;
+                                $scope.loadme = true;
+                            } else {
+                                $scope.isAdmin = false;
+                                $scope.loadme = true;
+                            }
+                        })
+                    }
                 });
             } else {
-                $rootScope.showLoginButton = true;
-                $scope.loadme = false;
+                $scope.isLoggedIn = false;
+                $scope.loadme = true;
             }
+
         });
 
         $scope.doLogout = function() {
