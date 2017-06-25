@@ -24,7 +24,15 @@ var userSchema = new Schema({
         workGroupRole: String,
         classGroupRole: String,
     },
-    permission: { type: String, required: true, default: 'user' }
+    permission: { type: String, required: true, default: 'user' },
+    selftemplates: {
+        type: Schema.Types.ObjectId,
+        ref: 'SelfTemplate'
+    },
+    othertemplates: {
+        type: Schema.Types.ObjectId,
+        ref: 'OtherTemplate'
+    }
 });
 
 userSchema.pre('save', function(next) {

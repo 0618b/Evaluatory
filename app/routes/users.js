@@ -16,6 +16,8 @@ module.exports = function(router) {
         u.group = req.body.group;
         u.groupRole = req.body.groupRole;
         u.permission = req.body.permission;
+        u.selftemplates = req.body.selftemplates;
+        u.othertemplates = req.body.othertemplates;
         u.save(function(err) {
             if (err) {
                 res.json({
@@ -74,7 +76,7 @@ module.exports = function(router) {
 
     router.post('/authenticate', function(req, res) {
         var loginUser = (req.body.username);
-        User.findOne({ username: loginUser }).select('username password firstName lastName position belongTo group groupRole').exec(function(err, user) {
+        User.findOne({ username: loginUser }).select('username password firstName lastName position belongTo group groupRole selftemplates othertemplates').exec(function(err, user) {
             if (err) throw err;
             if (!user) {
                 res.json({
@@ -104,7 +106,9 @@ module.exports = function(router) {
                             belongTo: user.belongTo,
                             group: user.group,
                             groupRole: user.groupRole,
-                            permission: user.permission
+                            permission: user.permission,
+                            selftemplates: user.selftemplates,
+                            othertemplates: user.othertemplates
                         }, magic, { expiresIn: '15m' })
                         res.json({
                             success: true,
