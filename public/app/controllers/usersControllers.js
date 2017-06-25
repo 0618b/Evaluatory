@@ -14,7 +14,7 @@ angular.module('usersControllers', ['usersServices'])
             userServices.createUser(this.userData).then(function(data) {
                 if (data.data.success === true) {
                     console.log(response);
-                    $scope.msg = response.data.msg;
+                    $scope.msg = data.data.msg;
                     swal({
                         title: $scope.msg,
                         type: 'success',
@@ -24,6 +24,7 @@ angular.module('usersControllers', ['usersServices'])
                         $location.url('/users')
                     }, 500);
                 } else {
+                    $scope.msg = data.data.msg;
                     swal({
                         title: $scope.msg,
                         type: 'error',
