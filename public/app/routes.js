@@ -12,11 +12,13 @@ var app = angular.module('mainRoutes', ['ngRoute'])
             })
             .when('/users', {
                 templateUrl: '/app/views/pages/users/users.html',
-                authenticated: true
+                authenticated: true,
+                permission: 'admin'
             })
             .when('/addUser', {
                 templateUrl: '/app/views/pages/users/adduser.html',
-                authenticated: true
+                authenticated: true,
+                permission: 'admin'
             })
             .when('/selftemps', {
                 templateUrl: '/app/views/pages/evalforms/selftemp.html',
@@ -67,9 +69,8 @@ app.run(['$rootScope', 'authServices', '$location', 'userServices', function($ro
                 if (!authServices.isLoggedIn()) {
                     event.preventDefault(); // If not logged in, prevent accessing route
                     $location.url('/home'); // Redirect to home instead
-                    $rootScope.alert = 'กรุณาเข้าสู่ระบบก่อน';
                     swal({
-                        title: $rootScope.alert,
+                        title: 'กรุณาเข้าสู่ระบบก่อน',
                         type: 'error',
                         timer: 2000
                     })
@@ -81,6 +82,11 @@ app.run(['$rootScope', 'authServices', '$location', 'userServices', function($ro
                             if (next.$$route.permission[1] !== data.data.permission) {
                                 event.preventDefault(); // If at least one role does not match, prevent accessing route
                                 $location.url('/home'); // Redirect to home instead
+                                swal({
+                                    title: 'คุณไม่มีสิทธิ์เข้าใช้งานในส่วนนี้ โปรดติดต่อผู้ดูแลระบบ',
+                                    type: 'error',
+                                    timer: 2000
+                                })
                             }
                         }
                     });

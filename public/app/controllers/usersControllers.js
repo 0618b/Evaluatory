@@ -11,15 +11,24 @@ angular.module('usersControllers', ['usersServices'])
         getAllUsers();
 
         $scope.createUser = function(userData) {
-            userServices.createUser(this.userData).then(function(response) {
-                if (response.status === 200) {
+            userServices.createUser(this.userData).then(function(data) {
+                if (data.data.success === true) {
                     console.log(response);
-                    alert('สร้างผู้ใช้งานเรียบร้อยแล้ว');
+                    $scope.msg = response.data.msg;
+                    swal({
+                        title: $scope.msg,
+                        type: 'success',
+                        timer: 2000
+                    })
                     $timeout(function() {
                         $location.url('/users')
                     }, 500);
                 } else {
-                    console.log('Error!');
+                    swal({
+                        title: $scope.msg,
+                        type: 'error',
+                        timer: 2000
+                    })
                 }
             })
         }

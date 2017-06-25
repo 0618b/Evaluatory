@@ -28,7 +28,7 @@ module.exports = function(router) {
             } else {
                 res.json({
                     success: true,
-                    msg: 'สำเร็จ'
+                    msg: 'สร้างผู้ใช้งานเรียบร้อยแล้ว'
                 });
             }
         });
