@@ -25,7 +25,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
 .controller('selfevalCtrl', function(selfTemplateService, $scope, $routeParams, $location) {
 
     selfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
-        if (data.status === 200) { // check that data is OK
+        if (data.data.success === true) { // check that data is OK
             $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
             $scope.self_template = data.data.self_template;
         } else {

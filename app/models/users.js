@@ -28,11 +28,11 @@ var userSchema = new Schema({
     selftemplates: {
         type: Schema.Types.ObjectId,
         ref: 'SelfTemplate'
-    },
-    othertemplates: {
+    }
+    /*othertemplates: {
         type: Schema.Types.ObjectId,
         ref: 'OtherTemplate'
-    }
+    }*/
 });
 
 userSchema.pre('save', function(next) {
