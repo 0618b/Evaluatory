@@ -122,22 +122,6 @@ module.exports = function(router) {
         })
     })
 
-    router.get('/permission', function(req, res) {
-        User.findOne({ username: req.decoded.username }, function(err, user) {
-            if (!user) {
-                res.json({
-                    success: false,
-                    msg: 'ไม่พบผู้ใช้งานดังกล่าว'
-                })
-            } else {
-                res.json({
-                    success: true,
-                    permission: user.permission
-                })
-            }
-        })
-    })
-
     router.use(function(req, res, next) {
         var token = req.body.token || req.body.query || req.headers['x-access-token'];
         if (token) {
@@ -162,6 +146,22 @@ module.exports = function(router) {
 
     router.post('/me', function(req, res) {
         res.send(req.decoded);
+    });
+
+    router.get('/permission', function(req, res) {
+        User.findOne({ username: req.decoded.username }, function(err, user) {
+            if (!user) {
+                res.json({
+                    success: false,
+                    msg: 'ไม่พบผู้ใช้งานดังกล่าว'
+                })
+            } else {
+                res.json({
+                    success: true,
+                    permission: user.permission
+                })
+            }
+        })
     });
 
     return router;
