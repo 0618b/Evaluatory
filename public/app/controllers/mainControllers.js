@@ -1,6 +1,7 @@
 angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstrap'])
     .controller('mainCtrl', function(authServices, userServices, $scope, $location, $routeParams, $window, $interval, $timeout, $rootScope) {
         $scope.loadme = false;
+        $rootScope.isAdmin = false;
 
         var hideLogInModal = function() {
             $("#loginModal").modal('hide'); // Hide modal once criteria met
