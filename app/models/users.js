@@ -24,9 +24,9 @@ var userSchema = new Schema({
         workGroupRole: String,
         classGroupRole: String,
     },
-    permission: { type: String, required: true, default: 'user' },
+    permission: { type: String, required: true },
     selftemplates: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'SelfTemplate'
     }
     /*othertemplates: {
