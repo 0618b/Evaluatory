@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="header">
                         <h3>เพิ่มผู้ใช้งาน</h3>
@@ -14,19 +14,19 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>ชื่อ</label>
-                                        <input type="text" class="form-control" placeholder="ชื่อ" ng-model="userData.firstName">
+                                        <input type="text" class="form-control" placeholder="ชื่อ" ng-model="userData.firstName" required>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>นามสกุล</label>
-                                        <input type="text" class="form-control" placeholder="นามสกุล" ng-model="userData.lastName">
+                                        <input type="text" class="form-control" placeholder="นามสกุล" ng-model="userData.lastName" required>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>ระดับของผู้ใช้งาน</label>
-                                        <select type="text" class="form-control" placeholder="ระดับของผู้ใช้งาน" ng-model="userData.permission">
+                                        <select type="text" class="form-control" placeholder="ระดับของผู้ใช้งาน" ng-model="userData.permission" required>
                                             <option value="teacher">ครู</option>
                                             <option value="hr">หัวหน้าฝ่าย</option>
                                             <option value="director">ผู้อำนวยการ</option>
@@ -39,19 +39,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>ชื่อผู้ใช้งาน</label>
-                                        <input type="text" class="form-control" placeholder="ชื่อผู้ใช้งาน" ng-model="userData.username">
+                                        <input type="text" class="form-control" placeholder="ชื่อผู้ใช้งาน" ng-model="userData.username" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>รหัสผ่าน</label>
-                                        <input type="password" class="form-control" placeholder="รหัสผ่าน" ng-model="userData.password">
+                                        <input type="password" class="form-control" placeholder="รหัสผ่าน" ng-model="userData.password" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>ตำแหน่ง</label>
-                                        <input type="text" class="form-control" placeholder="ตำแหน่ง" ng-model="userData.position.positionName">
+                                        <input type="text" class="form-control" placeholder="ตำแหน่ง" ng-model="userData.position.positionName" required>
                                     </div>
                                 </div>
                             </div>
@@ -59,25 +59,25 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>ระดับ</label>
-                                        <input type="text" class="form-control" placeholder="ระดับ" ng-model="userData.position.positionLevel">
+                                        <input type="text" class="form-control" placeholder="ระดับ" ng-model="userData.position.positionLevel" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>ประเภทตำแหน่ง</label>
-                                        <input type="text" class="form-control" placeholder="ประเภทตำแหน่ง" ng-model="userData.position.positionCategory">
+                                        <input type="text" class="form-control" placeholder="ประเภทตำแหน่ง" ng-model="userData.position.positionCategory" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>ตำแหน่งเลขที่</label>
-                                        <input type="text" class="form-control" placeholder="ตำแหน่งเลขที่" ng-model="userData.position.positionNumber">
+                                        <input type="text" class="form-control" placeholder="ตำแหน่งเลขที่" ng-model="userData.position.positionNumber" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>สังกัด</label>
-                                        <input type="text" class="form-control" placeholder="สังกัด" ng-model="userData.belongTo">
+                                        <input type="text" class="form-control" placeholder="สังกัด" ng-model="userData.belongTo" required>
                                     </div>
                                 </div>
                             </div>
@@ -85,19 +85,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>กลุ่มสาระ</label>
-                                        <input type="text" class="form-control" placeholder="กลุ่มสาระ" ng-model="userData.group.subjectGroup">
+                                        <input type="text" class="form-control" placeholder="กลุ่มสาระ" ng-model="userData.group.subjectGroup" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>กลุ่มสายงาน</label>
-                                        <input type="text" class="form-control" placeholder="กลุ่มสายงาน" ng-model="userData.group.workGroup">
+                                        <input type="text" class="form-control" placeholder="กลุ่มสายงาน" ng-model="userData.group.workGroup" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>กลุ่มสายชั้น</label>
-                                        <input type="text" class="form-control" placeholder="กลุ่มสายชั้น" ng-model="userData.group.classGroup">
+                                        <input type="text" class="form-control" placeholder="กลุ่มสายชั้น" ng-model="userData.group.classGroup" required>
                                     </div>
                                 </div>
                             </div>
@@ -105,19 +105,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>ตำแหน่งในกลุ่มสาระ</label>
-                                        <input type="text" class="form-control" placeholder="ตำแหน่งในกลุ่มสาระ" ng-model="userData.groupRole.subjectGroupRole">
+                                        <input type="text" class="form-control" placeholder="ตำแหน่งในกลุ่มสาระ" ng-model="userData.groupRole.subjectGroupRole" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>ตำแหน่งในกลุ่มสายงาน</label>
-                                        <input type="text" class="form-control" placeholder="ตำแหน่งในกลุ่มสายงาน" ng-model="userData.groupRole.workGroupRole">
+                                        <input type="text" class="form-control" placeholder="ตำแหน่งในกลุ่มสายงาน" ng-model="userData.groupRole.workGroupRole" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>ตำแหน่งในกลุ่มสายชั้น</label>
-                                        <input type="text" class="form-control" placeholder="ตำแหน่งในกลุ่มสายชั้น" ng-model="userData.groupRole.classGroupRole">
+                                        <input type="text" class="form-control" placeholder="ตำแหน่งในกลุ่มสายชั้น" ng-model="userData.groupRole.classGroupRole" required>
                                     </div>
                                 </div>
                             </div>

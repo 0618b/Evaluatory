@@ -31,14 +31,14 @@
                                         <td>{{$index+1}}</td>
                                         <td>{{u.firstName + " " + u.lastName}}</td>
                                         <td>{{u.username}}</td>
-                                        <td>{{u.position}}</td>
-                                        <td>{{u.positionLevel}}</td>
-                                        <td>{{u.positionCategory}}</td>
-                                        <td>{{u.positionNumber}}</td>
+                                        <td>{{u.position.positionName}}</td>
+                                        <td>{{u.position.positionLevel}}</td>
+                                        <td>{{u.position.positionCategory}}</td>
+                                        <td>{{u.position.positionNumber}}</td>
                                         <td>{{u.belongTo}}</td>
-                                        <td>{{u.subjectGroupRole + ", " + u.subjectGroup}}</td>
-                                        <td>{{u.workGroupRole + ", " + u.workGroup}}</td>
-                                        <td>{{u.classGroupRole + ", " + u.classGroup}}</td>
+                                        <td>{{u.groupRole.subjectGroupRole + ", " + u.group.subjectGroup}}</td>
+                                        <td>{{u.groupRole.workGroupRole + ", " + u.group.workGroup}}</td>
+                                        <td>{{u.groupRole.classGroupRole + ", " + u.group.classGroup}}</td>
                                     </tr>
                                 </tbody>
                             </table>
