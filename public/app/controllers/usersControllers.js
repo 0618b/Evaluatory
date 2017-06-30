@@ -20,30 +20,25 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
         $scope.createUser = function(userData) {
             userServices.createUser(this.userData).then(function(data) {
-                $scope.clone = function() {
-                    selfTemplateService.cloneSelfTemplate($scope.template);
-                    var cloneObj = $scope.templateData.slice(-1)[0];
-                    cloneObj.isCloned = true;
-                    data.data.selftemplates = cloneObj._id;
-                    if (data.data.success === true) {
-                        $scope.msg = data.data.msg;
-                        swal({
-                            title: $scope.msg,
-                            type: 'success',
-                            timer: 2000
-                        })
-                        $timeout(function() {
-                            $location.url('/users')
-                        }, 500);
-                    } else {
-                        $scope.msg = data.data.msg;
-                        swal({
-                            title: $scope.msg,
-                            type: 'error',
-                            timer: 2000
-                        })
-                    }
+                if (data.data.success === true) {
+                    $scope.msg = data.data.msg;
+                    swal({
+                        title: $scope.msg,
+                        type: 'success',
+                        timer: 2000
+                    })
+                    $timeout(function() {
+                        $location.url('/users')
+                    }, 500);
+                } else {
+                    $scope.msg = data.data.msg;
+                    swal({
+                        title: $scope.msg,
+                        type: 'error',
+                        timer: 2000
+                    })
                 }
+
             })
         }
 

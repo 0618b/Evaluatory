@@ -68,7 +68,6 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
                         $scope.fullName = data.data.firstName + " " + data.data.lastName;
                         $scope.position = data.data.position.positionName;
                         userServices.getPermission().then(function(data) {
-                            console.log(data);
                             if (data.data.permission === "admin") {
                                 $rootScope.isAdmin = true;
                                 $scope.loadme = true;

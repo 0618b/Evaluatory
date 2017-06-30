@@ -17,14 +17,13 @@ module.exports = function(router) {
         u.groupRole = req.body.groupRole;
         u.permission = req.body.permission;
         u.selftemplates = req.body.selftemplates;
-        //u.othertemplates = req.body.othertemplates;
+        u.othertemplates = req.body.othertemplates;
         u.save(function(err) {
             if (err) {
                 res.json({
-                    success: false,
-                    msg: 'มีบางอย่างผิดพลาด'
-                })
-                console.log(err);
+                    success: true,
+                    msg: 'มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง'
+                });
             } else {
                 res.json({
                     success: true,

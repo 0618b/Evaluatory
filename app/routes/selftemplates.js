@@ -10,14 +10,17 @@ module.exports = function(router) {
         st.isSubmitted = req.body.isSubmitted;
         st.evaluatedBy = req.body.evaluatedBy;
         st.save(function(error) {
-            if (!error) {
+            if (error) {
                 SelfTemplate.find({})
                     .populate('evaluatedBy')
                     .exec(function(error, selftemplates) {
                         console.log(JSON.stringify(selftemplates, null, '\t'))
                     })
             } else {
-                res.json('Created!');
+                res.json({
+                    success: true,
+                    msg: 'สร้างแบบประเมินเรียบร้อยแล้ว'
+                });
             }
         });
     });
