@@ -10,7 +10,7 @@ module.exports = function(router) {
         st.isSubmitted = req.body.isSubmitted;
         st.evaluatedBy = req.body.evaluatedBy;
         st.save(function(error) {
-            if (error) {
+            if (!error) {
                 SelfTemplate.find({})
                     .populate('evaluatedBy')
                     .exec(function(error, selftemplates) {
@@ -31,10 +31,11 @@ module.exports = function(router) {
         });
     });
     router.get('/selftemps/:id', function(req, res, next) {
-        SelfTemplate.findOne({ _id: req.params.id }, function(err, selftemp) {
+        SelfTemplate.findOne({ _id: req.params.id }).populate('evaluatedBy').exec(function(err, selftemp) {
             if (err) return next(err);
             res.json(selftemp);
-        });
+            console.log('Evaluated by, ' + selftemp.evaluatedBy.username);
+        })
     });
     router.delete('/selftemps/:id', function(req, res, next) {
         SelfTemplate.findOneAndRemove({ _id: req.params.id }, function(err) {

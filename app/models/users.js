@@ -25,14 +25,14 @@ var userSchema = new Schema({
         classGroupRole: String,
     },
     permission: { type: String, required: true },
-    selftemplates: {
+    selftemplates: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'SelfTemplate'
-    }
-    /*othertemplates: {
+    }],
+    othertemplates: [{
         type: Schema.Types.ObjectId,
         ref: 'OtherTemplate'
-    }*/
+    }]
 });
 
 userSchema.pre('save', function(next) {

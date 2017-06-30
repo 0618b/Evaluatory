@@ -8,7 +8,7 @@ var otherTemplateSchema = new Schema({
     isCloned: { type: Boolean, default: false },
     isSubmitted: { type: Boolean, default: false },
     evaluatedBy: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'User'
     }
 });
