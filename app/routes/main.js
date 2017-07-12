@@ -1,6 +1,8 @@
 var User = require('../models/users');
+var SelfTemplate = require('../models/selftemplates');
+var OtherTemplate = require('../models/othertemplates');
 var jwt = require('jsonwebtoken');
-var magic = 'avadakedavra';
+var magic = 'ggwp';
 
 module.exports = function(router) {
 
@@ -21,7 +23,7 @@ module.exports = function(router) {
         u.save(function(err) {
             if (err) {
                 res.json({
-                    success: true,
+                    success: false,
                     msg: 'มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง'
                 });
             } else {
@@ -43,7 +45,7 @@ module.exports = function(router) {
         });
     });
 
-    router.get('/users/:id', function(req, res, next) {
+    router.get('/user/:id', function(req, res, next) {
         User.findOne({ _id: req.params.id }, function(err, user) {
             if (err) {
                 return next(err);
@@ -53,7 +55,7 @@ module.exports = function(router) {
         });
     });
 
-    router.delete('/users/:id', function(req, res, next) {
+    router.delete('/user/:id', function(req, res, next) {
         User.findOneAndRemove({ _id: req.params.id }, function(err) {
             if (err) {
                 return next(err);
@@ -63,7 +65,7 @@ module.exports = function(router) {
         });
     });
 
-    router.put('/users/:id', function(req, res, next) {
+    router.put('/user/:id', function(req, res, next) {
         User.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, user) {
             if (err) {
                 return next(err);
@@ -144,7 +146,7 @@ module.exports = function(router) {
     });
 
     router.post('/me', function(req, res) {
-        res.send(req.decoded);
+        res.json(req.decoded);
     });
 
     router.get('/permission', function(req, res) {
@@ -161,6 +163,131 @@ module.exports = function(router) {
                 })
             }
         })
+    });
+
+    // Selftemplate API
+
+    router.post('/selftemps', function(req, res) {
+        var st = new SelfTemplate();
+        st.self_template = req.body.self_template;
+        st.totalScore = req.body.totalScore;
+        st.isCloned = req.body.isCloned;
+        st.isSubmitted = req.body.isSubmitted;
+        st.save(function(err) {
+            if (err) {
+                res.json({
+                    success: false,
+                    msg: 'มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง'
+                });
+            } else {
+                User.findOne({ username: req.decoded.username }, function(err, user) {
+                    if (!user) {
+                        res.json({
+                            success: false,
+                            msg: 'ไม่พบผู้ใช้งานดังกล่าว'
+                        })
+                    } else {
+                        user.selftemplates.push(st);
+                        user.save(function(err) {
+                            if (err) {
+                                res.json({
+                                    success: false,
+                                    msg: 'มีบางอย่างผิดพลาด โปรดลองใหม่อีกครั้ง'
+                                })
+                            } else {
+                                res.json({
+                                    success: true,
+                                    msg: 'สร้างแบบประเมินเรียบร้อยแล้ว'
+                                });
+                            }
+                        })
+                    }
+                })
+            }
+        });
+    });
+
+    router.get('/selftemps', function(req, res, next) {
+        SelfTemplate.find({}, function(err, selftemps) {
+            if (err) return next(err);
+            res.json(selftemps);
+        });
+    });
+    router.get('/selftemp/:id', function(req, res, next) {
+        User.findOne({ _id: req.decoded.id }).populate('evaluatedBy').exec(function(err, data) {
+                if (!data) {
+                    res.json({
+                        success: false,
+                        msg: 'ไม่พบแบบประเมิน กรุณาสร้างแบบประเมิน'
+                    })
+                } else {
+                    console.log('Evaluated by, ' + data.evaluatedBy);
+                }
+            })
+            /*SelfTemplate.findOne({ _id: req.params.id }).populate('evaluatedBy').exec(function(err, selftemp) {
+                if (err) return next(err);
+                res.json(selftemp);
+                console.log('Evaluated by, ' + selftemp.evaluatedBy.username);
+            })*/
+    });
+    router.delete('/selftemp/:id', function(req, res, next) {
+        SelfTemplate.findOneAndRemove({ _id: req.params.id }, function(err) {
+            if (err) return next(err);
+            res.json('Deleted');
+        });
+    });
+    router.put('/selftemp/:id', function(req, res, next) {
+        SelfTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, selftemp) {
+            if (err) return next(err);
+            res.send(selftemp);
+        });
+    });
+
+    // Othertemplate API
+
+    router.post('/othertemps', function(req, res) {
+        var ot = new OtherTemplate();
+        ot.other_template = req.body.other_template;
+        ot.totalScore = req.body.totalScore;
+        ot.isCloned = req.body.isCloned;
+        ot.isSubmitted = req.body.isSubmitted;
+        ot.evaluatedBy = req.body.evaluatedBy;
+        ot.save(function(error) {
+            if (!error) {
+                OtherTemplate.find({})
+                    .populate('evaluatedBy')
+                    .exec(function(error, othertemplates) {
+                        console.log(JSON.stringify(othertemplates, null, '\t'))
+                    })
+            } else {
+                console.log(req.body);
+            }
+        });
+    });
+
+    router.get('/othertemps', function(req, res) {
+        OtherTemplate.find({}, function(err, docs) {
+            res.json(docs);
+        });
+    });
+
+    router.get('/othertemps/:id', function(req, res) {
+        OtherTemplate.find({ _id: req.params.id }, function(err, docs) {
+            res.json(docs);
+        });
+    });
+
+    router.delete('/othertemps/:id', function(req, res) {
+        OtherTemplate.remove({ _id: req.params.id }, function(err, docs) {
+            res.json(docs);
+            res.send('Deleted');
+        });
+    });
+
+    router.put('/othertemps/:id', function(req, res) {
+        OtherTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, data) {
+            res.json(data);
+        });
     });
 
     return router;
