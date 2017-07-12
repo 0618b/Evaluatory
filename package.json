@@ -23,6 +23,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.1",
     "mongoose": "^4.9.1",
+    "mongoose-autorefs": "^1.0.5",
     "mongoose-validator": "^1.2.5",
     "morgan": "^1.8.1",
     "path": "^0.12.7",

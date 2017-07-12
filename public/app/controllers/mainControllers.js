@@ -65,8 +65,8 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
                     } else {
                         $rootScope.showLoginButton = false;
                         $scope.isLoggedIn = true;
-                        $scope.fullName = data.data.firstName + " " + data.data.lastName;
-                        $scope.position = data.data.position.positionName;
+                        $scope.data = data;
+                        console.log($scope.data.data.firstName);
                         userServices.getPermission().then(function(data) {
                             if (data.data.permission === "admin") {
                                 $rootScope.isAdmin = true;
