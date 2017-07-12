@@ -6,11 +6,7 @@ var otherTemplateSchema = new Schema({
     other_template: {},
     totalScore: { type: String, default: 0 },
     isCloned: { type: Boolean, default: false },
-    isSubmitted: { type: Boolean, default: false },
-    evaluatedBy: {
-        type: String,
-        ref: 'User'
-    }
+    isSubmitted: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('OtherTemplate', otherTemplateSchema);
