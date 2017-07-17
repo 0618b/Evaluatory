@@ -173,6 +173,7 @@ module.exports = function(router) {
         st.totalScore = req.body.totalScore;
         st.isCloned = req.body.isCloned;
         st.isSubmitted = req.body.isSubmitted;
+        st.evaluatedBy = req.decoded.id; // evaluatedBy which user?
         st.save(function(err) {
             if (err) {
                 res.json({
@@ -213,22 +214,32 @@ module.exports = function(router) {
             res.json(selftemps);
         });
     });
+    router.get('/selftemps/notcloneyet', function(req, res, next) {
+        SelfTemplate.find({ isCloned: false }, function(err, data) {
+            if (err) return next(err);
+            res.json(data);
+        });
+    });
+    router.get('/selftemps/notsubmityet', function(req, res, next) {
+        SelfTemplate.find({ isSubmitted: false }, function(err, data) {
+            if (err) return next(err);
+            res.json(data);
+        });
+    });
     router.get('/selftemp/:id', function(req, res, next) {
-        User.findOne({ _id: req.decoded.id }).populate('evaluatedBy').exec(function(err, data) {
-                if (!data) {
-                    res.json({
-                        success: false,
-                        msg: 'ไม่พบแบบประเมิน กรุณาสร้างแบบประเมิน'
-                    })
-                } else {
-                    console.log('Evaluated by, ' + data.evaluatedBy);
-                }
-            })
-            /*SelfTemplate.findOne({ _id: req.params.id }).populate('evaluatedBy').exec(function(err, selftemp) {
-                if (err) return next(err);
-                res.json(selftemp);
-                console.log('Evaluated by, ' + selftemp.evaluatedBy.username);
-            })*/
+        User.findOne({ _id: req.decoded.id }).populate('selftemplates').exec(function(err, data) {
+            if (!data) {
+                res.json({
+                    success: false,
+                    msg: 'ไม่พบแบบประเมิน กรุณาสร้างแบบประเมิน'
+                })
+            } else {
+                res.json({
+                    success: true,
+                    data: data
+                })
+            }
+        })
     });
     router.delete('/selftemp/:id', function(req, res, next) {
         SelfTemplate.findOneAndRemove({ _id: req.params.id }, function(err) {
@@ -237,9 +248,9 @@ module.exports = function(router) {
         });
     });
     router.put('/selftemp/:id', function(req, res, next) {
-        SelfTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, selftemp) {
+        User.findOne({ _id: req.decoded.id }).populate('selftemplates', req.body).exec(function(err) {
             if (err) return next(err);
-            res.send(selftemp);
+            res.json('Updated');
         });
     });
 
