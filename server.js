@@ -5,8 +5,6 @@ var morgan = require('morgan'); //Import morgan package
 var mongoose = require('mongoose'); //HTTP request logger middleware for Node.js
 var bodyParser = require('body-parser');
 var router = express.Router();
-//var selftempRoutes = require('./app/routes/selftemplates')(router);
-//var othertempRoutes = require('./app/routes/othertemplates')(router);
 var mainRoute = require('./app/routes/main')(router);
 var path = require('path'); //Input path module
 

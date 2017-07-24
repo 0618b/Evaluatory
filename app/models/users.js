@@ -30,7 +30,7 @@ var userSchema = new Schema({
         ref: 'SelfTemplate'
     }],
     othertemplates: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'OtherTemplate'
     }]
 });
@@ -44,7 +44,8 @@ userSchema.pre('save', function(next) {
     });
 });
 
-userSchema.methods.comparePassword = function(password) {
+userSchema.methods.comparePassword = function(err, password) {
+    if (err) return err;
     return bcrypt.compareSync(password, this.password);
 }
 

@@ -18,8 +18,6 @@ module.exports = function(router) {
         u.group = req.body.group;
         u.groupRole = req.body.groupRole;
         u.permission = req.body.permission;
-        u.selftemplates = req.body.selftemplates;
-        u.othertemplates = req.body.othertemplates;
         u.save(function(err) {
             if (err) {
                 res.json({
@@ -76,22 +74,22 @@ module.exports = function(router) {
     });
 
     router.post('/authenticate', function(req, res) {
-        var loginUser = (req.body.username);
-        User.findOne({ username: loginUser }).select('username password firstName lastName position belongTo group groupRole selftemplates othertemplates').exec(function(err, user) {
+        User.findOne({ username: req.body.username }).select('username password firstName lastName position belongTo group groupRole permission selftemplates othertemplates').exec(function(err, user) {
             if (err) throw err;
             if (!user) {
                 res.json({
                     success: false,
-                    msg: 'กรุณาป้อนชื่อผู้ใช้งานและรหัสผ่านให้ถูกต้อง'
+                    msg: 'ไม่มีชื่อผู้ใช้งานนี้ในระบบ โปรดลองใหม่อีกครั้ง'
                 });
             } else if (user) {
                 if (!req.body.password) {
                     res.json({
                         success: false,
-                        msg: 'กรุณาป้อนชื่อผู้ใช้งานและรหัสผ่านให้ถูกต้อง'
+                        msg: 'กรุณาป้อนรหัสผ่าน'
                     })
                 } else {
                     var validPassword = user.comparePassword(req.body.password);
+                    console.log(validPassword);
                     if (!validPassword) {
                         res.json({
                             success: false,
@@ -169,11 +167,12 @@ module.exports = function(router) {
 
     router.post('/selftemps', function(req, res) {
         var st = new SelfTemplate();
+        st.header = req.body.header;
         st.self_template = req.body.self_template;
         st.totalScore = req.body.totalScore;
         st.isCloned = req.body.isCloned;
         st.isSubmitted = req.body.isSubmitted;
-        st.evaluatedBy = req.decoded.id; // evaluatedBy which user?
+        st.evaluatedBy = req.decoded.username;
         st.save(function(err) {
             if (err) {
                 res.json({

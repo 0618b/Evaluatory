@@ -7,7 +7,7 @@ var selfTemplateSchema = new Schema({
     totalScore: { type: String, default: 0 },
     isCloned: { type: Boolean, default: false },
     isSubmitted: { type: Boolean, default: false },
-    evaluatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    evaluatedBy: { type: String, ref: 'User' }
 });
 
 module.exports = mongoose.model('SelfTemplate', selfTemplateSchema);
