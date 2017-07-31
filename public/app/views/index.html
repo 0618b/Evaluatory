@@ -59,10 +59,30 @@
 
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li><a href="/home"><i class="pe-7s-home"></i><p>หน้าแรก</p></a></li>
-                    <li ng-hide="showLoginButton"><a href="/selftemps"><i class="pe-7s-display1"></i><p>แบบประเมิน</p></a></li>
-                    <li ng-hide="!isAdmin"><a href="/users"><i class="pe-7s-users"></i><p>ผู้ใช้งาน</p></a></li>
-
+                    <li>
+                        <a href="/home">
+                            <i class="pe-7s-home"></i>
+                            <p>หน้าแรก</p>
+                        </a>
+                    </li>
+                    <li ng-hide="showLoginButton">
+                        <a href="/selftemps" data-toggle="tooltip" title="แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น">
+                            <i class="pe-7s-user"></i>
+                            <p>แบบประเมินตนเอง</p>
+                        </a>
+                    </li>
+                    <li ng-hide="showLoginButton">
+                        <a href="/othertemps" data-toggle="tooltip" title="แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน">
+                            <i class="pe-7s-users"></i>
+                            <p>แบบประเมินผู้อื่น</p>
+                        </a>
+                    </li>
+                    <li ng-hide="!isAdmin">
+                        <a href="/users">
+                            <i class="pe-7s-note2"></i>
+                            <p>ผู้ใช้งาน</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -191,5 +211,19 @@
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: "bottom",
+            trigger: 'hover'
+        });
+    });
+
+    $(".nav li").on("click", function() {
+        $(".nav li").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>
 
 </html>

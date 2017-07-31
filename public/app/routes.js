@@ -12,13 +12,13 @@ var app = angular.module('mainRoutes', ['ngRoute'])
             })
             .when('/users', {
                 templateUrl: '/app/views/pages/users/users.html',
-                //authenticated: true,
-                //permission: ['admin']
+                authenticated: true,
+                permission: ['admin']
             })
             .when('/addUser', {
                 templateUrl: '/app/views/pages/users/adduser.html',
-                //authenticated: true,
-                //permission: ['admin']
+                authenticated: true,
+                permission: ['admin']
             })
             .when('/selftemps', {
                 templateUrl: '/app/views/pages/evalforms/selftemp.html',
