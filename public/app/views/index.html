@@ -212,6 +212,33 @@
     </div>
 </div>
 
+<!-- Submit Modal -->
+<div id="submitModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content" ng-controller="mainCtrl">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">x</button>
+                <h2 align="center" class="modal-title">ยืนยันแบบประเมิน</h2>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <h3 class="title">ท่านแน่ใจหรือไม่ว่าต้องการยืนยันแบบประเมิน ?</h3>
+                    <p class="category">เมื่อยืนยันแล้ว ท่านจะไม่สามารถแก้ไขแบบประเมินได้อีก</p>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button ng-click="" class="btn btn-primary" data-dismiss="modal">ยืนยันแบบประเมิน</button>
+                    <button class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+                </center>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <script>
     // tooltip
     $(document).ready(function() {
