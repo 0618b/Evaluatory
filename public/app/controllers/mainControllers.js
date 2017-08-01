@@ -3,6 +3,7 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
         $scope.loadme = false;
         $rootScope.isAdmin = false;
 
+
         var hideLogInModal = function() {
             $("#loginModal").modal('hide'); // Hide modal once criteria met
         };

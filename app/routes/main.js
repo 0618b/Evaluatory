@@ -76,25 +76,27 @@ module.exports = function(router) {
     router.post('/authenticate', function(req, res) {
         User.findOne({ username: req.body.username }).select('username password firstName lastName position belongTo group groupRole permission selftemplates othertemplates').exec(function(err, user) {
             if (err) throw err;
+            // Check if user is found in the database (based on username)
             if (!user) {
                 res.json({
                     success: false,
                     msg: 'ไม่มีชื่อผู้ใช้งานนี้ในระบบ โปรดลองใหม่อีกครั้ง'
-                });
+                }); // Username not found in database
             } else if (user) {
+                // Check if user does exist, then compare password provided by user
                 if (!req.body.password) {
                     res.json({
-                        success: false,
-                        msg: 'กรุณาป้อนรหัสผ่าน'
-                    })
+                            success: false,
+                            msg: 'กรุณาป้อนรหัสผ่าน'
+                        }) // Password was not provided
                 } else {
-                    var validPassword = user.comparePassword(req.body.password);
+                    var validPassword = user.comparePassword(req.body.password); // Check if password matches password provided by user 
                     console.log(validPassword);
                     if (!validPassword) {
                         res.json({
                             success: false,
                             msg: 'กรุณาป้อนชื่อผู้ใช้งานและรหัสผ่านให้ถูกต้อง'
-                        })
+                        }); // Password does not match password in database
                     } else {
                         var token = jwt.sign({
                             username: user.username,
@@ -115,6 +117,7 @@ module.exports = function(router) {
                             token: token,
                             user: user
                         })
+                        console.log(user);
                     }
                 }
             }

@@ -36,16 +36,14 @@ var userSchema = new Schema({
 });
 
 userSchema.pre('save', function(next) {
-    var user = this;
-    bcrypt.hash(user.password, null, null, function(err, hash) {
+    bcrypt.hash(this.password, null, null, function(err, hash) {
         if (err) return next(err);
-        user.password = hash;
+        this.password = hash;
         next();
     });
 });
 
-userSchema.methods.comparePassword = function(err, password) {
-    if (err) return err;
+userSchema.methods.comparePassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 }
 
