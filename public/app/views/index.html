@@ -213,13 +213,14 @@
 </div>
 
 <script>
+    // tooltip
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip({
             placement: "bottom",
             trigger: 'hover'
         });
     });
-
+    // active class
     $(".nav li").on("click", function() {
         $(".nav li").removeClass("active");
         $(this).addClass("active");
