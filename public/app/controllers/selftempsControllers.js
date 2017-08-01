@@ -1,7 +1,7 @@
 angular.module('selftempsControllers', ['selftempsServices'])
     .controller('selftempsCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
-        function getAllSelfTemplates() {
+        /*function getAllSelfTemplates() {
             selfTemplateService.getAllSelfTemplates().then(function(data) {
                 $scope.template = data.data[0];
                 $scope.templateData = data.data;
@@ -16,7 +16,21 @@ angular.module('selftempsControllers', ['selftempsServices'])
             $location.url('/selftemps/' + cloneObj._id); // redirect to the evaluation page with an id
             cloneObj.isCloned = true;
             $routeParams.id = cloneObj._id;
-        };
+        };*/
+
+        $scope.clone = function() {
+            selfTemplateService.getAllSelfTemplates().then(function(data) {
+                var selftemplate = data.data[0];
+                var templateData = data.data
+                selfTemplateService.cloneSelfTemplate(selftemplate);
+                var cloneObj = templateData.slice(-1)[0];
+                $location.url('/selftemps/' + cloneObj._id);
+                cloneObj.isCloned = true;
+                $routeParams.id = cloneObj._id;
+            })
+
+        }
+
     })
 
 .controller('selfevalCtrl', function(selfTemplateService, $scope, $routeParams, $location) {
