@@ -216,6 +216,12 @@ module.exports = function(router) {
             res.json(selftemps);
         });
     });
+    router.get('/selftempu/:id', function(req, res, next) {
+        SelfTemplate.find({ evaluatedBy: req.decoded.username }).populate('user').exec(function(err, data) {
+            if (err) return next(err);
+            res.json(data);
+        })
+    })
     router.get('/selftemps/notcloneyet', function(req, res, next) {
         SelfTemplate.find({ isCloned: false }, function(err, data) {
             if (err) return next(err);
@@ -229,18 +235,9 @@ module.exports = function(router) {
         });
     });
     router.get('/selftemp/:id', function(req, res, next) {
-        User.findOne({ _id: req.decoded.id }).populate('selftemplates').exec(function(err, data) {
-            if (!data) {
-                res.json({
-                    success: false,
-                    msg: 'ไม่พบแบบประเมิน กรุณาสร้างแบบประเมิน'
-                })
-            } else {
-                res.json({
-                    success: true,
-                    data: data
-                })
-            }
+        SelfTemplate.find({ id: req.params._id }).populate('user').exec(function(err, data) {
+            if (err) return next(err);
+            res.json(data);
         })
     });
     router.delete('/selftemp/:id', function(req, res, next) {
@@ -250,10 +247,11 @@ module.exports = function(router) {
         });
     });
     router.put('/selftemp/:id', function(req, res, next) {
-        User.findOne({ _id: req.decoded.id }).populate('selftemplates', req.body).exec(function(err) {
+        SelfTemplate.find({ id: req.params._id }).populate('user').exec(function(err) {
             if (err) return next(err);
             res.json('Updated');
-        });
+        })
+
     });
 
     // Othertemplate API

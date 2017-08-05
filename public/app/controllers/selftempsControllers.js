@@ -18,15 +18,55 @@ angular.module('selftempsControllers', ['selftempsServices'])
             $routeParams.id = cloneObj._id;
         };*/
 
+        function getEachSelfTemplates() {
+            selfTemplateService.getEachSelfTemplates().then(function(data) {
+                console.log(data);
+                if (!data) {
+                    swal({
+                        title: 'ยังไม่มีแบบประเมินเลย',
+                        text: 'ต้องการเริ่มสร้างแบบประเมินหรือไม่ ?',
+                        type: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#428bca',
+                        cancelButtonColor: '#d9534f',
+                        confirmButtonText: 'ใช่แล้ว',
+                        cancelButtonText: 'ยังก่อน'
+                    }).then(function() {
+                        $scope.clone();
+                        swal(
+                            'สร้างแบบประเมินเรียบร้อยแล้ว',
+                            'success'
+                        )
+                    })
+                }
+            });
+        };
+
+        getEachSelfTemplates();
+
         $scope.clone = function() {
             selfTemplateService.getAllSelfTemplates().then(function(data) {
                 var selftemplate = data.data[0];
                 var templateData = data.data
-                selfTemplateService.cloneSelfTemplate(selftemplate);
-                var cloneObj = templateData.slice(-1)[0];
-                $location.url('/selftemps/' + cloneObj._id);
-                cloneObj.isCloned = true;
-                $routeParams.id = cloneObj._id;
+                selfTemplateService.cloneSelfTemplate(selftemplate).then(function(data) {
+                        if (data.data.success === false) {
+                            swal({
+                                title: 'มีบางอย่างผิดพลาด',
+                                type: 'danger',
+                                timer: 2000
+                            })
+                        } else {
+                            swal({
+                                title: 'สร้างแบบประเมินเรียบร้อยแล้ว',
+                                type: 'success',
+                                timer: 2000
+                            })
+                        }
+                    })
+                    /*var cloneObj = templateData.slice(-1)[0];
+                    $location.url('/selftemps/' + cloneObj._id);
+                    cloneObj.isCloned = true;
+                    $routeParams.id = cloneObj._id;*/
             })
 
         }

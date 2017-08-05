@@ -13,6 +13,11 @@ angular.module('selftempsServices', [])
             return $http.get('/api/selftemps/');
         };
 
+        // Get Each Template
+        stFactory.getEachSelfTemplates = function(id) {
+            return $http.get('/api/selftempu/' + id);
+        };
+
         stFactory.getAllNotCloneSelfTemplates = function() {
             return $http.get('/api/selftemps/notcloneyet');
         };
