@@ -7,6 +7,15 @@
                     </div>
                     <div class="content" ng-controller="selfevalCtrl">
                         <div class="content tablresponsive tablfulwidth">
+                            <div class="header">
+                                <h3 class="title">แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น</h3>
+                                <p class="category">บัลลาสต์เทควันโดโรแมนติกฟินิกซ์ เทวาธิราชเนิร์สเซอรี่เพลซ รีเสิร์ชแพนดา พงษ์สเก็ตช์เอสเปรสโซนอมินีวาซาบิ แอปเปิลกิมจิสติ๊กเกอร์ลามะเพรียวบาง เบอร์รีละอ่อน สตีลเกรย์อัตลักษณ์ ติงต๊อง เนิร์สเซอรี่ แพทเทิร์นเปียโน คลาสสิกอิกัวนาบึ้มแพตเทิร์นวีไอพี
+                                    ดยุคฮากกาดีพาร์ทเมนต์ เทียมทานสเตชันซูเปอร์ โต๋เต๋หงวนซัพพลายคอลเล็กชั่นซิม เปียโน แอ็คชั่น</p>
+                                <hr>
+                            </div>
+                            <div class="content">
+
+                            </div>
                             <table class="table tablhover tablstriped ">
                                 <thead>
                                     <tr>
@@ -226,7 +235,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button ng-show="!isEvaluated" ng-click="evalSelfTemp()" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
+                        <button ng-show="!isEvaluated" ng-click="evalSelfTemp(parseData)" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
                         <button ng-show="isEvaluated" ng-click="viewScore()" class="btn btn-block btn-lg btn-info">ตรวจสอบผลการประเมิน</button>
                     </div>
                 </div>

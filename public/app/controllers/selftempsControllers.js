@@ -61,11 +61,11 @@ angular.module('selftempsControllers', ['selftempsServices'])
 
     getSelfTemplateById();
 
-
-    $scope.evalSelfTemp = function() {
+    $scope.evalSelfTemp = function(parseData) {
         var parseData = { "self_template": this.self_template } // saving the eval data then parse as an object
         selfTemplateService.evalSelfTemplate($routeParams.id, parseData).then(function(response) {
             response.isEvaluated = true;
+            console.log(response);
             swal({
                 title: 'บันทึกผลการประเมินเรียบร้อยแล้ว',
                 type: 'success',
