@@ -22,11 +22,11 @@
                                     <th width="3%"></th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1/2360</td>
-                                        <td>01/08/2360</td>
-                                        <td>01/08/2360</td>
+                                    <tr ng-repeat="st in selftemplateData">
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ st.header.evalRound }}/{{ st.header.evalYear }}</td>
+                                        <td>{{ st.created }}</td>
+                                        <td>{{ st.updated }}</td>
                                         <td width="3%"><button type="button" class="btn btn-warning"><i class="fa fa-cog"></i> แก้ไขแบบประเมิน</button></td>
                                         <td width="3%"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> ลบแบบประเมิน</button></td>
                                         <td width="3%"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submitModal"><i class="fa fa-check"></i> ยืนยันแบบประเมิน</button></td>
