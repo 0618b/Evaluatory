@@ -42,20 +42,26 @@ angular.module('selftempsControllers', ['selftempsServices'])
 
     })
 
-.controller('selfevalCtrl', function(selfTemplateService, $scope, $routeParams, $location) {
+.controller('selfevalCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
-    selfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
-        if (data.data.success === true) { // check that data is OK
-            $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
-            $scope.self_template = data.data.self_template;
-        } else {
-            swal({
-                title: 'มีบางอย่างผิดพลาด',
-                type: 'danger',
-                timer: 2000
-            })
-        }
-    });
+    function getSelfTemplateById(id) {
+        selfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
+            console.log(data);
+            if (data.status === 200) { // check that data is OK
+                $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
+                $scope.self_template = data.data.self_template;
+            } else {
+                swal({
+                    title: 'มีบางอย่างผิดพลาด',
+                    type: 'warning',
+                    timer: 2000
+                })
+            }
+        });
+    }
+
+    getSelfTemplateById();
+
 
     $scope.evalSelfTemp = function() {
         var parseData = { "self_template": this.self_template } // saving the eval data then parse as an object

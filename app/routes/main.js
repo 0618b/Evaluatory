@@ -235,10 +235,10 @@ module.exports = function(router) {
         });
     });
     router.get('/selftemp/:id', function(req, res, next) {
-        SelfTemplate.find({ id: req.params._id }).populate('user').exec(function(err, data) {
+        SelfTemplate.findOne({ _id: req.params.id }, function(err, data) {
             if (err) return next(err);
             res.json(data);
-        })
+        });
     });
     router.delete('/selftemp/:id', function(req, res, next) {
         SelfTemplate.findOneAndRemove({ _id: req.params.id }, function(err) {
