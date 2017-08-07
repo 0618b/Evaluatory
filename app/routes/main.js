@@ -176,7 +176,7 @@ module.exports = function(router) {
         st.isCloned = req.body.isCloned;
         st.isSubmitted = req.body.isSubmitted;
         st.evaluatedBy = req.decoded.username;
-        st.save(function(err) {
+        st.save(function(err, selftemp) {
             if (err) {
                 res.json({
                     success: false,
@@ -200,7 +200,8 @@ module.exports = function(router) {
                             } else {
                                 res.json({
                                     success: true,
-                                    msg: 'สร้างแบบประเมินเรียบร้อยแล้ว'
+                                    msg: 'สร้างแบบประเมินเรียบร้อยแล้ว',
+                                    selftemp: selftemp
                                 });
                             }
                         })
@@ -247,11 +248,13 @@ module.exports = function(router) {
         });
     });
     router.put('/selftemp/:id', function(req, res, next) {
-        SelfTemplate.find({ id: req.params._id }).populate('user').exec(function(err) {
+        SelfTemplate.findOne({ _id: req.params.id }, function(err, data) {
             if (err) return next(err);
-            res.json('Updated');
-        })
-
+            res.json({
+                msg: "Success",
+                data: data
+            });
+        });
     });
 
     // Othertemplate API

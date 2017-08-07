@@ -32,14 +32,14 @@
                                                 <button type="button" class="btn btn-warning"><i class="fa fa-cog"></i> แก้ไขแบบประเมิน</button>
                                             </a>
                                         </td>
-                                        <td width="3%"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> ลบแบบประเมิน</button></td>
+                                        <td width="3%"><button type="button" ng-click="deleteSelfTemp(st._id)" class="btn btn-danger"><i class="fa fa-trash"></i> ลบแบบประเมิน</button></td>
                                         <td width="3%"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submitModal"><i class="fa fa-check"></i> ยืนยันแบบประเมิน</button></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <hr>
                             <div align="center">
-                                <button ng-click="clone()" type="button" class="btn btn-success btn-lg">สร้างแบบประเมิน</button>
+                                <button ng-show="!showCreateButton" ng-click="clone()" type="button" class="btn btn-success btn-lg">สร้างแบบประเมิน</button>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,7 @@
 angular.module('selftempsControllers', ['selftempsServices'])
-    .controller('selftempsCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
+    .controller('selftempsCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope) {
+
+        $scope.showCreateButton = true;
 
         $scope.clone = function() {
             selfTemplateService.getAllSelfTemplates().then(function(data) {
@@ -13,11 +15,13 @@ angular.module('selftempsControllers', ['selftempsServices'])
                                 timer: 2000
                             })
                         } else {
+                            $scope.showCreateButton = false;
                             swal({
                                 title: 'สร้างแบบประเมินเรียบร้อยแล้ว',
                                 type: 'success',
                                 timer: 2000
                             })
+                            getEachSelfTemplates();
                         }
                     })
                     /*var cloneObj = templateData.slice(-1)[0];
@@ -27,22 +31,38 @@ angular.module('selftempsControllers', ['selftempsServices'])
             })
         }
 
-        var openCreateSelfTempModal = function() {
-            $("#createStModal").modal('show')
-        }
-
         function getEachSelfTemplates() {
             selfTemplateService.getEachSelfTemplates().then(function(data) {
                 $scope.selftemplateData = data.data;
-                if (data.data.length < 1) openCreateSelfTempModal();
+                if (data.data.length < 1) $scope.showCreateButton = false;
             });
         };
 
         getEachSelfTemplates();
 
+        $scope.deleteSelfTemp = function(id) {
+            selfTemplateService.deleteSelfTemplate(id).then(function(data) {
+                console.log(data);
+                if (data.status === 200) {
+                    swal({
+                        title: 'ลบแบบประเมินเรียบร้อยแล้ว',
+                        type: 'success',
+                        timer: 2000
+                    })
+                    getEachSelfTemplates();
+                } else {
+                    swal({
+                        title: 'มีบางอย่างผิดพลาด',
+                        type: 'danger',
+                        timer: 2000
+                    })
+                }
+            })
+        }
+
     })
 
-.controller('selfevalCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
+.controller('selfevalCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope) {
 
     function getSelfTemplateById(id) {
         selfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
@@ -61,11 +81,10 @@ angular.module('selftempsControllers', ['selftempsServices'])
 
     getSelfTemplateById();
 
-    $scope.evalSelfTemp = function(parseData) {
-        var parseData = { "self_template": this.self_template } // saving the eval data then parse as an object
-        selfTemplateService.evalSelfTemplate($routeParams.id, parseData).then(function(response) {
-            response.isEvaluated = true;
-            console.log(response);
+    $scope.evalSelfTemp = function(newSelfEval) {
+        var evalData = { "self_template": this.self_template } // saving the eval data then parse as an object
+        selfTemplateService.evalSelfTemplate($routeParams.id, evalData).then(function(data) {
+            console.log(data);
             swal({
                 title: 'บันทึกผลการประเมินเรียบร้อยแล้ว',
                 type: 'success',
