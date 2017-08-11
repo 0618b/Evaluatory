@@ -15,13 +15,13 @@ angular.module('selftempsControllers', ['selftempsServices'])
                                 timer: 2000
                             })
                         } else {
-                            $scope.showCreateButton = false;
                             swal({
                                 title: 'สร้างแบบประเมินเรียบร้อยแล้ว',
                                 type: 'success',
                                 timer: 2000
                             })
-                            getEachSelfTemplates();
+                            var cloneObj = templateData.slice(-1)[0];
+                            $location.url('/selftemp/' + cloneObj._id);
                         }
                     })
                     /*var cloneObj = templateData.slice(-1)[0];
