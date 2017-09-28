@@ -21,7 +21,7 @@
                                     <th width="3%"></th>
                                     <th width="3%"></th>
                                 </thead>
-                                <tbody>
+                                <tbody ng-show="showCreateButton">
                                     <tr ng-repeat="st in selftemplateData">
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ st.header.evalRound }}/{{ st.header.evalYear }}</td>
@@ -34,6 +34,17 @@
                                         </td>
                                         <td width="3%"><button type="button" ng-click="deleteSelfTemp(st._id)" class="btn btn-danger"><i class="fa fa-trash"></i> ลบแบบประเมิน</button></td>
                                         <td width="3%"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submitModal"><i class="fa fa-check"></i> ยืนยันแบบประเมิน</button></td>
+                                    </tr>
+                                </tbody>
+                                <tbody ng-show="!showCreateButton">
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>

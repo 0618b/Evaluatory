@@ -248,12 +248,15 @@ module.exports = function(router) {
         });
     });
     router.put('/selftemp/:id', function(req, res, next) {
-        SelfTemplate.findOne({ _id: req.params.id }, function(err, data) {
-            if (err) return next(err);
-            res.json({
-                msg: "Success",
-                data: data
-            });
+        SelfTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, data) {
+            if (err) {
+                return res.send(err);
+            } else {
+                res.json({
+                    data: data,
+                    msg: "Success"
+                });
+            }
         });
     });
 

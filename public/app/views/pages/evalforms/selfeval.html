@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="containefluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="com12">
                 <div class="card">
@@ -12,8 +12,28 @@
                                 <hr>
                             </div>
                             <div class="content">
-
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label><h4>รอบการประเมิน</h4></label>
+                                            <select class="form-control" id="evalround" ng-model="header.evalRound">
+                                                <option selected value="0">-</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label><h4>ประจำปี</h4></label>
+                                            <select class="form-control" id="evalyear" ng-model="header.evalYear">
+                                                <option selected value="0">-</option>
+                                                <option value="1">2560</option>
+                                                <option value="2">2561</option> 
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <hr>
                             <table class="table tablhover tablstriped ">
                                 <thead>
                                     <tr>
@@ -50,7 +70,7 @@
                                 <tbody>
                                     <!-- question 1.1 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
                                         <td>
@@ -66,7 +86,7 @@
                                 <tbody>
                                     <!-- question 1.2 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalWeight}}</td>
                                         <td>
@@ -82,7 +102,7 @@
                                 <tbody>
                                     <!-- question 1.3 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight}}</td>
                                         <td>
@@ -97,7 +117,7 @@
                                 <tbody>
                                     <!-- question 1.4 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalWeight}}</td>
                                         <td>
@@ -113,7 +133,7 @@
                                 <tbody>
                                     <!-- question 1.5 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalWeight}}</td>
                                         <td>
@@ -129,7 +149,7 @@
                                 <tbody>
                                     <!-- Choice group list 2 -->
                                     <tr>
-                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupNumber}}</b></td>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].$index + 1}}</b></td>
                                         <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupName}}</b></td>
                                         <td></td>
                                         <td></td>
@@ -139,7 +159,7 @@
                                 <tbody>
                                     <!-- question 2.1 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalWeight}}</td>
                                         <td><select class="form-control" id="q2.1" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score">
@@ -157,7 +177,7 @@
                                 <tbody>
                                     <!-- question 2.2 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalWeight}}</td>
                                         <td><select class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score">
@@ -172,7 +192,7 @@
                                 <tbody>
                                     <!-- question 2.3 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalWeight}}</td>
                                         <td><select class="form-control" id="q2.3" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score">
@@ -188,7 +208,7 @@
                                 <tbody>
                                     <!-- Choice group list 3 -->
                                     <tr>
-                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupNumber}}</b></td>
+                                        <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].$index + 1}}</b></td>
                                         <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupName}}</b></td>
                                         <td></td>
                                         <td></td>
@@ -198,7 +218,7 @@
                                 <tbody>
                                     <!-- question 3.1 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalWeight}}</td>
                                         <td><select class="form-control" id="q3.1" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score">
@@ -216,7 +236,7 @@
                                 <tbody>
                                     <!-- question 3.2 -->
                                     <tr>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].rowNumber}}</td>
+                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight}}</td>
                                         <td><select class="form-control" id="q3.2" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score">
@@ -233,7 +253,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button ng-show="!isEvaluated" ng-click="evalSelfTemp(newSelfEval)" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
+                        <button ng-show="!isEvaluated" ng-click="evalSelfTemp()" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
                         <button ng-show="isEvaluated" ng-click="viewScore()" class="btn btn-block btn-lg btn-info">ตรวจสอบผลการประเมิน</button>
                     </div>
                 </div>
