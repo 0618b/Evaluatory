@@ -26,8 +26,8 @@
                                             <label><h4>ประจำปี</h4></label>
                                             <select class="form-control" id="evalyear" ng-model="header.evalYear">
                                                 <option selected value="0">-</option>
-                                                <option value="1">2560</option>
-                                                <option value="2">2561</option> 
+                                                <option value="2560">2560</option>
+                                                <option value="2561">2561</option> 
                                             </select>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
                                         <td>
-                                            <select class="form-control" id="q1.1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score">
+                                            <select class="form-control" id="q1.1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score" convert-to-number>
                                                 <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
@@ -90,7 +90,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalWeight}}</td>
                                         <td>
-                                            <select class="form-control" id="q1.2" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score">
+                                            <select class="form-control" id="q1.2" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score" convert-to-number>
                                                 <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
@@ -106,7 +106,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight}}</td>
                                         <td>
-                                            <select type="number" class="form-control" id="q1.3" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score">
+                                            <select type="number" class="form-control" id="q1.3" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score" convert-to-number>
                                                 <option selected value="0">-</option>
                                                 <option value="6">6</option>
                                             </select>
@@ -121,7 +121,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalWeight}}</td>
                                         <td>
-                                            <select class="form-control" id="q1.4" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].score">
+                                            <select class="form-control" id="q1.4" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].score" convert-to-number>
                                                 <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
@@ -137,7 +137,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalWeight}}</td>
                                         <td>
-                                            <select class="form-control" id="q1.5" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score">
+                                            <select class="form-control" id="q1.5" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score" convert-to-number>
                                                 <option selected value="0">-</option>
                                                 <option value="3">3</option>
                                                 <option value="6">6</option>
@@ -162,13 +162,13 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalWeight}}</td>
-                                        <td><select class="form-control" id="q2.1" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score">
+                                        <td><select class="form-control" id="q2.1" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score" convert-to-number>
                                                     <option selected value="0">-</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
                                                 </select>
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalCriteria}}</td>
@@ -180,10 +180,10 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalWeight}}</td>
-                                        <td><select class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score">
+                                        <td><select class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score" convert-to-number>
                                                     <option selected value="0">-</option>
-                                                    <option>2</option>
-                                                    <option>5</option>
+                                                    <option value="2">2</option>
+                                                    <option value="5">5</option>
                                                 </select>
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalCriteria}}</td>
@@ -195,11 +195,11 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalWeight}}</td>
-                                        <td><select class="form-control" id="q2.3" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score">
+                                        <td><select class="form-control" id="q2.3" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score" convert-to-number>
                                                     <option selected value="0">-</option>
-                                                    <option>2</option>
-                                                    <option>5</option>
-                                                    <option>10</option>
+                                                    <option value="2">2</option>
+                                                    <option value="5">5</option>
+                                                    <option value="10">10</option>
                                                 </select>
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalCriteria}}</td>
@@ -221,13 +221,13 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalWeight}}</td>
-                                        <td><select class="form-control" id="q3.1" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score">
+                                        <td><select class="form-control" id="q3.1" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score" convert-to-number>
                                                 <option selected value="0">-</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
                                                 </select>
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalCriteria}}</td>
@@ -239,13 +239,13 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight}}</td>
-                                        <td><select class="form-control" id="q3.2" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score">
+                                        <td><select class="form-control" id="q3.2" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score" convert-to-number>
                                                 <option selected value="0">-</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
                                                 </select>
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalCriteria}}</td>
