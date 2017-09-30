@@ -28,12 +28,16 @@
                                         <td>{{ st.created }}</td>
                                         <td>{{ st.updated }}</td>
                                         <td width="3%">
+                                            <a href="/selfscores/{{ st._id }}">
+                                                <button type="button" class="btn btn-primary"><i class="fa fa-search"></i> ดูแบบประเมิน</button>
+                                            </a>
+                                        </td>
+                                        <td width="3%">
                                             <a href="/selftemp/{{ st._id }}">
                                                 <button type="button" class="btn btn-warning"><i class="fa fa-cog"></i> แก้ไขแบบประเมิน</button>
                                             </a>
                                         </td>
-                                        <td width="3%"><button type="button" ng-click="deleteSelfTemp(st._id)" class="btn btn-danger"><i class="fa fa-trash"></i> ลบแบบประเมิน</button></td>
-                                        <td width="3%"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submitModal"><i class="fa fa-check"></i> ยืนยันแบบประเมิน</button></td>
+                                        <td width="3%"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#submitModal"><i class="fa fa-check"></i> ยืนยันแบบประเมิน</button></td>
                                     </tr>
                                 </tbody>
                                 <tbody ng-show="!showCreateButton">

@@ -40,25 +40,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
 
         getEachSelfTemplates();
 
-        $scope.deleteSelfTemp = function(id) {
-            selfTemplateService.deleteSelfTemplate(id).then(function(data) {
-                console.log(data);
-                if (data.status === 200) {
-                    swal({
-                        title: 'ลบแบบประเมินเรียบร้อยแล้ว',
-                        type: 'success',
-                        timer: 2000
-                    })
-                    getEachSelfTemplates();
-                } else {
-                    swal({
-                        title: 'มีบางอย่างผิดพลาด',
-                        type: 'danger',
-                        timer: 2000
-                    })
-                }
-            })
-        }
+        // Function delete selftemp is deleted
 
     })
 
