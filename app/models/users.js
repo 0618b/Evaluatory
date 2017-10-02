@@ -36,9 +36,12 @@ var userSchema = new Schema({
 });
 
 userSchema.pre('save', function(next) {
-    bcrypt.hash(this.password, null, null, function(err, hash) {
+    var user = this;
+
+    // function to encrypt the password
+    bcrypt.hash(user.password, null, null, function(err, hash) {
         if (err) return next(err);
-        this.password = hash;
+        user.password = hash;
         next();
     });
 });
