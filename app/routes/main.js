@@ -91,7 +91,6 @@ module.exports = function(router) {
                         }) // Password was not provided
                 } else {
                     var validPassword = user.comparePassword(req.body.password); // Check if password matches password provided by user 
-                    console.log(validPassword);
                     if (!validPassword) {
                         res.json({
                             success: false,
