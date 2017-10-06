@@ -38,16 +38,21 @@ var userSchema = new Schema({
 userSchema.pre('save', function(next) {
     var user = this;
 
+    if (!user.isModified('password')) return next(); // If password was not changed or is new, ignore middleware
+
     // function to encrypt the password
     bcrypt.hash(user.password, null, null, function(err, hash) {
-        if (err) return next(err);
+        if (err) throw (err);
         user.password = hash;
         next();
     });
 });
 
 userSchema.methods.comparePassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
+    var user = this;
+
+    // function to compare the password with the hashed one
+    return bcrypt.compareSync(password, user.password);
 }
 
 module.exports = mongoose.model('User', userSchema);

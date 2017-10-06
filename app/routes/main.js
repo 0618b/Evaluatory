@@ -74,8 +74,9 @@ module.exports = function(router) {
     });
 
     router.post('/authenticate', function(req, res) {
-        User.findOne({ username: req.body.username }).select('username password firstName lastName position belongTo group groupRole permission selftemplates othertemplates').exec(function(err, user) {
-            if (err) throw err;
+        var loginUser = req.body.username;
+        User.findOne({ username: loginUser }).select('username password firstName lastName position belongTo group groupRole permission selftemplates othertemplates').exec(function(err, user) {
+            //if (err) throw err;
             // Check if user is found in the database (based on username)
             if (!user) {
                 res.json({
