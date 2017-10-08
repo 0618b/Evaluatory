@@ -72,7 +72,6 @@ angular.module('selftempsControllers', ['selftempsServices'])
                 "header": $scope.header
             } // saving the eval data then parse as an object
         selfTemplateService.evalSelfTemplate($routeParams.id, evalData).then(function(data) {
-            console.log(data.data);
             swal({
                 title: 'บันทึกผลการประเมินเรียบร้อยแล้ว',
                 type: 'success',

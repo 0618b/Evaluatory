@@ -25,4 +25,13 @@ var selfTemplateSchema = new Schema({
     evaluatedBy: { type: String, ref: 'User' }
 });
 
+selfTemplateSchema.pre('save', function(next) {
+    var selftemplate = this;
+    selftemplate.updated = today;
+    if (!selftemplate.created) {
+        selftemplate.created = today;
+    }
+    next();
+})
+
 module.exports = mongoose.model('SelfTemplate', selfTemplateSchema);
