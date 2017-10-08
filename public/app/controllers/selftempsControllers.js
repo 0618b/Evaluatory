@@ -34,7 +34,10 @@ angular.module('selftempsControllers', ['selftempsServices'])
         function getEachSelfTemplates() {
             selfTemplateService.getEachSelfTemplates().then(function(data) {
                 $scope.selftemplateData = data.data;
-                if (data.data.length < 1) $scope.showCreateButton = false;
+                if (!data.data[0]) {
+                    $scope.clone();
+                    $scope.showCreateButton = false;
+                }
             });
         };
 
