@@ -47,7 +47,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
 
     })
 
-.controller('selfevalCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope) {
+.controller('selfevalCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
     function getSelfTemplateById(id) {
         selfTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
@@ -77,6 +77,9 @@ angular.module('selftempsControllers', ['selftempsServices'])
                 type: 'success',
                 timer: 2000
             })
+            $timeout(function() {
+                $location.url('/selftemps')
+            }, 500);
         });
     };
 
