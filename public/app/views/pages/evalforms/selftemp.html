@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="header">
                         <h3 class="title">แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น</h3>
@@ -15,29 +15,17 @@
                                 <thead>
                                     <th>ที่</th>
                                     <th>รอบการประเมิน</th>
-                                    <th>วันที่เริ่มทำแบบประเมิน</th>
-                                    <th>วันที่อัพเดตแบบประเมินครั้งล่าสุด</th>
-                                    <th width="3%"></th>
-                                    <th width="3%"></th>
-                                    <th width="3%"></th>
+                                    <th></th>
                                 </thead>
                                 <tbody ng-show="showCreateButton">
                                     <tr ng-repeat="st in selftemplateData">
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ st.header.evalRound }}/{{ st.header.evalYear }}</td>
-                                        <td>{{ st.created }}</td>
-                                        <td>{{ st.updated }}</td>
-                                        <td width="3%">
+                                        <td>รอบที่ {{ st.header.evalRound }} ประจำปีการศึกษา {{ st.header.evalYear }}</td>
+                                        <td>
                                             <a href="/selfscores/{{ st._id }}">
-                                                <button type="button" class="btn btn-primary"><i class="fa fa-search"></i> ดูแบบประเมิน</button>
+                                                <button type="button" class="btn btn-primary btn-block"><i class="fa fa-search"></i> ตรวจสอบผลการประเมิน</button>
                                             </a>
                                         </td>
-                                        <td width="3%">
-                                            <a href="/selftemp/{{ st._id }}">
-                                                <button type="button" class="btn btn-warning"><i class="fa fa-cog"></i> แก้ไขแบบประเมิน</button>
-                                            </a>
-                                        </td>
-                                        <td width="3%"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#submitModal"><i class="fa fa-check"></i> ยืนยันแบบประเมิน</button></td>
                                     </tr>
                                 </tbody>
                                 <tbody ng-show="!showCreateButton">
