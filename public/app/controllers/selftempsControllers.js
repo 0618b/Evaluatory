@@ -30,7 +30,8 @@ angular.module('selftempsControllers', ['selftempsServices'])
         function getEachSelfTemplates() {
             selfTemplateService.getEachSelfTemplates().then(function(data) {
                 $scope.selftemplateData = data.data;
-                $scope.month = $scope.selftemplateData.timestamp.month;
+                $scope.month = data.data.timestamp.month;
+                $scope.year = data.data.timestamp.year;
                 if ($scope.month >= 10 && $scope.month <= 12 || $scope.month >= 1 && $scope.month <= 3) {
                     $scope.evalRound = 1;
                 } else if ($scope.month >= 4 && $scope.month <= 9) {
