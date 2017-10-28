@@ -8,35 +8,33 @@ angular.module('selftempsControllers', ['selftempsServices'])
                 var selftemplate = data.data[0];
                 var templateData = data.data
                 selfTemplateService.cloneSelfTemplate(selftemplate).then(function(data) {
-                        if (data.data.success === false) {
-                            swal({
-                                title: 'มีบางอย่างผิดพลาด',
-                                type: 'danger',
-                                timer: 2000
-                            })
-                        } else {
-                            swal({
-                                title: 'สร้างแบบประเมินเรียบร้อยแล้ว',
-                                type: 'success',
-                                timer: 2000
-                            })
-                            var cloneObj = templateData.slice(-1)[0];
-                            $location.url('/selftemp/' + cloneObj._id);
-                        }
-                    })
-                    /*var cloneObj = templateData.slice(-1)[0];
-                    $location.url('/selftemps/' + cloneObj._id);
-                    cloneObj.isCloned = true;
-                    $routeParams.id = cloneObj._id;*/
+                    if (data.data.success === false) {
+                        swal({
+                            title: 'มีบางอย่างผิดพลาด',
+                            type: 'danger',
+                            timer: 2000
+                        })
+                    } else {
+                        swal({
+                            title: 'สร้างแบบประเมินเรียบร้อยแล้ว',
+                            type: 'success',
+                            timer: 2000
+                        })
+                        var cloneObj = templateData.slice(-1)[0];
+                        $location.url('/selftemp/' + cloneObj._id);
+                    }
+                })
             })
         }
 
         function getEachSelfTemplates() {
             selfTemplateService.getEachSelfTemplates().then(function(data) {
                 $scope.selftemplateData = data.data;
-                if (!data.data[0]) {
-                    $scope.clone();
-                    $scope.showCreateButton = false;
+                $scope.month = $scope.selftemplateData.timestamp.month;
+                if ($scope.month >= 10 && $scope.month <= 12 || $scope.month >= 1 && $scope.month <= 3) {
+                    $scope.evalRound = 1;
+                } else if ($scope.month >= 4 && $scope.month <= 9) {
+                    $scope.evalRound = 2;
                 }
             });
         };

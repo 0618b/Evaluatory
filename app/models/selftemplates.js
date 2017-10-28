@@ -11,8 +11,8 @@ var selfTemplateSchema = new Schema({
     isSubmitted: { type: Boolean, default: false },
     evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
-        month: { type: String, default: month },
-        year: { type: String, default: year }
+        month: { type: Number, default: month },
+        year: { type: Number, default: year }
     }
 });
 
