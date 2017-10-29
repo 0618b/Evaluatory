@@ -6,7 +6,7 @@ var year = present.getFullYear() + 543;
 
 var selfTemplateSchema = new Schema({
     self_template: {},
-    status: Number,
+    status: Number, //check that if score is empty means false eg. if(!status) then
     evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
         month: { type: Number, default: month },
