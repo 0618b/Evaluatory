@@ -1,8 +1,4 @@
 {
-    "header": {
-        "evalRound": "",
-        "evalYear": ""
-    },
     "self_template": {
         "sectionGroup": [{
             "choiceGroupList": [{
@@ -82,9 +78,5 @@
         }],
         "templateName": "แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น"
     },
-    "isSubmitted": false,
-    "isCloned": false,
-    "isEvaluated": false,
-    "totalScore": 0,
     "__v": 0
 }
