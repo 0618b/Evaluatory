@@ -7,13 +7,13 @@ var year = present.getFullYear() + 543;
 var selfTemplateSchema = new Schema({
     self_template: {},
     totalScore: { type: Number, default: 0 },
-    isCloned: { type: Boolean, default: false },
-    isSubmitted: { type: Boolean, default: false },
     evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
         month: { type: Number, default: month },
         year: { type: Number, default: year }
-    }
+    },
+    status: { type: Boolean, default: false }
+
 });
 
 module.exports = mongoose.model('SelfTemplate', selfTemplateSchema);

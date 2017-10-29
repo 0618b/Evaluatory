@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="header">
                         <h3 class="title">แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น</h3>
@@ -20,10 +20,10 @@
                                 <tbody ng-show="showCreateButton">
                                     <tr ng-repeat="st in selftemplateData">
                                         <td>{{ $index + 1 }}</td>
-                                        <td>รอบที่ {{ st.header.evalRound }} ประจำปีการศึกษา {{ st.header.evalYear }}</td>
+                                        <td>รอบที่ {{ evalRound }} ประจำปีการศึกษา {{ year }}</td>
                                         <td>
                                             <a href="/selfscores/{{ st._id }}">
-                                                <button type="button" class="btn btn-primary btn-block"><i class="fa fa-search"></i> ตรวจสอบผลการประเมิน</button>
+                                                <button type="button" class="btn btn-success btn-block"><i class="fa fa-file-text" aria-hidden="true"></i> ประเมิน</button>
                                             </a>
                                         </td>
                                     </tr>
