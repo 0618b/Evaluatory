@@ -37,6 +37,7 @@ angular.module('selftempsControllers', ['selftempsServices'])
         function getEachSelfTemplates() {
             selfTemplateService.getEachSelfTemplates().then(function(data) {
                 $scope.selftemplateData = data.data;
+                console.log(data.data);
                 if (!data.data[0]) $scope.showCreateButton = false;
 
                 /*if ($scope.month >= 10 && $scope.month <= 12 || $scope.month >= 1 && $scope.month <= 3) {

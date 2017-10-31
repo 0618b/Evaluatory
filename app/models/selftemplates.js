@@ -10,8 +10,22 @@ var selfTemplateSchema = new Schema({
     evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
         month: { type: Number, default: month },
-        year: { type: Number, default: year }
+        year: { type: Number, default: year },
+        evalRound: ''
     },
 });
+
+selfTemplateSchema.pre('save', function(next) {
+    var st = this;
+    var month = st.timestamp.month;
+
+    if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+        st.timestamp.evalRound = 1;
+    } else if (month >= 4 && month <= 9) {
+        st.timestamp.evalRound = 2;
+    }
+    next();
+});
+
 
 module.exports = mongoose.model('SelfTemplate', selfTemplateSchema);

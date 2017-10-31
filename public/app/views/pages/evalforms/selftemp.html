@@ -10,6 +10,14 @@
                     </div>
                     <hr>
                     <div class="content" ng-controller="selftempsCtrl">
+                        <div class="col-xs-12">
+                            <div class="col-xs-2"> เลือกรอบการประเมิน
+                                <select class="form-control ng-pristine ng-valid" ng-model="searchRound">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover">
                                 <thead>
@@ -18,9 +26,9 @@
                                     <th></th>
                                 </thead>
                                 <tbody ng-show="showCreateButton">
-                                    <tr ng-repeat="st in selftemplateData">
+                                    <tr ng-repeat="st in selftemplateData | filter: searchRound">
                                         <td>{{ $index + 1 }}</td>
-                                        <td>รอบที่ {{ evalRound }} ประจำปีการศึกษา {{ year }}</td>
+                                        <td>{{ st.timestamp.evalRound }}/{{ st.timestamp.year }}</td>
                                         <td>
                                             <a href="/selfscores/{{ st._id }}">
                                                 <button type="button" class="btn btn-success btn-block"><i class="fa fa-file-text" aria-hidden="true"></i> ประเมิน</button>
