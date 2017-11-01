@@ -27,24 +27,9 @@ angular.module('selftempsControllers', ['selftempsServices'])
             })
         }
 
-        $scope.getOnlyDataInEachEvaluationRound = function(data) {
-            selfTemplateService.getEachSelfTemplates().then(function(data) {
-                var currentYear = new Date().getFullYear() + 543;
-                var currentMonth = new Date().getMonth() + 1;
-            })
-        }
-
         function getEachSelfTemplates() {
             selfTemplateService.getEachSelfTemplates().then(function(data) {
                 $scope.selftemplateData = data.data;
-                console.log(data.data);
-                if (!data.data[0]) $scope.showCreateButton = false;
-
-                /*if ($scope.month >= 10 && $scope.month <= 12 || $scope.month >= 1 && $scope.month <= 3) {
-                    $scope.evalRound = 1;
-                } else if ($scope.month >= 4 && $scope.month <= 9) {
-                    $scope.evalRound = 2;
-                }*/
             });
         };
 
