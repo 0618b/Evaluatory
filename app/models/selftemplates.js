@@ -20,9 +20,9 @@ selfTemplateSchema.pre('save', function(next) {
     var month = st.timestamp.month;
 
     if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
-        st.timestamp.evalRound = 1;
+        st.timestamp.evalRound = 1 + "/" + year;
     } else if (month >= 4 && month <= 9) {
-        st.timestamp.evalRound = 2;
+        st.timestamp.evalRound = 2 + "/" + year;
     }
     next();
 });
