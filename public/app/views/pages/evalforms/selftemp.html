@@ -12,31 +12,31 @@
                     <div class="content" ng-controller="selftempsCtrl">
                         <div class="col-xs-12">
                             <div class="col-xs-4"> เลือกรอบการประเมิน
-                                <select class="form-control" name="show-filter" ng-model="stFilter" ng-options="st as st.timestamp.evalRound for st in selftemplateData">
-                                    <option value="" selected="selected">แสดงทั้งหมด</option>
+                                <select class="form-control" name="stFilter" data-ng-model="stFilter" ng-options="st as st.timestamp.evalRound for st in selftemplateData | unique: 'timestamp.evalRound'">
+                                    <option value="">แสดงทั้งหมด</option>
                                     <option value="{{st._id}}"></option>
                                 </select>
                             </div>
                         </div>
-                        <div class="content table-responsive table-full-width">
-                            <table class="table table-hover">
+                        <div class="content table-responsive table-full-width ">
+                            <table class="table table-hover ">
                                 <thead>
                                     <th>ที่</th>
                                     <th>รอบการประเมิน</th>
                                     <th></th>
                                 </thead>
-                                <tbody ng-show="showCreateButton">
-                                    <tr data-ng-repeat="st in selftemplateData | filter: {_id: stFilter._id}: true">
+                                <tbody ng-show="showCreateButton ">
+                                    <tr data-ng-repeat="st in selftemplateData | filter: {_id: stFilter._id}: true ">
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ st.timestamp.evalRound }}</td>
                                         <td>
-                                            <a href="/selfscores/{{ st._id }}">
-                                                <button type="button" class="btn btn-success btn-block"><i class="fa fa-file-text" aria-hidden="true"></i> ประเมิน</button>
+                                            <a href="/selfscores/{{ st._id }} ">
+                                                <button type="button " class="btn btn-success btn-block "><i class="fa fa-file-text " aria-hidden="true "></i> ประเมิน</button>
                                             </a>
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tbody ng-show="!showCreateButton">
+                                <tbody ng-show="!showCreateButton ">
                                     <tr>
                                         <td></td>
                                         <td></td>
@@ -49,8 +49,8 @@
                                 </tbody>
                             </table>
                             <hr>
-                            <div align="center">
-                                <button id="createBtn" ng-click="clone()" type="button" class="btn btn-success btn-lg">สร้างแบบประเมิน</button>
+                            <div align="center ">
+                                <button id="createBtn " ng-click="clone() " type="button " class="btn btn-success btn-lg ">สร้างแบบประเมิน</button>
                             </div>
                         </div>
                     </div>
