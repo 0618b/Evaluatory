@@ -110,7 +110,7 @@ module.exports = function(router) {
                             permission: user.permission,
                             selftemplates: user.selftemplates,
                             othertemplates: user.othertemplates
-                        }, magic, { expiresIn: '2h' })
+                        }, magic, {})
                         res.json({
                             success: true,
                             msg: 'เข้าสู่ระบบสำเร็จ',
