@@ -34,7 +34,6 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
         };
 
         getEachSelfTemplates();
-
         // Function delete selftemp is deleted
 
     })
