@@ -12,7 +12,7 @@
                     <div class="content" ng-controller="selftempsCtrl">
                         <div class="col-xs-12">
                             <div class="col-xs-4"> เลือกรอบการประเมิน
-                                <select ng-model="filter" class="form-control" ng-options="s.timestamp.evalRound as s.timestamp.evalRound for s in selftemplateData | unique: 'timestamp.evalRound'">   
+                                <select ng-model="query" class="form-control" ng-options="s.timestamp.evalRound as s.timestamp.evalRound for s in selftemplateData | unique: 'timestamp.evalRound'">   
                                     <option value="">แสดงทั้งหมด</option>
                                 </select>
                             </div>
@@ -25,7 +25,7 @@
                                     <th></th>
                                 </thead>
                                 <tbody ng-show="showCreateButton ">
-                                    <tr ng-repeat="s in selftemplateData | filter: filter || undefined">
+                                    <tr ng-repeat="s in selftemplateData | filter: query || undefined">
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ s.timestamp.evalRound }}</td>
                                         <td>
