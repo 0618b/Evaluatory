@@ -12,8 +12,8 @@
                     <div class="content" ng-controller="selftempsCtrl">
                         <div class="col-xs-12">
                             <div class="col-xs-4"> เลือกรอบการประเมิน
-                                <select ng-model="query" class="form-control" ng-options="s.timestamp.evalRound as s.timestamp.evalRound for s in selftemplateData | unique: 'timestamp.evalRound'">   
-                                    <option value="">แสดงทั้งหมด</option>
+                                <select ng-model="query" class="form-control" ng-options="s.timestamp.evalRound as s.timestamp.evalRound for s in selftemplateData | unique: 'timestamp.evalRound' | orderBy">
+                                    <option value="" disabled>กรุณาเลือกรอบการประเมิน</option>
                                 </select>
                             </div>
                         </div>

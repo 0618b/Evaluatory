@@ -77,7 +77,6 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
         $scope.viewScore = function() {
             $location.url('/selfscores/' + $routeParams.id);
         }
-
     })
     /*.filter('unique', function() {
             return function(input, key) {
