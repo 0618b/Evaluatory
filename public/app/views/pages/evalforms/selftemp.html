@@ -10,8 +10,9 @@
                     </div>
                     <hr>
                     <div class="content" ng-controller="selftempsCtrl">
-                        <div class="col-xs-12">
-                            <div class="col-xs-4"> เลือกรอบการประเมิน
+                        <div class="col-xs-12" align="center">
+                            <div class="col-xs-4">
+                                <p>รอบการประเมิน</p>
                                 <select ng-model="query" class="form-control" ng-options="s.timestamp.evalRound as s.timestamp.evalRound for s in selftemplateData | unique: 'timestamp.evalRound' | orderBy">
                                     <option value="" disabled>กรุณาเลือกรอบการประเมิน</option>
                                 </select>
@@ -24,7 +25,7 @@
                                     <th>รอบการประเมิน</th>
                                     <th></th>
                                 </thead>
-                                <tbody ng-show="showCreateButton ">
+                                <tbody>
                                     <tr ng-repeat="s in selftemplateData | filter: query || undefined">
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ s.timestamp.evalRound }}</td>
@@ -35,21 +36,10 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tbody ng-show="!showCreateButton ">
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
                             </table>
                             <hr>
                             <div align="center ">
-                                <button id="createBtn " ng-click="clone() " type="button " class="btn btn-success btn-lg ">สร้างแบบประเมิน</button>
+                                <button id="createBtn " ng-click="clone() " type="button " class="btn btn-success btn-lg">สร้างแบบประเมิน</button>
                             </div>
                         </div>
                     </div>
