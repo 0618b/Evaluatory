@@ -13,6 +13,7 @@ var selfTemplateSchema = new Schema({
         year: { type: Number, default: year },
         evalRound: ''
     },
+    status: { type: String, default: 'notCloneYet' },
     totalScore: { type: Number, default: 0 }
 });
 
@@ -26,6 +27,7 @@ selfTemplateSchema.pre('save', function(next) {
         st.timestamp.evalRound = 2 + "/" + year;
     }
     next();
+
 });
 
 
