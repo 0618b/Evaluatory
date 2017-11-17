@@ -121,4 +121,10 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
             });
         };
 
+        var date = new Date().getDate();
+        var month = new Date().getMonth() + 1;
+        var year = new Date().getFullYear() + 543;
+
+        $scope.presentDate = date + "/" + month + "/" + year;
+
     });

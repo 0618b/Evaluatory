@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card ">
                     <div class="content">
-                        <p>{{ userData }}</p>
+                        <p>I won't tell you who am I ;)</p>
                         <hr>
                         <p>ตำแหน่ง : <strong>{{ userData.position.positionName }}</strong></p>
                         <p>กลุ่มสาระ : <strong>{{ userData.group.studyGroup }}</strong></p>
@@ -17,7 +17,7 @@
                 <div class="card ">
                     <div class="content">
                         <h3 class="title">สถานะการประเมิน</h3>
-                        <p class="category">ประจำวันที่ <time>01/08/2560</time></p>
+                        <p class="category">ประจำวันที่ <time>{{ presentDate }}</time></p>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
