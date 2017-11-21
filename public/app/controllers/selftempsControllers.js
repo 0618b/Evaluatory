@@ -46,6 +46,8 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
                 $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
                 $scope.self_template = data.data.self_template;
 
+                console.log($scope.sumScore);
+                console.log($scope.sumWeight);
             } else {
                 swal({
                     title: 'มีบางอย่างผิดพลาด',
