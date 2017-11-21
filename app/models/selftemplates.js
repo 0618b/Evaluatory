@@ -13,7 +13,7 @@ var selfTemplateSchema = new Schema({
         year: { type: Number, default: year },
         evalRound: ''
     },
-    status: { type: String, default: 'notCloneYet' },
+    isEval: { type: Boolean, default: false },
     totalScore: { type: Number, default: 0 }
 });
 
@@ -26,6 +26,7 @@ selfTemplateSchema.pre('save', function(next) {
     } else if (month >= 4 && month <= 9) {
         st.timestamp.evalRound = 2 + "/" + year;
     }
+
     next();
 
 });
