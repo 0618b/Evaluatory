@@ -34,8 +34,8 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 templateUrl: '/app/views/pages/evalforms/othertemp.html',
                 authenticated: true
             })
-            .when('/summary', {
-                templateUrl: '/app/views/pages/evalforms/summaryScores.html',
+            .when('/selfscores/:id', {
+                templateUrl: '/app/views/pages/evalforms/selfscores.html',
                 authenticated: true
             })
             .when('/404', {

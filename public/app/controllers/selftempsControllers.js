@@ -45,6 +45,7 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
             if (data.status === 200) { // check that data is OK
                 $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
                 $scope.self_template = data.data.self_template;
+
             } else {
                 swal({
                     title: 'มีบางอย่างผิดพลาด',
@@ -74,9 +75,6 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
         });
     };
 
-    $scope.viewScore = function() {
-        $location.url('/selfscores/' + $routeParams.id);
-    }
 }).directive('convertToNumber', function() {
     return {
         require: 'ngModel',
