@@ -82,7 +82,7 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
                     $scope.totalWeight += evalWeight_arr[i];
                 }
 
-                $scope.totalScore === data.data.totalScore;
+                data.data.totalScore === $scope.totalScore;
 
             } else {
                 swal({
@@ -98,8 +98,7 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
 
     $scope.evalSelfTemp = function() {
         var evalData = {
-                "self_template": $scope.self_template,
-                "header": $scope.header
+                "self_template": $scope.self_template
             } // saving the eval data then parse as an object
         selfTemplateService.evalSelfTemplate($routeParams.id, evalData).then(function(data) {
             swal({
