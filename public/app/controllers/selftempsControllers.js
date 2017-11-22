@@ -82,6 +82,8 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
                     $scope.totalWeight += evalWeight_arr[i];
                 }
 
+                $scope.totalScore === data.data.totalScore;
+
             } else {
                 swal({
                     title: 'มีบางอย่างผิดพลาด',
