@@ -2,14 +2,29 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var otherTemplateSchema = new Schema({
-    header: {},
     other_template: {},
-    totalScore: { type: String, default: 0 },
-    created: { type: Date, default: Date.now },
-    updated: { type: Date },
-    isCloned: { type: Boolean, default: false },
-    isSubmitted: { type: Boolean, default: false },
-    evaluatedBy: { type: String, ref: 'User' }
+    evaluatedBy: { type: String, ref: 'User' },
+    timestamp: {
+        month: { type: Number, default: month },
+        year: { type: Number, default: year },
+        evalRound: ''
+    },
+    status: {
+        isEvaluated: { type: Boolean, default: false }
+    }
 });
+
+otherTemplateSchema.pre('save', function(next) {
+    var ot = this;
+    var month = ot.timestamp.month;
+
+    if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+        ot.timestamp.evalRound = 1 + "/" + year;
+    } else if (month >= 4 && month <= 9) {
+        ot.timestamp.evalRound = 2 + "/" + year;
+    }
+
+    next();
+})
 
 module.exports = mongoose.model('OtherTemplate', otherTemplateSchema);

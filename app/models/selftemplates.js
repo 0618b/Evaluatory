@@ -12,8 +12,7 @@ var selfTemplateSchema = new Schema({
         month: { type: Number, default: month },
         year: { type: Number, default: year },
         evalRound: ''
-    },
-    status: ''
+    }
 });
 
 selfTemplateSchema.pre('save', function(next) {
