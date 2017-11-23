@@ -9,9 +9,7 @@ var otherTemplateSchema = new Schema({
         year: { type: Number, default: year },
         evalRound: ''
     },
-    status: {
-        isEvaluated: { type: Boolean, default: false }
-    }
+    isEvaluated: { type: Boolean, default: false }
 });
 
 otherTemplateSchema.pre('save', function(next) {

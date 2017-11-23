@@ -170,12 +170,9 @@ module.exports = function(router) {
 
     router.post('/selftemps', function(req, res) {
         var st = new SelfTemplate();
-        st.header = req.body.header;
         st.self_template = req.body.self_template;
-        st.totalScore = req.body.totalScore;
-        st.isCloned = req.body.isCloned;
-        st.isSubmitted = req.body.isSubmitted;
         st.evaluatedBy = req.decoded.username;
+        st.isEvaluated = req.body.isEvaluated;
         st.save(function(err, selftemp) {
             if (err) {
                 res.json({
@@ -223,14 +220,8 @@ module.exports = function(router) {
             res.json(data);
         })
     })
-    router.get('/selftemps/notcloneyet', function(req, res, next) {
-        SelfTemplate.find({ isCloned: false }, function(err, data) {
-            if (err) return next(err);
-            res.json(data);
-        });
-    });
-    router.get('/selftemps/notsubmityet', function(req, res, next) {
-        SelfTemplate.find({ isSubmitted: false }, function(err, data) {
+    router.get('/selftemps/notevalyet', function(req, res, next) {
+        SelfTemplate.find({ isEvaluated: false }, function(err, data) {
             if (err) return next(err);
             res.json(data);
         });
@@ -239,12 +230,6 @@ module.exports = function(router) {
         SelfTemplate.findOne({ _id: req.params.id }, function(err, data) {
             if (err) return next(err);
             res.json(data);
-        });
-    });
-    router.delete('/selftemp/:id', function(req, res, next) {
-        SelfTemplate.findOneAndRemove({ _id: req.params.id }, function(err) {
-            if (err) return next(err);
-            res.json('Deleted');
         });
     });
     router.put('/selftemp/:id', function(req, res, next) {
@@ -265,45 +250,77 @@ module.exports = function(router) {
     router.post('/othertemps', function(req, res) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
-        ot.totalScore = req.body.totalScore;
-        ot.isCloned = req.body.isCloned;
-        ot.isSubmitted = req.body.isSubmitted;
-        ot.evaluatedBy = req.body.evaluatedBy;
-        ot.save(function(error) {
-            if (!error) {
-                OtherTemplate.find({})
-                    .populate('evaluatedBy')
-                    .exec(function(error, othertemplates) {
-                        console.log(JSON.stringify(othertemplates, null, '\t'))
-                    })
+        ot.evaluatedBy = req.decoded.username;
+        ot.isEvaluated = req.body.isEvaluated;
+        ot.save(function(err, othertemp) {
+            if (err) {
+                res.json({
+                    success: false,
+                    msg: 'มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง'
+                });
             } else {
-                console.log(req.body);
+                User.findOne({ username: req.decoded.username }, function(err, user) {
+                    if (!user) {
+                        res.json({
+                            success: false,
+                            msg: 'ไม่พบผู้ใช้งานดังกล่าว'
+                        })
+                    } else {
+                        user.othertemplates.push(ot);
+                        user.save(function(err) {
+                            if (err) {
+                                res.json({
+                                    success: false,
+                                    msg: 'มีบางอย่างผิดพลาด โปรดลองใหม่อีกครั้ง'
+                                })
+                            } else {
+                                res.json({
+                                    success: true,
+                                    msg: 'สร้างแบบประเมินเรียบร้อยแล้ว',
+                                    othertemp: othertemp
+                                });
+                            }
+                        })
+                    }
+                })
             }
         });
     });
 
-    router.get('/othertemps', function(req, res) {
-        OtherTemplate.find({}, function(err, docs) {
-            res.json(docs);
+    router.get('/othertemps', function(req, res, next) {
+        OtherTemplate.find({}, function(err, othertemps) {
+            if (err) return next(err);
+            res.json(othertemps);
         });
     });
-
-    router.get('/othertemps/:id', function(req, res) {
-        OtherTemplate.find({ _id: req.params.id }, function(err, docs) {
-            res.json(docs);
-        });
-    });
-
-    router.delete('/othertemps/:id', function(req, res) {
-        OtherTemplate.remove({ _id: req.params.id }, function(err, docs) {
-            res.json(docs);
-            res.send('Deleted');
-        });
-    });
-
-    router.put('/othertemps/:id', function(req, res) {
-        OtherTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, data) {
+    router.get('/othertempu/:id', function(req, res, next) {
+        OtherTemplate.find({ evaluatedBy: req.decoded.username }).populate('user').exec(function(err, data) {
+            if (err) return next(err);
             res.json(data);
+        })
+    })
+    router.get('/othertemps/notevalyet', function(req, res, next) {
+        OtherTemplate.find({ isEvaluated: false }, function(err, data) {
+            if (err) return next(err);
+            res.json(data);
+        });
+    });
+    router.get('/othertemp/:id', function(req, res, next) {
+        OtherTemplate.findOne({ _id: req.params.id }, function(err, data) {
+            if (err) return next(err);
+            res.json(data);
+        });
+    });
+    router.put('/othertemp/:id', function(req, res, next) {
+        OtherTemplate.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, data) {
+            if (err) {
+                return res.send(err);
+            } else {
+                res.json({
+                    data: data,
+                    msg: "Success"
+                });
+            }
         });
     });
 
