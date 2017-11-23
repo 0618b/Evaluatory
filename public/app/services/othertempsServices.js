@@ -3,10 +3,9 @@ angular.module('othertempsServices', [])
 
         otFactory = {};
 
-        // Clone template
-        stFactory.cloneOtherTemplate = function(cloneObj) {
+        /*stFactory.cloneOtherTemplate = function(cloneObj) {
             return $http.post('/api/othertemps', cloneObj);
-        };
+        }; ตรงนี้ไม่จำเป็นเลย เพราะ flow การทำงานเป็นอีกแบบ*/
 
         // Get All template
         stFactory.getAllOtherTemplates = function() {
