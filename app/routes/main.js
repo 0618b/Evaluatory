@@ -287,10 +287,22 @@ module.exports = function(router) {
         });
     });
 
-    router.get('/othertemps', function(req, res, next) {
-        OtherTemplate.find({}, function(err, othertemps) {
+    router.get('/othertemps/subjectGroup', function(req, res, next) {
+        SelfTemplate.find({ 'groupRole.subjectGroupRole': 'teacher' }, function(err, subjectTeacher) {
             if (err) return next(err);
-            res.json(othertemps);
+            res.json(subjectTeacher);
+        });
+    });
+    router.get('/othertemps/workGroup', function(req, res, next) {
+        SelfTemplate.find({ 'groupRole.workGroupRole': 'teacher' }, function(err, workTeacher) {
+            if (err) return next(err);
+            res.json(workTeacher);
+        });
+    });
+    router.get('/othertemps/classGroup', function(req, res, next) {
+        SelfTemplate.find({ 'groupRole.classGroupRole': 'teacher' }, function(err, classTeacher) {
+            if (err) return next(err);
+            res.json(classTeacher);
         });
     });
     router.get('/othertempu/:id', function(req, res, next) {

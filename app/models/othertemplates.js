@@ -5,7 +5,11 @@ var month = present.getMonth() + 1;
 var year = present.getFullYear() + 543;
 
 var otherTemplateSchema = new Schema({
-    other_template: {},
+    other_template: {
+        question: [Number],
+        notation: String
+    },
+    receipients: { type: String, ref: 'User' },
     evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
         month: { type: Number, default: month },
