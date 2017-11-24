@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var present = new Date();
+var month = present.getMonth() + 1;
+var year = present.getFullYear() + 543;
 
 var otherTemplateSchema = new Schema({
     other_template: {},
