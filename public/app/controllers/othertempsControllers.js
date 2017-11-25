@@ -10,6 +10,10 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
 
         getOtherTempsUser();
 
+        $scope.isNotAdmin = function(data) {
+            return data.permission != "admin";
+        }
+
         $scope.createOtherTemplate = function(otherTemp) {
             otherTemplateService.createOtherTemplate(this.otherTemp).then(function(data) {
                 if (data.data.success === true) {
