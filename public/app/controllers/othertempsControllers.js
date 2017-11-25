@@ -1,13 +1,14 @@
 angular.module('othertempsControllers', ['othertempsServices', 'angular.filter'])
     .controller('othertempsCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope) {
 
-        function getEachSelfTemplates() {
-            selfTemplateService.getEachSelfTemplates().then(function(data) {
+        function getOtherTempsUser() {
+            otherTemplateService.getOtherTempsUser().then(function(data) {
                 $scope.othertemplateData = data.data;
+                console.log($scope.othertemplateData);
             });
         };
 
-        getEachSelfTemplates();
+        getOtherTempsUser();
 
         $scope.createOtherTemplate = function(otherTemp) {
             otherTemplateService.createOtherTemplate(this.otherTemp).then(function(data) {

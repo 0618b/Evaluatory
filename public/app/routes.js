@@ -30,8 +30,16 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 controller: 'selfevalCtrl',
                 authenticated: true
             })
-            .when('/othertemps', {
-                templateUrl: '/app/views/pages/evalforms/othertemp.html',
+            .when('/othertemps/subjectGroup', {
+                templateUrl: '/app/views/pages/evalforms/othertemp_subjectGroup.html',
+                authenticated: true
+            })
+            .when('/othertemps/workGroup', {
+                templateUrl: '/app/views/pages/evalforms/othertemp_workGroup.html',
+                authenticated: true
+            })
+            .when('/othertemps/classGroup', {
+                templateUrl: '/app/views/pages/evalforms/othertemp_classGroup.html',
                 authenticated: true
             })
             .when('/selfscores/:id', {
