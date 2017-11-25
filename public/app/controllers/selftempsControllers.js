@@ -30,6 +30,7 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
         function getEachSelfTemplates() {
             selfTemplateService.getEachSelfTemplates().then(function(data) {
                 $scope.selftemplateData = data.data;
+                console.log($scope.selftemplateData)
             });
         };
 

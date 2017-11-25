@@ -169,10 +169,9 @@ module.exports = function(router) {
     // Selftemplate API
 
     router.post('/selftemps', function(req, res) {
-        var fullName = req.decoded.firstName + " " + req.decoded.lastName;
         var st = new SelfTemplate();
         st.self_template = req.body.self_template;
-        st.evaluatedBy = fullName;
+        st.evaluatedBy = req.decoded.username
         st.isEvaluated = req.body.isEvaluated;
         st.save(function(err, selftemp) {
             if (err) {
@@ -249,11 +248,10 @@ module.exports = function(router) {
     // Othertemplate API
 
     router.post('/othertemps', function(req, res) {
-        var fullName = req.decoded.firstName + " " + req.decoded.lastName;
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
         ot.receipients = req.body.receipients;
-        ot.evaluatedBy = fullName;
+        ot.evaluatedBy = req.decoded.username
         ot.isEvaluated = req.body.isEvaluated;
         ot.save(function(err, othertemp) {
             if (err) {
