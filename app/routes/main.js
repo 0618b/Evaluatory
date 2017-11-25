@@ -288,19 +288,19 @@ module.exports = function(router) {
     });
 
     router.get('/othertemps/subjectGroup', function(req, res, next) {
-        SelfTemplate.find({ 'groupRole.subjectGroupRole': 'teacher' }, function(err, subjectTeacher) {
+        SelfTemplate.find({ 'groupRole.subjectGroupRole': 'member' }, function(err, subjectTeacher) {
             if (err) return next(err);
             res.json(subjectTeacher);
         });
     });
     router.get('/othertemps/workGroup', function(req, res, next) {
-        SelfTemplate.find({ 'groupRole.workGroupRole': 'teacher' }, function(err, workTeacher) {
+        SelfTemplate.find({ 'groupRole.workGroupRole': 'member' }, function(err, workTeacher) {
             if (err) return next(err);
             res.json(workTeacher);
         });
     });
     router.get('/othertemps/classGroup', function(req, res, next) {
-        SelfTemplate.find({ 'groupRole.classGroupRole': 'teacher' }, function(err, classTeacher) {
+        SelfTemplate.find({ 'groupRole.classGroupRole': 'member' }, function(err, classTeacher) {
             if (err) return next(err);
             res.json(classTeacher);
         });

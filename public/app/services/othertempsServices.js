@@ -3,27 +3,33 @@ angular.module('othertempsServices', [])
 
         otFactory = {};
 
-        /*stFactory.cloneOtherTemplate = function(cloneObj) {
-            return $http.post('/api/othertemps', cloneObj);
-        }; ตรงนี้ไม่จำเป็นเลย เพราะ flow การทำงานเป็นอีกแบบ*/
+        // Get Subject Group User
+        otFactory.getSubjectGroupUser = function() {
+            return $http.get('/api/othertemps/subjectGroup');
+        }
 
-        // Get All template
-        stFactory.getAllOtherTemplates = function() {
-            return $http.get('/api/othertemps/');
-        };
+        // Get Work Group User
+        otFactory.getWorkGroupUser = function() {
+            return $http.get('/api/othertemps/workGroup');
+        }
+
+        // Get Class Group User
+        otFactory.getClassGroupUser = function() {
+            return $http.get('/api/othertemps/classGroup');
+        }
 
         // Get Each Template
-        stFactory.getEachOtherTemplates = function(id) {
+        otFactory.getEachOtherTemplates = function(id) {
             return $http.get('/api/othertempu/' + id);
         };
 
         // Get template by its id, then edit
-        stFactory.getOtherTemplateById = function(id) {
+        otFactory.getOtherTemplateById = function(id) {
             return $http.get('/api/othertemp/' + id);
         };
 
         // Edit a self-evaluation template
-        stFactory.evalOtherTemplate = function(id, evalData) {
+        otFactory.evalOtherTemplate = function(id, evalData) {
             return $http.put('/api/othertemp/' + id, evalData);
         };
 
