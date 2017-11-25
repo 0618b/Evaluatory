@@ -9,15 +9,6 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
         getAllUsers();
 
-        function getSelfTemplatesData() {
-            selfTemplateService.getAllSelfTemplates().then(function(data) {
-                $scope.template = data.data[0];
-                $scope.templateData = data.data;
-            })
-        }
-
-        getSelfTemplatesData();
-
         $scope.createUser = function(userData) {
             userServices.createUser(this.userData).then(function(data) {
                 if (data.data.success === true) {

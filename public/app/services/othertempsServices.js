@@ -3,6 +3,10 @@ angular.module('othertempsServices', [])
 
         otFactory = {};
 
+        userFactory.createOtherTemplate = function(otherTemp) {
+            return $http.post('/api/othertemps', otherTemp);
+        };
+
         // Get Subject Group User
         otFactory.getSubjectGroupUser = function() {
             return $http.get('/api/othertemps/subjectGroup');

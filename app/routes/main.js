@@ -250,6 +250,7 @@ module.exports = function(router) {
     router.post('/othertemps', function(req, res) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
+        ot.receipients = req.body.receipients;
         ot.evaluatedBy = req.decoded.username;
         ot.isEvaluated = req.body.isEvaluated;
         ot.save(function(err, othertemp) {
