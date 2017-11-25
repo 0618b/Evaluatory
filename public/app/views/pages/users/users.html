@@ -21,7 +21,7 @@
                                         <th>ประเภทตำแหน่ง</th>
                                         <th>ตำแหน่งเลขที่</th>
                                         <th>สังกัด</th>
-                                        <th>กลุ่มสาระ</th>
+                                        <th>กลุ่มสาระการเรียนรู้</th>
                                         <th>กลุ่มสายงาน</th>
                                         <th>กลุ่มสายชั้น</th>
                                     </tr>
@@ -36,9 +36,9 @@
                                         <td>{{u.position.positionCategory}}</td>
                                         <td>{{u.position.positionNumber}}</td>
                                         <td>{{u.belongTo}}</td>
-                                        <td>{{u.groupRole.subjectGroupRole + ", " + u.group.subjectGroup}}</td>
-                                        <td>{{u.groupRole.workGroupRole + ", " + u.group.workGroup}}</td>
-                                        <td>{{u.groupRole.classGroupRole + ", " + u.group.classGroup}}</td>
+                                        <td>{{u.groupRole.subjectGroupRole + u.group.subjectGroup}}</td>
+                                        <td>{{u.groupRole.workGroupRole + u.group.workGroup}}</td>
+                                        <td>{{u.groupRole.classGroupRole + u.group.classGroup}}</td>
                                     </tr>
                                 </tbody>
                             </table>
