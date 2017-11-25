@@ -166,12 +166,16 @@ module.exports = function(router) {
         })
     });
 
+    // Test Area !!!
+
+    var fullName = req.decoded.firstName + " " + req.decoded.lastName;
+
     // Selftemplate API
 
     router.post('/selftemps', function(req, res) {
         var st = new SelfTemplate();
         st.self_template = req.body.self_template;
-        st.evaluatedBy = req.decoded.username;
+        st.evaluatedBy = fullName;
         st.isEvaluated = req.body.isEvaluated;
         st.save(function(err, selftemp) {
             if (err) {
@@ -251,7 +255,7 @@ module.exports = function(router) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
         ot.receipients = req.body.receipients;
-        ot.evaluatedBy = req.decoded.username;
+        ot.evaluatedBy = fullName;
         ot.isEvaluated = req.body.isEvaluated;
         ot.save(function(err, othertemp) {
             if (err) {

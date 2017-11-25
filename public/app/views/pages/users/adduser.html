@@ -84,20 +84,38 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>กลุ่มสาระ</label>
-                                        <input type="text" class="form-control" placeholder="กลุ่มสาระ" ng-model="userData.group.subjectGroup" required>
+                                        <label>กลุ่มสาระการเรียนรู้</label>
+                                        <select ng-model="userData.group.subjectGroup" id="subjectGroup" class="form-control" required>
+                                                <option value="" disabled>กลุ่มสาระการเรียนรู้</option>
+                                                <option value="กลุ่มสาระการเรียนรู้ภาษาไทย">กลุ่มสาระการเรียนรู้ภาษาไทย</option>
+                                                <option value="กลุ่มสาระการเรียนรู้คณิตศาสตร์">กลุ่มสาระการเรียนรู้คณิตศาสตร์</option>
+                                                <option value="กลุ่มสาระการเรียนรู้วิทยาศาสตร์">กลุ่มสาระการเรียนรู้วิทยาศาสตร์</option>
+                                                <option value="กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม">กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม</option>
+                                                <option value="กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา">กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา</option>
+                                                <option value="กลุ่มสาระการเรียนรู้ศิลปะ">กลุ่มสาระการเรียนรู้ศิลปะ</option>
+                                                <option value="กลุ่มสาระการเรียนรู้การงานอาชีพและเทคโนโลยี">กลุ่มสาระการเรียนรู้การงานอาชีพและเทคโนโลยี</option>
+                                                <option value="กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ">กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>กลุ่มสายงาน</label>
-                                        <input type="text" class="form-control" placeholder="กลุ่มสายงาน" ng-model="userData.group.workGroup" required>
+                                        <select ng-model="userData.group.workGroup" id="workGroup" class="form-control" required>
+                                                <option value="" disabled>กลุ่มสายงาน</option>
+                                                <option value="ฝ่ายบริหารวิชาการ">ฝ่ายบริหารวิชาการ</option>
+                                                <option value="ฝ่ายงานบริหารทั่วไป">ฝ่ายงานบริหารทั่วไป</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>กลุ่มสายชั้น</label>
-                                        <input type="text" class="form-control" placeholder="กลุ่มสายชั้น" ng-model="userData.group.classGroup" required>
+                                        <select ng-model="userData.group.classGroup" id="workGroup" class="form-control" required>
+                                                <option value="" disabled>กลุ่มสายชั้น</option>
+                                                <option value="มัธยมต้น">แผนกมัธยมศึกษาตอนต้น</option>
+                                                <option value="มัธยมปลาย">แผนกมัธยมศึกษาตอนปลาย</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -106,9 +124,9 @@
                                     <div class="form-group">
                                         <label>ตำแหน่งในกลุ่มสาระ</label>
                                         <select ng-model="userData.groupRole.subjectGroupRole" id="subjectGroupRole" class="form-control" required>
-                                            <option value="">ตำแหน่งในกลุ่มสาระ</option>
-                                            <option value="header">หัวหน้าฝ่าย</option>
-                                            <option value="member">สมาชิกฝ่าย</option>
+                                            <option value="" disabled>ตำแหน่งในกลุ่มสาระ</option>
+                                            <option value="หัวหน้า">หัวหน้าฝ่าย</option>
+                                            <option value="สมาชิก">สมาชิกฝ่าย</option>
                                         </select>
                                     </div>
                                 </div>
@@ -117,8 +135,8 @@
                                         <label>ตำแหน่งในกลุ่มสายงาน</label>
                                         <select ng-model="userData.groupRole.workGroupRole" id="workGroupRole" class="form-control" required>
                                             <option value="">ตำแหน่งในกลุ่มสายงาน</option>
-                                            <option value="header">หัวหน้าฝ่าย</option>
-                                            <option value="member">สมาชิกฝ่าย</option>
+                                            <option value="หัวหน้า">หัวหน้าฝ่าย</option>
+                                            <option value="สมาชิก">สมาชิกฝ่าย</option>
                                         </select>
                                     </div>
                                 </div>
@@ -127,8 +145,8 @@
                                         <label>ตำแหน่งในกลุ่มสายชั้น</label>
                                         <select ng-model="userData.groupRole.classGroupRole" id="classGroupRole" class="form-control" required>
                                             <option value="">ตำแหน่งในกลุ่มสายชั้น</option>
-                                            <option value="header">หัวหน้าฝ่าย</option>
-                                            <option value="member">สมาชิกฝ่าย</option>
+                                            <option value="หัวหน้า">หัวหน้าฝ่าย</option>
+                                            <option value="สมาชิก">สมาชิกฝ่าย</option>
                                         </select>
                                     </div>
                                 </div>

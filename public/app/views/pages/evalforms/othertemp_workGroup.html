@@ -11,7 +11,7 @@
                     <hr>
                     <div class="content" ng-controller="othertempsCtrl">
                         <ul class="nav nav-tabs">
-                            <li><a href="/othertemps/subjectGroup">กลุ่มสาระ</a></li>
+                            <li><a href="/othertemps/subjectGroup">กลุ่มสาระการเรียนรู้</a></li>
                             <li class="active"><a href="/othertemps/workGroup">กลุ่มสายงาน</a></li>
                             <li><a href="/othertemps/classGroup">กลุ่มสายชั้น</a></li>
                         </ul>
@@ -32,25 +32,22 @@
                                     <th>ที่</th>
                                     <th>ชื่อ-นามสกุล ผู้รับการประเมิน</th>
                                     <th>กลุ่มสายงาน</th>
-                                    <th width="3%"></th>
-                                    <th width="3%"></th>
-                                    <th width="3%"></th>
+                                    <th>สถานะการประเมิน</th>
+                                    <th></th>
+                                    <th></th>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="o in othertemplateData | filter: query || undefind || isNotAdmin">
                                         <td>{{$index + 1}}</td>
-                                        <td>{{o.firstName}} + {{o.lastName}} </td>
+                                        <td>{{o.firstName}} {{o.lastName}} </td>
                                         <td>{{o.group.workGroup}}</td>
-                                        <td width="3%"></td>
-                                        <td width="3%"></td>
-                                        <td width="3%"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <hr>
-                            <div align="center">
-                                <button type="button" class="btn btn-success btn-lg">เริ่มทำแบบประเมิน</button>
-                            </div>
                         </div>
                     </div>
                 </div>
