@@ -45,9 +45,9 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 authenticated: true,
                 permission: ['admin', 'header', 'director', 'admin']
             })
-            .when('/othertemp/test', {
+            .when('/othertemp/:id', {
                 templateUrl: '/app/views/pages/evalforms/othertempeval.html',
-                controller: 'selfevalCtrl',
+                controller: 'othertempCtrl',
                 authenticated: true
             })
             .when('/selfscores/:id', {
