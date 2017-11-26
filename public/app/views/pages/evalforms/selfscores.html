@@ -9,26 +9,38 @@
                         <div class="content tablresponsive tablfulwidth">
                             <div class="header">
                                 <h3 class="title">แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น</h3>
-                                <hr>
                             </div>
-                            <div class="content">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>Hello World</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            &nbsp;
                             <hr>
+                            <div class="col-xs-12" align="left">
+                                <h4>
+                                    <p>รอบการประเมิน : {{data.data.timestamp.evalRound}}</p>
+                                    <p class="category">ชื่อ - สกุล ผู้รับการประเมิน : นายจิรภัทร ชาญชัย &nbsp; ตำแหน่ง : ครูผู้ช่วย &nbsp; ระดับ : ครูผู้ช่วย</p>
+                                    <p class="category">ประเภทตำแหน่ง : ครูผู้ช่วย &nbsp; ตำแหน่งเลขที่ : 19999952 </p>
+                                    <p class="category">สังกัด : กองทัพเรือ</p>
+                                </h4>
+                            </div>
+                            &nbsp;
                             <table class="table tablhover tablstriped ">
                                 <thead>
                                     <tr>
-                                        <th>ที่</th>
-                                        <th class="col-md-4 ">หัวข้อการประเมิน</th>
-                                        <th class="col-md-1 ">น้ำหนักคะแนน</th>
-                                        <th class="col-md-1 ">ผลการประเมิน</th>
-                                        <th class="col-md-6 ">เกณฑ์การพิจารณา</th>
+                                        <th>
+                                            <center>ที่</center>
+                                        </th>
+                                        <th class="col-md-4 ">
+                                            <center>หัวข้อการประเมิน</center>
+                                        </th>
+                                        <th class="col-md-1 ">
+                                            <center>น้ำหนักคะแนน</center>
+                                        </th>
+                                        <th class="col-md-1 ">
+                                            <center>ผลการประเมิน</center>
+                                        </th>
+                                        <th class="col-md-6 ">
+                                            <center>
+                                                เกณฑ์การพิจารณา
+                                            </center>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,7 +72,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalCriteria}}</td>
                                     </tr>
@@ -71,7 +83,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].$index + 2}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalCriteria}}</td>
                                     </tr>
@@ -82,7 +94,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].$index + 3}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalCriteria}}</td>
                                     </tr>
@@ -93,7 +105,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].$index + 4}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalCriteria}}</td>
                                     </tr>
@@ -104,7 +116,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].$index + 5}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalCriteria}}</td>
                                     </tr>
@@ -125,7 +137,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalCriteria}}</td>
                                     </tr>
@@ -136,7 +148,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].$index + 2}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalCriteria}}</td>
                                     </tr>
@@ -147,7 +159,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].$index + 3}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalCriteria}}</td>
                                     </tr>
@@ -168,7 +180,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].$index + 1}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalCriteria}}</td>
                                     </tr>
@@ -179,7 +191,7 @@
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].$index + 2}}</td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalTopic}}</td>
                                         <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight}}</td>
-                                        <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score}}
+                                        <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score}}
                                         </td>
                                         <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalCriteria}}</td>
                                     </tr>
