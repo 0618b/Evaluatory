@@ -215,10 +215,10 @@ module.exports = function(router) {
         });
     });
     router.get('/selftempu/:id', function(req, res, next) {
-        let present = new Date();
-        let month = present.getMonth() + 1;
-        let year = present.getFullYear() + 543;
-        let evalRound = "";
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var evalRound = "";
         if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
             evalRound = 1 + "/" + year;
         } else if (month >= 4 && month <= 9) {
@@ -233,7 +233,10 @@ module.exports = function(router) {
         })
     })
     router.get('/selftemps/notevalyet', function(req, res, next) {
-        SelfTemplate.find({ isEvaluated: false }, function(err, data) {
+        SelfTemplate.find({
+            isEvaluated: false,
+            'timestamp.evalRound': evalRound
+        }, function(err, data) {
             if (err) return next(err);
             res.json(data);
         });
