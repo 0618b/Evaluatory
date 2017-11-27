@@ -32,5 +32,4 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
             })
         }
-
     });

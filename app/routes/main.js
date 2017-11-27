@@ -215,7 +215,19 @@ module.exports = function(router) {
         });
     });
     router.get('/selftempu/:id', function(req, res, next) {
-        SelfTemplate.find({ evaluatedBy: req.decoded.username }).populate('user').exec(function(err, data) {
+        let present = new Date();
+        let month = present.getMonth() + 1;
+        let year = present.getFullYear() + 543;
+        let evalRound = "";
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            evalRound = 1 + "/" + year;
+        } else if (month >= 4 && month <= 9) {
+            evalRound = 2 + "/" + year;
+        }
+        SelfTemplate.find({
+            evaluatedBy: req.decoded.username,
+            'timestamp.evalRound': evalRound
+        }).populate('user').exec(function(err, data) {
             if (err) return next(err);
             res.json(data);
         })
@@ -250,7 +262,7 @@ module.exports = function(router) {
     router.post('/othertemps', function(req, res) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
-        ot.receipients = req.body.receipients;
+        ot.receipients = req.params.username;
         ot.evaluatedBy = req.decoded.username
         ot.isEvaluated = req.body.isEvaluated;
         ot.save(function(err, othertemp) {

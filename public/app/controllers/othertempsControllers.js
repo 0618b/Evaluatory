@@ -23,9 +23,6 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
                         type: 'success',
                         timer: 2000
                     })
-                    $timeout(function() {
-                        history.back();
-                    }, 500);
                 } else {
                     let msg = data.data.msg;
                     swal({
