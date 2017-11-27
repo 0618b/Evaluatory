@@ -38,8 +38,8 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
 
 .controller('otherevalCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
-    function getSelfTemplateById(id) {
-        otherTemplateService.getSelfTemplateById($routeParams.id).then(function(data) {
+    function getOtherTemplateById(id) {
+        otherTemplateService.getOtherTemplateById($routeParams.id).then(function(data) {
             if (data.status === 200) { // check that data is OK
                 $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
                 $scope.other_template = data.data;
@@ -53,7 +53,7 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
         });
     }
 
-    getSelfTemplateById();
+    getOtherTemplateById();
 
 }).directive('convertToNumber', function() {
     return {

@@ -21,8 +21,8 @@
                         <p><b>เกณฑ์การให้คะแนน :</b> 1 หมายถึง ต้องปรับปรุง 2 หมายถึง พอใช้ 3 หมายถึง ดี 4 หมายถึง ดีมาก</p>
                     </div>
                     <hr>
-                    <form name="createOtherTemplate" ng-submit="createOtherTemplate(otherTemp)">
-                        <div class="content" ng-controller="othertempsCtrl">
+                    <div class="content" ng-controller="othertempsCtrl">
+                        <form name="createOtherTemplate" ng-submit="createOtherTemplate(otherTemp)">
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
                                     <thead>
@@ -800,7 +800,7 @@
                                         </td>
                                         <td>
                                             <center>
-                                                <input type="radio" name="q21" ng-model="otherTemp.other_template.question[20" value="3" convert-to-number>
+                                                <input type="radio" name="q21" ng-model="otherTemp.other_template.question[20]" value="3" convert-to-number>
                                             </center>
                                         </td>
                                         <td>
@@ -1060,8 +1060,8 @@
                                     </center>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

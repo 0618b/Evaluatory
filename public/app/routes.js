@@ -47,7 +47,7 @@ var app = angular.module('mainRoutes', ['ngRoute'])
             })
             .when('/othertemp/:id', {
                 templateUrl: '/app/views/pages/evalforms/othertempeval.html',
-                controller: 'othertempCtrl',
+                controller: 'othertempsCtrl',
                 authenticated: true
             })
             .when('/selfscores/:id', {
