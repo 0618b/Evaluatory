@@ -21,8 +21,8 @@
                         <p><b>เกณฑ์การให้คะแนน :</b> 1 หมายถึง ต้องปรับปรุง 2 หมายถึง พอใช้ 3 หมายถึง ดี 4 หมายถึง ดีมาก</p>
                     </div>
                     <hr>
-                    <div class="content" ng-controller="othertempsCtrl">
-                        <form ng-submit="createOtherTemplate(otherTemp)">
+                    <form name="createOtherTemplate" ng-submit="createOtherTemplate(otherTemp)">
+                        <div class="content" ng-controller="othertempsCtrl">
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
                                     <thead>
@@ -1056,11 +1056,12 @@
                                 <div>
                                     <center>
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">ส่งแบบประเมิน</button>
+                                        <div class="clearfix"></div>
                                     </center>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
