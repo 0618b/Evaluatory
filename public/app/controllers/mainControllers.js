@@ -125,7 +125,12 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
         var date = new Date().getDate();
         var month = new Date().getMonth() + 1;
         var year = new Date().getFullYear() + 543;
+        $scope.evalRound = "";
 
         $scope.presentDate = date + "/" + month + "/" + year;
-
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            $scope.evalRound = 1 + "/" + year;
+        } else if (month >= 4 && month <= 9) {
+            $scope.evalRound = 2 + "/" + year;
+        }
     });
