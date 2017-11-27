@@ -40,7 +40,6 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
 
         getEachSelfTemplates();
         // Function delete selftemp is deleted
-
     })
 
 .controller('selfevalCtrl', function(selfTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
