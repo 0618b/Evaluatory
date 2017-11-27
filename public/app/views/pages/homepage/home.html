@@ -4,10 +4,10 @@
             <div class="col-md-12">
                 <div class="card ">
                     <div class="content">
-                        <p>I won't tell you who am I ;)</p>
+                        <h4>สวัสดี {{userData.firstName + " " + userData.lastName }}</h4>
                         <hr>
-                        <p>ตำแหน่ง : <strong>{{ userData.position.positionName }}</strong></p>
-                        <p>กลุ่มสาระ : <strong>{{ userData.group.studyGroup }}</strong></p>
+                        <h4>ตำแหน่ง : {{ userData.position.positionName }}</h4>
+                        <h4>กลุ่มสาระ : {{ userData.group.subjectGroup }}</h4>
                     </div>
                 </div>
             </div>

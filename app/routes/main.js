@@ -173,6 +173,7 @@ module.exports = function(router) {
         st.self_template = req.body.self_template;
         st.evaluatedBy = req.decoded.username
         st.isEvaluated = req.body.isEvaluated;
+        st.totalScore = req.body.totalScore;
         st.save(function(err, selftemp) {
             if (err) {
                 res.json({

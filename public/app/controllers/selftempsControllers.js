@@ -15,11 +15,6 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
                             timer: 2000
                         })
                     } else {
-                        swal({
-                            title: 'สร้างแบบประเมินเรียบร้อยแล้ว',
-                            type: 'success',
-                            timer: 2000
-                        })
                         var cloneObj = templateData.slice(-1)[0];
                         $location.url('/selftemp/' + cloneObj._id);
                     }
@@ -30,7 +25,16 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
         function getEachSelfTemplates() {
             selfTemplateService.getEachSelfTemplates().then(function(data) {
                 $scope.selftemplateData = data.data;
-                console.log($scope.selftemplateData)
+                if (data.data[0]) $scope.showCreateButton = false;
+                var present = new Date();
+                var month = present.getMonth() + 1;
+                var year = present.getFullYear() + 543;
+                $scope.evalRound = "";
+                if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+                    $scope.evalRound = 1 + "/" + year;
+                } else if (month >= 4 && month <= 9) {
+                    $scope.evalRound = 2 + "/" + year;
+                }
             });
         };
 
@@ -83,7 +87,7 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
                     $scope.totalWeight += evalWeight_arr[i];
                 }
 
-                data.data.totalScore === $scope.totalScore;
+                $scope.totalScore === data.data.totalScore;
 
             } else {
                 swal({
