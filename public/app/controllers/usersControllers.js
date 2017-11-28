@@ -2,8 +2,9 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
     .controller('usersCtrl', function(userServices, selfTemplateService, $scope, $location, $routeParams, $timeout) {
 
         function getAllUsers() {
-            userServices.getAllUsers().then(function(data) {
+            userServices.getEvalUsers().then(function(data) {
                 $scope.users = data.data;
+                console.log(data.data);
             })
         }
 

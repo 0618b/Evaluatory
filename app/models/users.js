@@ -26,11 +26,11 @@ var userSchema = new Schema({
     },
     permission: { type: String, required: true },
     selftemplates: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'SelfTemplate'
     }],
     othertemplates: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'OtherTemplate'
     }]
 });
