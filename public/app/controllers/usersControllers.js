@@ -1,8 +1,8 @@
 angular.module('usersControllers', ['usersServices', 'selftempsServices'])
-    .controller('usersCtrl', function(userServices, selfTemplateService, $scope, $location, $routeParams, $timeout) {
+    .controller('usersCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
 
         function getAllUsers() {
-            userServices.getEvalUsers().then(function(data) {
+            userServices.getAllUsers().then(function(data) {
                 $scope.users = data.data;
                 console.log(data.data);
             })
@@ -33,4 +33,12 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
             })
         }
-    });
+    }).controller('userEvalCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
+
+        function getEvalUsers() {
+            userServices.getEvalUsers().then(function(data) {
+                $scope.userEval = data.data;
+                console.log(data.data);
+            })
+        }
+    })

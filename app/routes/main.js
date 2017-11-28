@@ -53,7 +53,7 @@ module.exports = function(router) {
         } else if (month >= 4 && month <= 9) {
             evalRound = 2 + "/" + year;
         }
-        User.find({ /*'timestamp.evalRound': evalRound*/ }).populate('selftemplate').exec(function(err, data) {
+        User.find({}).populate('selftemplates').exec(function(err, data) {
             if (err) return next(err);
             res.json(data);
         })

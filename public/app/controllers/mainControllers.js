@@ -66,8 +66,6 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
                         $rootScope.showLoginButton = false;
                         $scope.isLoggedIn = true;
                         $rootScope.userDatas = data.data;
-                        console.log($rootScope.userDatas);
-                        // ยังดึงข้อมูลยูสเซอร์ขึ้นหน้าเว็บไม่ได้ **ดึงตัว json มาได้แล้ว**
                         userServices.getPermission().then(function(data) {
                             if (data.data.permission === "admin") {
                                 $rootScope.isAdmin = true;
