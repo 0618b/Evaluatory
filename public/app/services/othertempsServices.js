@@ -3,7 +3,7 @@ angular.module('othertempsServices', [])
 
         otFactory = {};
 
-        userFactory.createOtherTemplate = function(otherTemp) {
+        otFactory.createOtherTemplate = function(otherTemp) {
             return $http.post('/api/othertemps', otherTemp);
         };
 

@@ -15,7 +15,7 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
         }
 
         $scope.createOtherTemplate = function(otherTemp) {
-            otherTemplateService.createOtherTemplate(this.otherTemp).then(function(data) {
+            otherTemplateService.createOtherTemplate(otherTemp).then(function(data) {
                 if (data.data.success === true) {
                     let msg = data.data.msg;
                     swal({
