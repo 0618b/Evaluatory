@@ -6,7 +6,7 @@ var year = present.getFullYear() + 543;
 
 var selfTemplateSchema = new Schema({
     self_template: {},
-    evaluatedBy: { type: Schema.Types.ObjectId, ref: 'User' },
+    evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
         month: { type: Number, default: month },
         year: { type: Number, default: year },
