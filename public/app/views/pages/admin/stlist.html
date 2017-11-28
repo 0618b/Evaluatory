@@ -7,25 +7,30 @@
                         <h3>สถานะการประเมิน</h3>
                     </div>
                     <hr>
-                    <div class="content" ng-controller="usersCtrl">
+                    <div class="content" ng-controller="userEvalCtrl">
                         <div class="content table-responsive table-full-width">
                             <table class="table tablhover tablstriped ">
                                 <thead>
                                     <tr>
                                         <th>ที่</th>
-                                        <th>ชื่อ-นามสกุล</th>
-                                        <th>กลุ่มสาระการเรียนรู้</th>
-                                        <th>กลุ่มสายงาน</th>
-                                        <th>กลุ่มสายชั้น</th>
+                                        <th>
+                                            <center>ชื่อ-นามสกุล</center>
+                                        </th>
+                                        <th>
+                                            <center>สถานะการประเมิน : แบบประเมินตนเอง</center>
+                                        </th>
+                                        <th>
+                                            <center>สถานะการประเมิน : แบบประเมินผู้อื่น</center>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="u in users">
+                                    <tr ng-repeat="u in userEval | filter: isNotAdmin">
                                         <td>{{$index+1}}</td>
                                         <td>{{u.firstName + " " + u.lastName}}</td>
-                                        <td>{{u.groupRole.subjectGroupRole + u.group.subjectGroup}}</td>
-                                        <td>{{u.groupRole.workGroupRole + u.group.workGroup}}</td>
-                                        <td>{{u.groupRole.classGroupRole + u.group.classGroup}}</td>
+                                        <td>{{u.selftemplates}}</td>
+                                        <td>{{u.othertemplates}}</td>
+                                        <!-- ตรงนี้ต้อง filter เฉพาะรอบประเมินให้ได้ -->
                                     </tr>
                                 </tbody>
                             </table>

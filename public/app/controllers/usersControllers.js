@@ -41,4 +41,11 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 console.log(data.data);
             })
         }
+
+        $scope.isNotAdmin = function(data) {
+            return data.permission != "admin";
+        }
+
+        getEvalUsers();
+
     })
