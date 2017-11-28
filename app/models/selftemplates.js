@@ -14,7 +14,7 @@ var selfTemplateSchema = new Schema({
     },
     totalScore: { type: Number, default: 0 },
     totalWeight: { type: Number, default: 0 },
-    isEvaluated: { type: Boolean, default: false }
+    isEvaluated: { type: Number, default: 0 }
 });
 
 selfTemplateSchema.pre('save', function(next) {
@@ -27,6 +27,7 @@ selfTemplateSchema.pre('save', function(next) {
         st.timestamp.evalRound = 2 + "/" + year;
     }
 
+    /*
     s0 = st.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score;
     s1 = st.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score;
     s2 = st.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score;
@@ -60,9 +61,9 @@ selfTemplateSchema.pre('save', function(next) {
         st.totalWeight += evalWeight_arr[i];
     }
 
+    st.isEvaluated === 1;*/
+
     next();
-
 });
-
 
 module.exports = mongoose.model('SelfTemplate', selfTemplateSchema);
