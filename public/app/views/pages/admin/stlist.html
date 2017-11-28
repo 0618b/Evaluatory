@@ -1,0 +1,38 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h3>สถานะการประเมิน</h3>
+                    </div>
+                    <hr>
+                    <div class="content" ng-controller="usersCtrl">
+                        <div class="content table-responsive table-full-width">
+                            <table class="table tablhover tablstriped ">
+                                <thead>
+                                    <tr>
+                                        <th>ที่</th>
+                                        <th>ชื่อ-นามสกุล</th>
+                                        <th>กลุ่มสาระการเรียนรู้</th>
+                                        <th>กลุ่มสายงาน</th>
+                                        <th>กลุ่มสายชั้น</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="u in users">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{u.firstName + " " + u.lastName}}</td>
+                                        <td>{{u.groupRole.subjectGroupRole + u.group.subjectGroup}}</td>
+                                        <td>{{u.groupRole.workGroupRole + u.group.workGroup}}</td>
+                                        <td>{{u.groupRole.classGroupRole + u.group.classGroup}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

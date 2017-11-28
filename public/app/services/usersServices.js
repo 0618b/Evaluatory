@@ -12,6 +12,11 @@ angular.module('usersServices', [])
             return $http.get('/api/users');
         };
 
+        // get stlist
+        userFactory.getEvalUsers = function() {
+            return $http.get('/api/users');
+        }
+
         // Get single user by id
         userFactory.getUserById = function(id) {
             return $http.get('/api/users/' + id);
