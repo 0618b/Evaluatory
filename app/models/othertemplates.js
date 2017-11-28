@@ -52,36 +52,7 @@ otherTemplateSchema.pre('save', function(next) {
     var month = ot.timestamp.month;
     var other_template = ot.other_template;
 
-    if (month = 1) {
-        ot.timestamp.evalRound = 1 + "/" + year;
-    } else if (month = 2) {
-        ot.timestamp.evalRound = 2 + "/" + year;
-    } else if (month = 3) {
-        ot.timestamp.evalRound = 3 + "/" + year;
-    } else if (month = 4) {
-        ot.timestamp.evalRound = 4 + "/" + year;
-    } else if (month = 5) {
-        ot.timestamp.evalRound = 5 + "/" + year;
-    } else if (month = 6) {
-        ot.timestamp.evalRound = 6 + "/" + year;
-    } else if (month = 7) {
-        ot.timestamp.evalRound = 7 + "/" + year;
-    } else if (month = 8) {
-        ot.timestamp.evalRound = 8 + "/" + year;
-    } else if (month = 9) {
-        ot.timestamp.evalRound = 9 + "/" + year;
-    } else if (month = 10) {
-        ot.timestamp.evalRound = 10 + "/" + year;
-    } else if (month = 11) {
-        ot.timestamp.evalRound = 11 + "/" + year;
-    } else if (month = 12) {
-        ot.timestamp.evalRound = 12 + "/" + year;
-    }
-
-    for (var i = 0; i < other_template.length; i++) {
-        ot.totalScore += other_template[i];
-        ot.isEvaluated++
-    }
+    ot.timestamp.evalRound = month + "/" + year;
 
     next();
 })

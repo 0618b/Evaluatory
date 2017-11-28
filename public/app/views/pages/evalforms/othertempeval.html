@@ -22,1043 +22,1045 @@
                     </div>
                     <hr>
                     <div class="content" ng-controller="othertempsCtrl">
-                        <div class="content table-responsive table-full-width">
-                            <table class="table table-hover">
-                                <thead>
-                                    <th style="width:5%;">
-                                        <center>
-                                            <strong>
+                        <form name="evalOtherForm" ng-submit="createOtherTemplate(otherTemp)">
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th style="width:5%;">
+                                            <center>
+                                                <strong>
                                                 <h4>ข้อที่</h4>
                                             </strong>
-                                        </center>
-                                    </th>
-                                    <th style="width:65;">
-                                        <center>
-                                            <strong>
+                                            </center>
+                                        </th>
+                                        <th style="width:65;">
+                                            <center>
+                                                <strong>
                                                 <h4>รายการประเมิน</h4>
                                             </strong>
-                                        </center>
-                                    </th>
-                                    <th colspan="4" style="width:30%;">
-                                        <center>
-                                            <strong>
+                                            </center>
+                                        </th>
+                                        <th colspan="4" style="width:30%;">
+                                            <center>
+                                                <strong>
                                                 <h4>ระดับคะแนน</h4>
                                             </strong>
-                                        </center>
-                                    </th>
-                                    <tr>
-                                        <td> </td>
-                                        <td>
-                                            <center>
-                                                <h4><b>การมุ่งผลสัมฤทธิ์</b></h4>
                                             </center>
-                                        </td>
+                                        </th>
+                                        <tr>
+                                            <td> </td>
+                                            <td>
+                                                <center>
+                                                    <h4><b>การมุ่งผลสัมฤทธิ์</b></h4>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <h4>1</h4>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <h4>2</h4>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <h4>3</h4>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <h4>4</h4>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <!-- นี่แค่ข้อแรก -->
                                         <td>
                                             <center>
                                                 <h4>1</h4>
                                             </center>
                                         </td>
                                         <td>
+                                            <h4>
+                                                <span style="color:red">*</span> แสดงความพากเพียรพยายาม และตั้งใจทำงานให้ดี
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q1" ng-model="otherTemp.other_template.q1" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q1" ng-model="otherTemp.other_template.q1" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q1" ng-model="otherTemp.other_template.q1" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q1" ng-model="otherTemp.other_template.q1" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- นี่ข้อสอง -->
+                                        <td>
                                             <center>
                                                 <h4>2</h4>
                                             </center>
                                         </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> สามารถทำงานได้ผลงานตามเป้าหมายที่วางไว้ หรือตามมาตรฐานขององค์กร
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q2" ng-model="otherTemp.other_template.q2" value="1" required convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q2" ng-model="otherTemp.other_template.q2" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q2" ng-model="otherTemp.other_template.q2" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q2" ng-model="otherTemp.other_template.q2" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- นี่ข้อสาม -->
                                         <td>
                                             <center>
                                                 <h4>3</h4>
                                             </center>
                                         </td>
                                         <td>
+                                            <h4>
+                                                <span style="color:red">*</span> ปรับปรุงวิธีการทำงานเพื่อพัฒนาผลงานให้โดดเด่นเกินกว่าเป้าหมายมาตรฐานที่องค์กรกำหนด
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q3" ng-model="otherTemp.other_template.q3" value="1" required convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q3" ng-model="otherTemp.other_template.q3" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q3" ng-model="otherTemp.other_template.q3" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q3" ng-model="otherTemp.other_template.q3" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- นี่ข้อสี่ -->
+                                        <td>
                                             <center>
                                                 <h4>4</h4>
                                             </center>
                                         </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> อุตสาหะมานะบากบั่นเพื่อให้บรรลุเป้าหมายที่ท้าทาย หรือได้ผลงานที่โดดเด่น และแตกต่างอย่างที่ไม่เคยมีใครทำมาก่อน
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q4" ng-model="otherTemp.other_template.q4" value="1" required convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q4" ng-model="otherTemp.other_template.q4" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q4" ng-model="otherTemp.other_template.q4" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q4" ng-model="otherTemp.other_template.q4" value="4" convert-to-number>
+                                            </center>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tr>
-                                    <!-- นี่แค่ข้อแรก -->
-                                    <td>
-                                        <center>
-                                            <h4>1</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> แสดงความพากเพียรพยายาม และตั้งใจทำงานให้ดี
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q1" ng-model="otherTemp.other_template.q1" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q1" ng-model="otherTemp.other_template.q1" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q1" ng-model="otherTemp.other_template.q1" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q1" ng-model="otherTemp.other_template.q1" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!-- นี่ข้อสอง -->
-                                    <td>
-                                        <center>
-                                            <h4>2</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> สามารถทำงานได้ผลงานตามเป้าหมายที่วางไว้ หรือตามมาตรฐานขององค์กร
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q2" ng-model="otherTemp.other_template.q2" value="1" required convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q2" ng-model="otherTemp.other_template.q2" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q2" ng-model="otherTemp.other_template.q2" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q2" ng-model="otherTemp.other_template.q2" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!-- นี่ข้อสาม -->
-                                    <td>
-                                        <center>
-                                            <h4>3</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> ปรับปรุงวิธีการทำงานเพื่อพัฒนาผลงานให้โดดเด่นเกินกว่าเป้าหมายมาตรฐานที่องค์กรกำหนด
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q3" ng-model="otherTemp.other_template.q3" value="1" required convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q3" ng-model="otherTemp.other_template.q3" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q3" ng-model="otherTemp.other_template.q3" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q3" ng-model="otherTemp.other_template.q3" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!-- นี่ข้อสี่ -->
-                                    <td>
-                                        <center>
-                                            <h4>4</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> อุตสาหะมานะบากบั่นเพื่อให้บรรลุเป้าหมายที่ท้าทาย หรือได้ผลงานที่โดดเด่น และแตกต่างอย่างที่ไม่เคยมีใครทำมาก่อน
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q4" ng-model="otherTemp.other_template.q4" value="1" required convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q4" ng-model="otherTemp.other_template.q4" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q4" ng-model="otherTemp.other_template.q4" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q4" ng-model="otherTemp.other_template.q4" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!-- นี่ข้อห้า -->
-                                    <td>
-                                        <center>
-                                            <h4>5</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> วิเคราะห์ผลได้ผลเสีย และสามารถตัดสินใจได้แม้จะมีความเสี่ยงเพื่อให้องค์กรบรรลุเป้าหมาย
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q5" ng-model="otherTemp.other_template.q5" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q5" ng-model="otherTemp.other_template.q5" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q5" ng-model="otherTemp.other_template.q5" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q5" ng-model="otherTemp.other_template.q5" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <thead>
-                                        <td></td>
+                                    <tr>
+                                        <!-- นี่ข้อห้า -->
                                         <td>
                                             <center>
-                                                <h4><b>การยึดมั่นในความถูกต้องและจริยธรรม</b></h4>
+                                                <h4>5</h4>
                                             </center>
                                         </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </thead>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>1</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> ปฏิบัติหน้าที่ด้วยความถูกต้องตามหลักกฎหมาย จริยธรรม และระเบียบวินัย
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q6" ng-model="otherTemp.other_template.q6" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q6" ng-model="otherTemp.other_template.q6" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q6" ng-model="otherTemp.other_template.q6" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q6" ng-model="otherTemp.other_template.q6" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>2</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> มีสัจจะเชื่อถือได้
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q7" ng-model="otherTemp.other_template.q7" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q7" ng-model="otherTemp.other_template.q7" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q7" ng-model="otherTemp.other_template.q7" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q7" ng-model="otherTemp.other_template.q7" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>3</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> ยึดมั่นแน่วแน่ในจรรยาบรรณ หลักคุณธรรม ยุติธรรม และปฏิบัติตนกับผู้อื่นอย่างเท่าเทียมกัน
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q8" ng-model="otherTemp.other_template.q8" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q8" ng-model="otherTemp.other_template.q8" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q8" ng-model="otherTemp.other_template.q8" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q8" ng-model="otherTemp.other_template.q8" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>4</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> ธำรงความถูกต้องเพื่อองค์กร
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q9" ng-model="otherTemp.other_template.q9" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q9" ng-model="otherTemp.other_template.q9" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q9" ng-model="otherTemp.other_template.q9" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q9" ng-model="otherTemp.other_template.q9" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>5</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> อุทิศตนเพื่อองค์กร และประเทศชาติ
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q10" ng-model="otherTemp.other_template.q10" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q10" ng-model="otherTemp.other_template.q10" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q10" ng-model="otherTemp.other_template.q10" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q10" ng-model="otherTemp.other_template.q10" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <thead>
-                                        <td></td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> วิเคราะห์ผลได้ผลเสีย และสามารถตัดสินใจได้แม้จะมีความเสี่ยงเพื่อให้องค์กรบรรลุเป้าหมาย
+                                            </h4>
+                                        </td>
                                         <td>
                                             <center>
-                                                <h4><b>ความเข้าใจในองค์กรและระบบงาน</b></h4>
+                                                <input type="radio" name="q5" ng-model="otherTemp.other_template.q5" value="1" convert-to-number required>
                                             </center>
                                         </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </thead>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>1</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> เข้าใจเทคโนโลยี ระบบ กระบวนการทำงานและมาตรฐานในงานของตน
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q11" ng-model="otherTemp.other_template.q11" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q11" ng-model="otherTemp.other_template.q11" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q11" ng-model="otherTemp.other_template.q11" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q11" ng-model="otherTemp.other_template.q11" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>2</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> ความสัมพันธ์เชื่อมโยงของระบบและกระบวนการทำงานของตนกับหน่วยงานอื่นๆ ที่ติดต่ออย่างชัดเจน
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q12" ng-model="otherTemp.other_template.q12" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q12" ng-model="otherTemp.other_template.q12" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q12" ng-model="otherTemp.other_template.q12" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q12" ng-model="otherTemp.other_template.q12" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>3</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> สามารถมองภาพรวมแล้วปรับเปลี่ยนหรือปรับปรุงระบบให้มีประสิทธิภาพขึ้น
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q13" ng-model="otherTemp.other_template.q13" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q13" ng-model="otherTemp.other_template.q13" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q13" ng-model="otherTemp.other_template.q13" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q13" ng-model="otherTemp.other_template.q13" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>4</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> เข้าใจกระแสภายนอกกับผลกระทบโดยรวมต่อเทคโนโลยี ระบบหรือกระบวนการทำงานของหน่วยงาน
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q14" ng-model="otherTemp.other_template.q14" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q14" ng-model="otherTemp.other_template.q14" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q14" ng-model="otherTemp.other_template.q14" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q14" ng-model="otherTemp.other_template.q14" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>5</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> เข้าใจความต้องการที่แท้จริงขององค์กร
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q15" ng-model="otherTemp.other_template.q15" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q15" ng-model="otherTemp.other_template.q15" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q15" ng-model="otherTemp.other_template.q15" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q15" ng-model="otherTemp.other_template.q15" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <thead>
-                                        <td></td>
                                         <td>
                                             <center>
-                                                <h4><b>การบริการเป็นเลิศ</b></h4>
+                                                <input type="radio" name="q5" ng-model="otherTemp.other_template.q5" value="2" convert-to-number>
                                             </center>
                                         </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </thead>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>1</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> แสดงความเต็มใจในการให้บริการ มีอัธยาศัยไมตรีอันดี และให้บริการที่ผู้รับบริการต้องการได้
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q16" ng-model="otherTemp.other_template.q16" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q16" ng-model="otherTemp.other_template.q16" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q16" ng-model="otherTemp.other_template.q16" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q16" ng-model="otherTemp.other_template.q16" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>2</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> เต็มใจช่วยเหลือ และแก้ปัญหาให้กับผู้บริการได้
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q17" ng-model="otherTemp.other_template.q17" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q17" ng-model="otherTemp.other_template.q17" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q17" ng-model="otherTemp.other_template.q17" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q17" ng-model="otherTemp.other_template.q17" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>3</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> ให้บริการที่เกินความคาดหวังในระดับทั่วไปของผู้รับบริการ
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q18" ng-model="otherTemp.other_template.q18" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q18" ng-model="otherTemp.other_template.q18" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q18" ng-model="otherTemp.other_template.q18" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q18" ng-model="otherTemp.other_template.q18" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>4</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> สามารถเข้าใจและให้บริการที่ตรงตามความต้องการที่แท้จริงของผู้รับบริการได้
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q19" ng-model="otherTemp.other_template.q19" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q19" ng-model="otherTemp.other_template.q19" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q19" ng-model="otherTemp.other_template.q19" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q19" ng-model="otherTemp.other_template.q19" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>5</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> มองการณ์ไกล และสามารถให้บริการที่เป็นประโยชน์อย่างแท้จริงและยั่งยืนให้กับผู้รับบริการ
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q20" ng-model="otherTemp.other_template.q20" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q20" ng-model="otherTemp.other_template.q20" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q20" ng-model="otherTemp.other_template.q20" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q20" ng-model="otherTemp.other_template.q20" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <thead>
-                                        <td></td>
                                         <td>
                                             <center>
-                                                <h4><b>การทำงานเป็นทีม</b></h4>
+                                                <input type="radio" name="q5" ng-model="otherTemp.other_template.q5" value="3" convert-to-number>
                                             </center>
                                         </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </thead>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>1</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> รู้บทบาทหน้าที่ของตน และหน้าที่ของตนในทีมให้สำเร็จ
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q21" ng-model="otherTemp.other_template.q21" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q21" ng-model="otherTemp.other_template.q21" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q21" ng-model="otherTemp.other_template.q21" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q21" ng-model="otherTemp.other_template.q21" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>2</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> มีทัศนคติที่ดีต่อเพื่อนร่วมงาน และให้ความร่วมมือในการทำงานกับเพื่อนร่วมงาน
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q22" ng-model="otherTemp.other_template.q22" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q22" ng-model="otherTemp.other_template.q22" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q22" ng-model="otherTemp.other_template.q22" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q22" ng-model="otherTemp.other_template.q22" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>3</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> รับฟังความคิดเห็น และประสานความร่วมมือของสมาชิกในทีม
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q23" ng-model="otherTemp.other_template.q23" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q23" ng-model="otherTemp.other_template.q23" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q23" ng-model="otherTemp.other_template.q23" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q23" ng-model="otherTemp.other_template.q23" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>4</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> รักษามิตรภาพที่ดี ให้การสนับสนุน และช่วยเหลือเพื่อนร่วมทีม เพื่อให้งานประสบความสำเร็จ
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q24" ng-model="otherTemp.other_template.q24" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q24" ng-model="otherTemp.other_template.q24" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q24" ng-model="otherTemp.other_template.q24" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q24" ng-model="otherTemp.other_template.q24" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>5</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> ส่งเสริมความสามัคคีในหมู่คณะเพื่อมุ่งให้ภารกิจประสบผลสำเร็จ
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q25" ng-model="otherTemp.other_template.q25" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q25" ng-model="otherTemp.other_template.q25" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q25" ng-model="otherTemp.other_template.q25" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q25" ng-model="otherTemp.other_template.q25" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <thead>
-                                        <td></td>
                                         <td>
                                             <center>
-                                                <h4><b>สมรรถนะประจำสายงาน</b></h4>
+                                                <input type="radio" name="q5" ng-model="otherTemp.other_template.q5" value="4" convert-to-number>
                                             </center>
                                         </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </thead>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>1</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> การออกแบบการเรียนรู้
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q26" ng-model="otherTemp.other_template.q26" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q26" ng-model="otherTemp.other_template.q26" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q26" ng-model="otherTemp.other_template.q26" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q26" ng-model="otherTemp.other_template.q26" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>2</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> การพัฒนาผู้เรียน
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q27" ng-model="otherTemp.other_template.q27" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q27" ng-model="otherTemp.other_template.q27" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q27" ng-model="otherTemp.other_template.q27" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q27" ng-model="otherTemp.other_template.q27" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <h4>3</h4>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <h4>
-                                            <span style="color:red">*</span> การบริหารจัดการชั้นเรียน
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q28" ng-model="otherTemp.other_template.q28" value="1" convert-to-number required>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q28" ng-model="otherTemp.other_template.q28" value="2" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q28" ng-model="otherTemp.other_template.q28" value="3" convert-to-number>
-                                        </center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input type="radio" name="q28" ng-model="otherTemp.other_template.q28" value="4" convert-to-number>
-                                        </center>
-                                    </td>
-                                </tr>
-                            </table>
-                            <hr>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1"><h4>หมายเหตุ</h4></label>
-                                <textarea class="form-control" rows="4" ng-model="otherTemp.notation"></textarea>
+                                    </tr>
+                                    <tr>
+                                        <thead>
+                                            <td></td>
+                                            <td>
+                                                <center>
+                                                    <h4><b>การยึดมั่นในความถูกต้องและจริยธรรม</b></h4>
+                                                </center>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </thead>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>1</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> ปฏิบัติหน้าที่ด้วยความถูกต้องตามหลักกฎหมาย จริยธรรม และระเบียบวินัย
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q6" ng-model="otherTemp.other_template.q6" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q6" ng-model="otherTemp.other_template.q6" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q6" ng-model="otherTemp.other_template.q6" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q6" ng-model="otherTemp.other_template.q6" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>2</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> มีสัจจะเชื่อถือได้
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q7" ng-model="otherTemp.other_template.q7" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q7" ng-model="otherTemp.other_template.q7" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q7" ng-model="otherTemp.other_template.q7" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q7" ng-model="otherTemp.other_template.q7" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>3</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> ยึดมั่นแน่วแน่ในจรรยาบรรณ หลักคุณธรรม ยุติธรรม และปฏิบัติตนกับผู้อื่นอย่างเท่าเทียมกัน
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q8" ng-model="otherTemp.other_template.q8" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q8" ng-model="otherTemp.other_template.q8" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q8" ng-model="otherTemp.other_template.q8" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q8" ng-model="otherTemp.other_template.q8" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>4</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> ธำรงความถูกต้องเพื่อองค์กร
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q9" ng-model="otherTemp.other_template.q9" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q9" ng-model="otherTemp.other_template.q9" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q9" ng-model="otherTemp.other_template.q9" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q9" ng-model="otherTemp.other_template.q9" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>5</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> อุทิศตนเพื่อองค์กร และประเทศชาติ
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q10" ng-model="otherTemp.other_template.q10" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q10" ng-model="otherTemp.other_template.q10" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q10" ng-model="otherTemp.other_template.q10" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q10" ng-model="otherTemp.other_template.q10" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <thead>
+                                            <td></td>
+                                            <td>
+                                                <center>
+                                                    <h4><b>ความเข้าใจในองค์กรและระบบงาน</b></h4>
+                                                </center>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </thead>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>1</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> เข้าใจเทคโนโลยี ระบบ กระบวนการทำงานและมาตรฐานในงานของตน
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q11" ng-model="otherTemp.other_template.q11" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q11" ng-model="otherTemp.other_template.q11" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q11" ng-model="otherTemp.other_template.q11" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q11" ng-model="otherTemp.other_template.q11" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>2</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> ความสัมพันธ์เชื่อมโยงของระบบและกระบวนการทำงานของตนกับหน่วยงานอื่นๆ ที่ติดต่ออย่างชัดเจน
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q12" ng-model="otherTemp.other_template.q12" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q12" ng-model="otherTemp.other_template.q12" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q12" ng-model="otherTemp.other_template.q12" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q12" ng-model="otherTemp.other_template.q12" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>3</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> สามารถมองภาพรวมแล้วปรับเปลี่ยนหรือปรับปรุงระบบให้มีประสิทธิภาพขึ้น
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q13" ng-model="otherTemp.other_template.q13" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q13" ng-model="otherTemp.other_template.q13" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q13" ng-model="otherTemp.other_template.q13" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q13" ng-model="otherTemp.other_template.q13" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>4</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> เข้าใจกระแสภายนอกกับผลกระทบโดยรวมต่อเทคโนโลยี ระบบหรือกระบวนการทำงานของหน่วยงาน
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q14" ng-model="otherTemp.other_template.q14" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q14" ng-model="otherTemp.other_template.q14" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q14" ng-model="otherTemp.other_template.q14" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q14" ng-model="otherTemp.other_template.q14" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>5</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> เข้าใจความต้องการที่แท้จริงขององค์กร
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q15" ng-model="otherTemp.other_template.q15" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q15" ng-model="otherTemp.other_template.q15" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q15" ng-model="otherTemp.other_template.q15" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q15" ng-model="otherTemp.other_template.q15" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <thead>
+                                            <td></td>
+                                            <td>
+                                                <center>
+                                                    <h4><b>การบริการเป็นเลิศ</b></h4>
+                                                </center>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </thead>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>1</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> แสดงความเต็มใจในการให้บริการ มีอัธยาศัยไมตรีอันดี และให้บริการที่ผู้รับบริการต้องการได้
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q16" ng-model="otherTemp.other_template.q16" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q16" ng-model="otherTemp.other_template.q16" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q16" ng-model="otherTemp.other_template.q16" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q16" ng-model="otherTemp.other_template.q16" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>2</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> เต็มใจช่วยเหลือ และแก้ปัญหาให้กับผู้บริการได้
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q17" ng-model="otherTemp.other_template.q17" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q17" ng-model="otherTemp.other_template.q17" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q17" ng-model="otherTemp.other_template.q17" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q17" ng-model="otherTemp.other_template.q17" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>3</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> ให้บริการที่เกินความคาดหวังในระดับทั่วไปของผู้รับบริการ
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q18" ng-model="otherTemp.other_template.q18" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q18" ng-model="otherTemp.other_template.q18" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q18" ng-model="otherTemp.other_template.q18" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q18" ng-model="otherTemp.other_template.q18" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>4</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> สามารถเข้าใจและให้บริการที่ตรงตามความต้องการที่แท้จริงของผู้รับบริการได้
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q19" ng-model="otherTemp.other_template.q19" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q19" ng-model="otherTemp.other_template.q19" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q19" ng-model="otherTemp.other_template.q19" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q19" ng-model="otherTemp.other_template.q19" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>5</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> มองการณ์ไกล และสามารถให้บริการที่เป็นประโยชน์อย่างแท้จริงและยั่งยืนให้กับผู้รับบริการ
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q20" ng-model="otherTemp.other_template.q20" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q20" ng-model="otherTemp.other_template.q20" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q20" ng-model="otherTemp.other_template.q20" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q20" ng-model="otherTemp.other_template.q20" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <thead>
+                                            <td></td>
+                                            <td>
+                                                <center>
+                                                    <h4><b>การทำงานเป็นทีม</b></h4>
+                                                </center>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </thead>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>1</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> รู้บทบาทหน้าที่ของตน และหน้าที่ของตนในทีมให้สำเร็จ
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q21" ng-model="otherTemp.other_template.q21" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q21" ng-model="otherTemp.other_template.q21" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q21" ng-model="otherTemp.other_template.q21" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q21" ng-model="otherTemp.other_template.q21" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>2</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> มีทัศนคติที่ดีต่อเพื่อนร่วมงาน และให้ความร่วมมือในการทำงานกับเพื่อนร่วมงาน
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q22" ng-model="otherTemp.other_template.q22" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q22" ng-model="otherTemp.other_template.q22" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q22" ng-model="otherTemp.other_template.q22" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q22" ng-model="otherTemp.other_template.q22" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>3</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> รับฟังความคิดเห็น และประสานความร่วมมือของสมาชิกในทีม
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q23" ng-model="otherTemp.other_template.q23" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q23" ng-model="otherTemp.other_template.q23" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q23" ng-model="otherTemp.other_template.q23" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q23" ng-model="otherTemp.other_template.q23" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>4</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> รักษามิตรภาพที่ดี ให้การสนับสนุน และช่วยเหลือเพื่อนร่วมทีม เพื่อให้งานประสบความสำเร็จ
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q24" ng-model="otherTemp.other_template.q24" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q24" ng-model="otherTemp.other_template.q24" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q24" ng-model="otherTemp.other_template.q24" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q24" ng-model="otherTemp.other_template.q24" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>5</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> ส่งเสริมความสามัคคีในหมู่คณะเพื่อมุ่งให้ภารกิจประสบผลสำเร็จ
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q25" ng-model="otherTemp.other_template.q25" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q25" ng-model="otherTemp.other_template.q25" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q25" ng-model="otherTemp.other_template.q25" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q25" ng-model="otherTemp.other_template.q25" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <thead>
+                                            <td></td>
+                                            <td>
+                                                <center>
+                                                    <h4><b>สมรรถนะประจำสายงาน</b></h4>
+                                                </center>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </thead>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>1</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> การออกแบบการเรียนรู้
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q26" ng-model="otherTemp.other_template.q26" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q26" ng-model="otherTemp.other_template.q26" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q26" ng-model="otherTemp.other_template.q26" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q26" ng-model="otherTemp.other_template.q26" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>2</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> การพัฒนาผู้เรียน
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q27" ng-model="otherTemp.other_template.q27" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q27" ng-model="otherTemp.other_template.q27" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q27" ng-model="otherTemp.other_template.q27" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q27" ng-model="otherTemp.other_template.q27" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>3</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                <span style="color:red">*</span> การบริหารจัดการชั้นเรียน
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q28" ng-model="otherTemp.other_template.q28" value="1" convert-to-number required>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q28" ng-model="otherTemp.other_template.q28" value="2" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q28" ng-model="otherTemp.other_template.q28" value="3" convert-to-number>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type="radio" name="q28" ng-model="otherTemp.other_template.q28" value="4" convert-to-number>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="notation" class="form-label"><h4>หมายเหตุ</h4></label>
+                                    <textarea class="form-control" rows="4" ng-model="otherTemp.notation"></textarea>
+                                </div>
+                                <div>
+                                    <center>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block">ส่งแบบประเมิน</button>
+                                        <div class="clearfix"></div>
+                                    </center>
+                                </div>
                             </div>
-                            <div>
-                                <center>
-                                    <button ng-click="createOtherTemplate()" class="btn btn-primary btn-lg btn-block">ส่งแบบประเมิน</button>
-                                    <div class="clearfix"></div>
-                                </center>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
