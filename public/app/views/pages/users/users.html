@@ -11,7 +11,7 @@
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="/users">รายชื่อผู้ใช้งาน</a></li>
                             <li><a href="/users/ststatus">สถานะการประเมินของผู้ใช้งาน</a></li>
-                            <li><a href="/addUser">เพิ่ม/แก้ไข ข้อมูลผู้ใช้งาน</a></li>
+                            <li><a href="/addUser">เพิ่มข้อมูลผู้ใช้งาน</a></li>
                         </ul>
                         &nbsp;
                         <div class="content table-responsive table-full-width">
@@ -88,8 +88,11 @@
                                         <td>
                                             <center>{{u.groupRole.classGroupRole + u.group.classGroup}}</center>
                                         </td>
-                                        <td></td>
-                                        <td><button type="button" class="btn btn-danger" ng-click="deleteUser(u._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                        <td>
+                                            <button class="btn btn-info" type="button" data-toggle="modal" data-target="#userEdit" ng-click="selectUser(u._id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" ng-really-message="แน่ใจหรือไม่ ?" ng-really-click="deleteUser(u._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>

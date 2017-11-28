@@ -20,6 +20,11 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 authenticated: true,
                 permission: ['admin']
             })
+            .when('/user/edit:id', {
+                templateUrl: '/app/views/pages/admin/adduser.html',
+                authenticated: true,
+                permission: ['admin']
+            })
             .when('/addUser', {
                 templateUrl: '/app/views/pages/users/adduser.html',
                 authenticated: true,

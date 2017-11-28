@@ -29,7 +29,7 @@ angular.module('usersServices', [])
 
         // Edit an user
         userFactory.updateUser = function(id, user) {
-            return $http.put('/api/user/' + id, user);
+            return $http.put('/api/user/edit' + id, user);
         };
 
         // Delete user
