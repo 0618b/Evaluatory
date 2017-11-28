@@ -34,8 +34,8 @@ var otherTemplateSchema = new Schema({
         q26: Number,
         q27: Number,
         q28: Number,
-        notation: String
     },
+    notation: String,
     receipients: { type: Schema.Types.ObjectId, ref: 'User' },
     evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
@@ -44,12 +44,13 @@ var otherTemplateSchema = new Schema({
         evalRound: ''
     },
     totalScore: { type: Number, default: 0 },
-    isEvaluated: { type: Boolean, default: false }
+    isEvaluated: { type: Number, default: 0 }
 });
 
 otherTemplateSchema.pre('save', function(next) {
     var ot = this;
     var month = ot.timestamp.month;
+    var other_template = ot.other_template;
 
     if (month = 1) {
         ot.timestamp.evalRound = 1 + "/" + year;
@@ -75,6 +76,11 @@ otherTemplateSchema.pre('save', function(next) {
         ot.timestamp.evalRound = 11 + "/" + year;
     } else if (month = 12) {
         ot.timestamp.evalRound = 12 + "/" + year;
+    }
+
+    for (var i = 0; i < other_template.length; i++) {
+        ot.totalScore += other_template[i];
+        ot.isEvaluated++
     }
 
     next();

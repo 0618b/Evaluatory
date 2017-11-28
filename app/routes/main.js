@@ -266,7 +266,8 @@ module.exports = function(router) {
     router.post('/othertemps', function(req, res) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
-        ot.receipients = req.params.id;
+        ot.notation = req.body.notation;
+        //ot.receipients = req.params.id;
         ot.evaluatedBy = req.decoded.username
         ot.isEvaluated = req.body.isEvaluated;
         ot.save(function(err, othertemp) {
@@ -275,6 +276,7 @@ module.exports = function(router) {
                     success: false,
                     msg: 'มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง'
                 });
+                console.log('มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง');
             } else {
                 User.findOne({ username: req.decoded.username }, function(err, user) {
                     if (!user) {
