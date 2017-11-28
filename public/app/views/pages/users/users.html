@@ -4,41 +4,92 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h3>ผู้ใช้งาน</h3>
+                        <h3>รายชื่อผู้ใช้งาน</h3>
                         <hr>
-                        <a href="/addUser" class="btn btn-success">เพิ่มผู้ใช้งาน</a>
                     </div>
                     <div class="content" ng-controller="usersCtrl">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="/users">รายชื่อผู้ใช้งาน</a></li>
+                            <li><a href="/users/ststatus">สถานะการประเมินของผู้ใช้งาน</a></li>
+                            <li><a href="/addUser">เพิ่ม/แก้ไข ข้อมูลผู้ใช้งาน</a></li>
+                        </ul>
+                        &nbsp;
                         <div class="content table-responsive table-full-width">
                             <table class="table tablhover tablstriped ">
                                 <thead>
                                     <tr>
                                         <th>ที่</th>
-                                        <th>ชื่อ-นามสกุล</th>
-                                        <th>ชื่อผู้ใช้งาน</th>
-                                        <th>ตำแหน่ง</th>
-                                        <th>ระดับ</th>
-                                        <th>ประเภทตำแหน่ง</th>
-                                        <th>ตำแหน่งเลขที่</th>
-                                        <th>สังกัด</th>
-                                        <th>กลุ่มสาระการเรียนรู้</th>
-                                        <th>กลุ่มสายงาน</th>
-                                        <th>กลุ่มสายชั้น</th>
+                                        <th>
+                                            <center>ชื่อ-นามสกุล</center>
+                                        </th>
+                                        <th>
+                                            <center>ชื่อผู้ใช้งาน</center>
+                                        </th>
+                                        <th>
+                                            <center>ตำแหน่ง</center>
+                                        </th>
+                                        <th>
+                                            <center>ระดับ</center>
+                                        </th>
+                                        <th>
+                                            <center>ประเภทตำแหน่ง</center>
+                                        </th>
+                                        <th>
+                                            <center>ตำแหน่งเลขที่</center>
+                                        </th>
+                                        <th>
+                                            <center>สังกัด</center>
+                                        </th>
+                                        <th>
+                                            <center>กลุ่มสาระการเรียนรู้</center>
+                                        </th>
+                                        <th>
+                                            <center>กลุ่มสายงาน</center>
+                                        </th>
+                                        <th>
+                                            <center>กลุ่มสายชั้น</center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                            </center>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="u in users">
-                                        <td>{{$index+1}}</td>
-                                        <td>{{u.firstName + " " + u.lastName}}</td>
-                                        <td>{{u.username}}</td>
-                                        <td>{{u.position.positionName}}</td>
-                                        <td>{{u.position.positionLevel}}</td>
-                                        <td>{{u.position.positionCategory}}</td>
-                                        <td>{{u.position.positionNumber}}</td>
-                                        <td>{{u.belongTo}}</td>
-                                        <td>{{u.groupRole.subjectGroupRole + u.group.subjectGroup}}</td>
-                                        <td>{{u.groupRole.workGroupRole + u.group.workGroup}}</td>
-                                        <td>{{u.groupRole.classGroupRole + u.group.classGroup}}</td>
+                                    <tr ng-repeat="u in users | filter: isNotAdmin">
+                                        <td>
+                                            <center>{{$index+1}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.firstName + " " + u.lastName}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.username}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.position.positionName}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.position.positionLevel}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.position.positionCategory}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.position.positionNumber}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.belongTo}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.groupRole.subjectGroupRole + u.group.subjectGroup}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.groupRole.workGroupRole + u.group.workGroup}}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{u.groupRole.classGroupRole + u.group.classGroup}}</center>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

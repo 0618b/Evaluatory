@@ -4,10 +4,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h3>สถานะการประเมิน</h3>
+                        <h3>สถานะการประเมินของผู้ใช้งาน</h3>
                     </div>
                     <hr>
                     <div class="content" ng-controller="userEvalCtrl">
+                        <ul class="nav nav-tabs">
+                            <li><a href="/users">รายชื่อผู้ใช้งาน</a></li>
+                            <li class="active"><a href="/users/ststatus">สถานะการประเมินของผู้ใช้งาน</a></li>
+                            <li><a href="/addUser">เพิ่ม/แก้ไข ข้อมูลผู้ใช้งาน</a></li>
+                        </ul>
+                        &nbsp;
                         <div class="content table-responsive table-full-width">
                             <table class="table tablhover tablstriped ">
                                 <thead>
@@ -35,7 +41,7 @@
                                             <center>{{u.selftemplates[0].isEvaluated}}</center>
                                         </td>
                                         <td style="width:20%;">
-                                            <center>{{u.othertemplates}}</center>
+                                            <center>{{u.othertemplates[0]}}</center>
                                         </td>
                                         <!-- ตรงนี้ต้อง filter เฉพาะรอบประเมินให้ได้ -->
                                     </tr>

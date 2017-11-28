@@ -6,9 +6,14 @@
                     <div class="header">
                         <h3>เพิ่มผู้ใช้งาน</h3>
                         <hr>
-                        <a href="/users" class="btn btn-warning">กลับ</a>
                     </div>
                     <div class="content" ng-controller="usersCtrl">
+                        <ul class="nav nav-tabs">
+                            <li><a href="/users">รายชื่อผู้ใช้งาน</a></li>
+                            <li><a href="/users/ststatus">สถานะการประเมินของผู้ใช้งาน</a></li>
+                            <li class="active"><a href="/addUser">เพิ่ม/แก้ไข ข้อมูลผู้ใช้งาน</a></li>
+                        </ul>
+                        &nbsp;
                         <form ng-submit="createUser(userData)">
                             <div class="row">
                                 <div class="col-md-5">

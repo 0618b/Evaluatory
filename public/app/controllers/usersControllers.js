@@ -33,6 +33,11 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
             })
         }
+
+        $scope.isNotAdmin = function(data) {
+            return data.permission != "admin";
+        }
+
     }).controller('userEvalCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
 
         function getEvalUsers() {
