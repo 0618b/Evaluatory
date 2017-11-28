@@ -34,6 +34,13 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
             })
         }
 
+        $scope.deleteUser = function(id) {
+            userServices.deleteUser(id).then(function(data) {
+                getAllUsers();
+                console.log('Success');
+            })
+        }
+
         $scope.isNotAdmin = function(data) {
             return data.permission != "admin";
         }

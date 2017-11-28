@@ -34,7 +34,7 @@ angular.module('usersServices', [])
 
         // Delete user
         userFactory.deleteUser = function(id) {
-            return $http.delete('/api/users/' + id);
+            return $http.delete('/api/user/' + id);
         };
 
         return userFactory; // Return Self-Template Factory Object

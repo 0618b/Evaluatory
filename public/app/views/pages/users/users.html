@@ -49,10 +49,8 @@
                                         <th>
                                             <center>กลุ่มสายชั้น</center>
                                         </th>
-                                        <th>
-                                            <center>
-                                            </center>
-                                        </th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -89,6 +87,9 @@
                                         </td>
                                         <td>
                                             <center>{{u.groupRole.classGroupRole + u.group.classGroup}}</center>
+                                        </td>
+                                        <td></td>
+                                        <td><button type="button" class="btn btn-danger" ng-click="deleteUser(u._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
