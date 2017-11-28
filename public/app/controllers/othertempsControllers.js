@@ -14,8 +14,8 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
             return data.permission != "admin";
         }
 
-        $scope.createOtherTemplate = function(otherTemp) {
-            otherTemplateService.createOtherTemplate(this.otherTemp).then(function(data) {
+        $scope.createOtherTemplate = function(othertemp) {
+            otherTemplateService.createOtherTemplate(this.othertemp).then(function(data) {
                 if (data.data.success === true) {
                     let msg = data.data.msg;
                     swal({

@@ -33,23 +33,23 @@ var app = angular.module('mainRoutes', ['ngRoute'])
             .when('/othertemps/subjectGroup', {
                 templateUrl: '/app/views/pages/evalforms/othertemp_subjectGroup.html',
                 authenticated: true,
-                permission: ['header', 'director', 'admin']
+                permission: ['admin', 'header', 'director', 'admin']
             })
             .when('/othertemps/workGroup', {
                 templateUrl: '/app/views/pages/evalforms/othertemp_workGroup.html',
                 authenticated: true,
-                permission: ['header', 'director', 'admin']
+                permission: ['admin', 'header', 'director', 'admin']
             })
             .when('/othertemps/classGroup', {
                 templateUrl: '/app/views/pages/evalforms/othertemp_classGroup.html',
                 authenticated: true,
-                permission: ['header', 'director', 'admin']
+                permission: ['admin', 'header', 'director', 'admin']
             })
             .when('/othertemp/:id', {
                 templateUrl: '/app/views/pages/evalforms/othertempeval.html',
                 controller: 'othertempsCtrl',
                 authenticated: true,
-                permission: ['header', 'director', 'admin']
+                permission: ['admin', 'header', 'director', 'admin']
             })
             .when('/selfscores/:id', {
                 templateUrl: '/app/views/pages/evalforms/selfscores.html',
