@@ -1,13 +1,14 @@
-<div class="content">
+<div class="content" ng-controller="userEvalCtrl">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
                         <h3>สถานะการประเมินของผู้ใช้งาน</h3>
+                        <p class="category">ประจำรอบการประเมินที่ {{ evalRound }}</p>
                     </div>
                     <hr>
-                    <div class="content" ng-controller="userEvalCtrl">
+                    <div class="content">
                         <ul class="nav nav-tabs">
                             <li><a href="/users">รายชื่อผู้ใช้งาน</a></li>
                             <li class="active"><a href="/users/ststatus">สถานะการประเมินของผู้ใช้งาน</a></li>
@@ -18,33 +19,48 @@
                             <table class="table tablhover tablstriped ">
                                 <thead>
                                     <tr>
-                                        <th style="width:5%;">ที่</th>
+                                        <th style="width:5%;">
+                                            <center>
+                                                <h4>ที่</h4>
+                                            </center>
+                                        </th>
                                         <th style="width:15%;">
-                                            <center>ชื่อ-นามสกุล</center>
+                                            <center>
+                                                <h4>ชื่อ-นามสกุล</h4>
+                                            </center>
                                         </th>
                                         <th style="width:20%;">
-                                            <center>สถานะการประเมิน : แบบประเมินตนเอง</center>
+                                            <center>
+                                                <h4>สถานะการประเมิน : แบบประเมินตนเอง</h4>
+                                            </center>
                                         </th>
                                         <th style="width:20%;">
-                                            <center>สถานะการประเมิน : แบบประเมินผู้อื่น</center>
+                                            <center>
+                                                <h4>สถานะการประเมิน : แบบประเมินผู้อื่น</h4>
+                                            </center>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="u in userEval | filter: isNotAdmin">
-                                        <td style="width:5%;">{{$index+1}}</td>
+                                        <td style="width:5%;">
+                                            <center>
+                                                <h4>{{$index+1}}</h4>
+                                            </center>
+                                        </td>
                                         <td style="width:15%;">
                                             <center>
-                                                {{u.firstName + " " + u.lastName}}</center>
-                                        </td>
-                                        <td style="width:20%;">
-                                            <center>
-                                                <i class="fa fa-check" ng-show="u.selftemplates[0].isEvaluated != null" aria-hidden="true" style="color:greenyellow"></i>
+                                                <h4>{{u.firstName + " " + u.lastName}}</h4>
                                             </center>
                                         </td>
                                         <td style="width:20%;">
                                             <center>
-                                                <i class="fa fa-check" aria-hidden="true" style="color:greenyellow" ng-show="u.othertemplates.length > 0"></i>
+                                                <h4><i class="fa fa-check" ng-show="u.selftemplates[0].isEvaluated != null" aria-hidden="true" style="color:greenyellow"></i></h4>
+                                            </center>
+                                        </td>
+                                        <td style="width:20%;">
+                                            <center>
+                                                <h4><i class="fa fa-check" aria-hidden="true" style="color:greenyellow" ng-show="u.othertemplates.length > 0"></i></h4>
                                             </center>
                                         </td>
                                         <!-- ตรงนี้ต้อง filter เฉพาะรอบประเมินให้ได้ เอาเท่านี้ก่อนละกัน เดี๋ยวตื่นมาทำใหม่ -->

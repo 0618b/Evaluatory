@@ -51,6 +51,15 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
             userServices.getEvalUsers().then(function(data) {
                 $scope.userEval = data.data;
                 console.log(data.data);
+                var present = new Date();
+                var month = present.getMonth() + 1;
+                var year = present.getFullYear() + 543;
+                $scope.evalRound = "";
+                if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+                    $scope.evalRound = 1 + "/" + year;
+                } else if (month >= 4 && month <= 9) {
+                    $scope.evalRound = 2 + "/" + year;
+                }
             })
         }
 
