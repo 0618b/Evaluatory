@@ -12,9 +12,7 @@ var selfTemplateSchema = new Schema({
         year: { type: Number, default: year },
         evalRound: ''
     },
-    totalScore: { type: Number, default: 0 },
-    totalWeight: { type: Number, default: 0 },
-    isEvaluated: { type: Number, default: 0 }
+    isEvaluated: { type: Boolean, default: false }
 });
 
 selfTemplateSchema.pre('save', function(next) {

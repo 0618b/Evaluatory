@@ -53,9 +53,7 @@ module.exports = function(router) {
         } else if (month >= 4 && month <= 9) {
             evalRound = 2 + "/" + year;
         }
-        User.find({}).populate('selftemplates', null, {
-            'timestamp.evalRound': evalRound
-        }).exec(function(err, data) {
+        User.find({}).populate('selftemplates').populate('othertemplates').exec(function(err, data) {
             if (err) return next(err);
             res.json(data);
         })
@@ -286,7 +284,7 @@ module.exports = function(router) {
         ot.other_template = req.body.other_template;
         ot.notation = req.body.notation;
         ot.receipients = req.params.id;
-        ot.evaluatedBy = req.decoded.username
+        ot.evaluatedBy = req.decoded.username;
         ot.isEvaluated = req.body.isEvaluated;
         ot.save(function(err, othertemp) {
             if (err) {

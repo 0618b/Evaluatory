@@ -43,14 +43,13 @@ var otherTemplateSchema = new Schema({
         year: { type: Number, default: year },
         evalRound: ''
     },
-    totalScore: { type: Number, default: 0 },
-    isEvaluated: { type: Number, default: 0 }
+    isEvaluated: { type: Boolean, default: false }
 });
 
 otherTemplateSchema.pre('save', function(next) {
     var ot = this;
     var month = ot.timestamp.month;
-    var other_template = ot.other_template;
+    var year = ot.timestamp.year;
 
     ot.timestamp.evalRound = month + "/" + year;
 

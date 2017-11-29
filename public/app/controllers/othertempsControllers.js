@@ -1,5 +1,5 @@
 angular.module('othertempsControllers', ['othertempsServices', 'angular.filter'])
-    .controller('othertempsCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope) {
+    .controller('othertempsCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
         function getOtherTempsUser() {
             otherTemplateService.getOtherTempsUser().then(function(data) {
