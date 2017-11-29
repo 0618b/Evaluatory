@@ -48,6 +48,7 @@ module.exports = function(router) {
         var month = present.getMonth() + 1;
         var year = present.getFullYear() + 543;
         var evalRound = "";
+        var otEvalRound = month + "/" + year;
         if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
             evalRound = 1 + "/" + year;
         } else if (month >= 4 && month <= 9) {
@@ -57,7 +58,8 @@ module.exports = function(router) {
             path: 'selftemplates',
             match: { 'timestamp.evalRound': evalRound }
         }).populate({
-            path: 'othertemplates'
+            path: 'othertemplates',
+            match: { 'timestamp.evalRound': otEvalRound }
         }).exec(function(err, data) {
             if (err) return next(err);
             res.json(data);
