@@ -256,15 +256,6 @@ module.exports = function(router) {
             res.json(data);
         })
     })
-    router.get('/selftemps/notevalyet', function(req, res, next) {
-        SelfTemplate.find({
-            isEvaluated: false,
-            'timestamp.evalRound': evalRound
-        }, function(err, data) {
-            if (err) return next(err);
-            res.json(data);
-        });
-    });
     router.get('/selftemp/:id', function(req, res, next) {
         SelfTemplate.findOne({ _id: req.params.id }, function(err, data) {
             if (err) return next(err);
