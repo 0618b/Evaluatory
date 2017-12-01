@@ -15,7 +15,7 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 authenticated: true,
                 permission: ['admin']
             })
-            .when('/users/ststatus', {
+            .when('/users/evalstatus', {
                 templateUrl: '/app/views/pages/admin/stlist.html',
                 authenticated: true,
                 permission: ['admin']

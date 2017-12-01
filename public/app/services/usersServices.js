@@ -14,7 +14,7 @@ angular.module('usersServices', [])
 
         // get stlist
         userFactory.getEvalUsers = function() {
-            return $http.get('/api/users/ststatus');
+            return $http.get('/api/users/evalstatus');
         }
 
         // Get single user by id

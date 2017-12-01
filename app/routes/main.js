@@ -43,7 +43,7 @@ module.exports = function(router) {
         });
     });
 
-    router.get('/users/ststatus', function(req, res, next) {
+    router.get('/users/evalstatus', function(req, res, next) {
         var present = new Date();
         var month = present.getMonth() + 1;
         var year = present.getFullYear() + 543;
