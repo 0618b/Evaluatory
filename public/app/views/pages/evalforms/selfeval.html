@@ -13,12 +13,12 @@
                             &nbsp;
                             <hr>
                             <div class="col-xs-12" align="left">
-                                <h4>
+                                <h3>
                                     <p>รอบการประเมิน : {{data.data.timestamp.evalRound}}</p>
                                     <p class="category">ชื่อ - สกุล ผู้รับการประเมิน : {{ userDatas.firstName + " " + userDatas.lastName }} &nbsp; ตำแหน่ง : {{ userDatas.position.positionName }} &nbsp; ระดับ : {{ userDatas.position.positionLevel }}</p>
                                     <p class="category">ประเภทตำแหน่ง : {{ userDatas.position.positionCategory }} &nbsp; ตำแหน่งเลขที่ : {{ userDatas.position.positionNumber }} </p>
                                     <p class="category">สังกัด : {{ userDatas.belongTo }}</p>
-                                </h4>
+                                </h3>
                             </div>
                             &nbsp;
                             <div class="content">
@@ -31,153 +31,237 @@
                                 </div>
                             </div>
                             <hr>
-                            <h4>
+                            <h3>
                                 <table class="table tablhover tablstriped">
                                     <thead>
                                         <tr>
                                             <th>
-                                                <center>ที่</center>
+                                                <center>
+                                                    <h4>ที่</h4>
+                                                </center>
                                             </th>
                                             <th class="col-md-4 ">
-                                                <center>หัวข้อการประเมิน</center>
+                                                <center>
+                                                    <h4>หัวข้อการประเมิน</h4>
+                                                </center>
                                             </th>
                                             <th class="col-md-1 ">
-                                                <center>น้ำหนักคะแนน</center>
+                                                <center>
+                                                    <H4>น้ำหนักคะแนน</H4>
+                                                </center>
                                             </th>
                                             <th class="col-md-1 ">
-                                                <center>ผลการประเมิน</center>
+                                                <center>
+                                                    <h4>ผลการประเมิน</h4>
+                                                </center>
                                             </th>
                                             <th class="col-md-6 ">
                                                 <center>
-                                                    เกณฑ์การพิจารณา
+                                                    <h4>เกณฑ์การพิจารณา</h4>
                                                 </center>
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <h4>{{ $index + 1 }}</h4>
-                                            </td>
-                                            <td>
-                                                <h4>{{data.data.self_template.sectionGroup[0].choiceHeader}}</h4>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- Choice group list 1 -->
-                                        <tr>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].$index + 1}}</b></td>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].groupName}}</b></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.1 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].$index + 1}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</td>
-                                            <td>
-                                                <select class="form-control" id="q1.1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score" convert-to-number>
-                                                <option disabled selected value="">คะแนน</option>
-                                                <option value="0">-</option>
-                                                <option value="3">3</option>
-                                                <option value="6">6</option>
-                                            </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.2 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].$index + 2}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalWeight}}</td>
-                                            <td>
-                                                <select class="form-control" id="q1.2" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score" convert-to-number>
-                                                <option disabled selected value="">คะแนน</option>
-                                                <option value="0">-</option>
-                                                <option value="3">3</option>
-                                                <option value="6">6</option>
-                                            </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.3 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].$index + 3}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight}}</td>
-                                            <td>
-                                                <select type="number" class="form-control" id="qุ1.3" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score" convert-to-number>
-                                                <option disabled selected value="">คะแนน</option>
-                                                <option value="0">-</option>
-                                                <option value="6">6</option>
-                                            </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.4 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].$index + 4}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalWeight}}</td>
-                                            <td>
-                                                <select class="form-control" id="q1.4" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].score" convert-to-number>
-                                                <option disabled selected value="">คะแนน</option>
-                                                <option value="0">-</option>
-                                                <option value="3">3</option>
-                                                <option value="6">6</option>
-                                            </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 1.5 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].$index + 5}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalWeight}}</td>
-                                            <td>
-                                                <select class="form-control" id="q1.5" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score" convert-to-number>
-                                                <option disabled selected value="">คะแนน</option>
-                                                <option value="0">-</option>
-                                                <option value="3">3</option>
-                                                <option value="6">6</option>
-                                            </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- Choice group list 2 -->
-                                        <tr>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].$index + 2}}</b></td>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupName}}</b></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 2.1 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].$index + 1}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalWeight}}</td>
-                                            <td><select class="form-control" id="q2.1" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score" convert-to-number>
+
+                                    <tr>
+                                        <td>
+                                            <h4>{{ $index + 1 }}</h4>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceHeader}}</h4>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <!-- Choice group list 1 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].$index + 1}}</b></h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].groupName}}</b></h4>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <!-- question 1.1 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].$index + 1}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q1.1" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score" convert-to-number>
+                                                    <option disabled selected value="">คะแนน</option>
+                                                    <option value="0">-</option>
+                                                    <option value="2">2</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- question 1.2 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].$index + 2}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalTopic}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalWeight}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q1.2" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score" convert-to-number>
+                                                    <option disabled selected value="">คะแนน</option>
+                                                    <option value="0">-</option>
+                                                    <option value="2">2</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- question 1.3 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].$index + 3}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" type="number" class="form-control" id="qุ1.2" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score" convert-to-number>
+                                                            <option disabled selected value="">คะแนน</option>
+                                                            <option value="0">-</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- question 1.4 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].$index + 4}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q1.4" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score" convert-to-number>
+                                                            <option disabled selected value="">คะแนน</option>
+                                                            <option value="0">-</option>
+                                                            <option value="2">2</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- question 1.5 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].$index + 5}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q1.5" ng-model="self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score" convert-to-number>
+                                                            <option disabled selected value="">คะแนน</option>
+                                                            <option value="0">-</option>
+                                                            <option value="2">2</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Choice group list 2 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].$index + 2}}</b></h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].groupName}}</b></h4>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <!-- question 2.1 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].$index + 1}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q2.1" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score" convert-to-number>
                                                     <option disabled selected value="">คะแนน</option>
                                                     <option value="6">6</option>
                                                     <option value="7">7</option>
@@ -185,90 +269,145 @@
                                                     <option value="9">9</option>
                                                     <option value="10">10</option>
                                                 </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 2.2 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].$index + 2}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalWeight}}</td>
-                                            <td><select class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score" convert-to-number>
-                                                    <option disabled selected value="">คะแนน</option>
-                                                    <option value="0">-</option>
-                                                    <option value="2">2</option>
-                                                    <option value="5">5</option>
-                                                </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 2.3 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].$index + 3}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalWeight}}</td>
-                                            <td><select class="form-control" id="q2.3" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score" convert-to-number>
-                                                    <option disabled selected value="">คะแนน</option>
-                                                    <option value="2">2</option>
-                                                    <option value="5">5</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- Choice group list 3 -->
-                                        <tr>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].$index + 3}}</b></td>
-                                            <td><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupName}}</b></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 3.1 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].$index + 1}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalWeight}}</td>
-                                            <td><select class="form-control" id="q3.1" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score" convert-to-number>
-                                                <option disabled selected value="">คะแนน</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <!-- question 3.2 -->
-                                        <tr>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].$index + 2}}</td>
-                                            <td><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalTopic}}</td>
-                                            <td align="center">{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight}}</td>
-                                            <td><select class="form-control" id="q3.2" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score" convert-to-number>
-                                                <option disabled selected value="">คะแนน</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                </select>
-                                            </td>
-                                            <td>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalCriteria}}</td>
-                                        </tr>
-                                    </tbody>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- question 2.2 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].$index + 2}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score" convert-to-number>
+                                                        <option disabled selected value="">คะแนน</option>
+                                                        <option value="0">-</option>
+                                                        <option value="2">2</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- question 2.2 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].$index + 2}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score" convert-to-number>
+                                                            <option disabled selected value="">คะแนน</option>
+                                                            <option value="2">2</option>
+                                                            <option value="5">5</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Choice group list 2 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].$index + 3}}</b></h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><b>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].groupName}}</b></h4>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <!-- question 2.1 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].$index + 1}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q2.1" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score" convert-to-number>
+                                                        <option disabled selected value="">คะแนน</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
+
+                                    <!-- question 2.2 -->
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].$index + 2}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4><span style="color:red">*</span> {{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalTopic}}</h4>
+                                        </td>
+                                        <td align="center">
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight}}</h4>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <select style="width: 75px; height: 40px; font-size: 17px" class="form-control" id="q2.2" ng-model="self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score" convert-to-number>
+                                                        <option disabled selected value="">คะแนน</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        </select>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <h4>{{data.data.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalCriteria}}</h4>
+                                        </td>
+                                    </tr>
                                 </table>
-                            </h4>
+                            </h3>
                         </div>
                         <button ng-click="evalSelfTemp()" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
                     </div>
