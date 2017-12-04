@@ -3,10 +3,6 @@ var SelfTemplate = require('../models/selftemplates');
 var OtherTemplate = require('../models/othertemplates');
 var jwt = require('jsonwebtoken');
 var magic = 'youreawizard';
-var present = new Date();
-var month = present.getMonth() + 1;
-var year = present.getFullYear() + 543;
-var evalRound = "";
 
 module.exports = function(router) {
 
@@ -48,6 +44,10 @@ module.exports = function(router) {
     });
 
     router.get('/users/evalstatus', function(req, res, next) {
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var evalRound = "";
         if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
             evalRound = 1 + "/" + year;
         } else if (month >= 4 && month <= 9) {
@@ -97,13 +97,17 @@ module.exports = function(router) {
 
     router.post('/authenticate', function(req, res) {
         var loginUser = req.body.username;
-        User.findOne({ username: loginUser }).select('username password firstName lastName position belongTo group groupRole permission selftemplates othertemplates').populate({
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var evalRound = "";
+        User.findOne({ username: loginUser }).populate({
             path: 'selftemplates',
             match: { 'timestamp.evalRound': evalRound }
         }).populate({
             path: 'othertemplates',
             match: { 'timestamp.evalRound': evalRound, 'timestamp.month': month }
-        }).exec(function(err, user) {
+        }).select('username password firstName lastName position belongTo group groupRole permission selftemplates othertemplates').exec(function(err, user) {
             //if (err) throw err;
             // Check if user is found in the database (based on username)
             if (!user) {
