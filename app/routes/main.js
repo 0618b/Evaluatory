@@ -278,7 +278,7 @@ module.exports = function(router) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
         ot.notation = req.body.notation;
-        ot.receipients = req.params.id;
+        ot.receipients = req.params.username;
         ot.evaluatedBy = req.decoded.username;
         ot.isEvaluated = req.body.isEvaluated;
         ot.save(function(err, othertemp) {
