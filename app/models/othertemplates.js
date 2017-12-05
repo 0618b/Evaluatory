@@ -37,7 +37,7 @@ var otherTemplateSchema = new Schema({
         q28: Number,
     },
     notation: String,
-    evaluatedFor: { type: String, ref: 'User' },
+    evaluatedFor: { type: Schema.Types.ObjectId, ref: 'User' },
     timestamp: {
         month: { type: Number, default: month },
         year: { type: Number, default: year },

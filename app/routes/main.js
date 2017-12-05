@@ -295,11 +295,12 @@ module.exports = function(router) {
 
     // Othertemplate API
 
-    router.post('/othertemps', function(req, res) {
+    router.post('/othertemps/:id', function(req, res) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
         ot.notation = req.body.notation;
-        ot.evaluatedFor = req.body.username;
+        ot.evaluatedFor = req.params.id;
+        console.log(req.params.id);
         ot.save(function(err, othertemp) {
             if (err) {
                 res.json({
@@ -307,7 +308,7 @@ module.exports = function(router) {
                     msg: 'มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง'
                 });
             } else {
-                User.findOne({ username: req.body.username }, function(err, user) {
+                User.findOne({ _id: req.params.id }, function(err, user) {
                     if (!user) {
                         res.json({
                             success: false,
