@@ -299,9 +299,7 @@ module.exports = function(router) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
         ot.notation = req.body.notation;
-        ot.receipients = req.params.username;
-        ot.evaluatedBy = req.decoded.username;
-        ot.isEvaluated = req.body.isEvaluated;
+        ot.evaluatedFor = req.params.username;
         ot.save(function(err, othertemp) {
             if (err) {
                 res.json({
@@ -310,7 +308,7 @@ module.exports = function(router) {
                 });
                 console.log('มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง');
             } else {
-                User.findOne({ username: req.decoded.username }, function(err, user) {
+                User.findOne({ username: req.params.username }, function(err, user) {
                     if (!user) {
                         res.json({
                             success: false,

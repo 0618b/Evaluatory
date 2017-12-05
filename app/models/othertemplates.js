@@ -37,8 +37,7 @@ var otherTemplateSchema = new Schema({
         q28: Number,
     },
     notation: String,
-    receipients: { type: String, ref: 'User' },
-    evaluatedBy: { type: String, ref: 'User' },
+    evaluatedFor: { type: String, ref: 'User' },
     timestamp: {
         month: { type: Number, default: month },
         year: { type: Number, default: year },
