@@ -17,6 +17,11 @@ angular.module('usersServices', [])
             return $http.get('/api/users/evalstatus');
         }
 
+        // get checkScore
+        userFactory.checkScores = function() {
+            return $http.get('/api/users/checkScore')
+        }
+
         // Get single user by id
         userFactory.getUserById = function(id) {
             return $http.get('/api/users/' + id);

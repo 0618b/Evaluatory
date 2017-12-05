@@ -186,14 +186,35 @@ module.exports = function(router) {
         })
     });
 
+    router.get('/users/checkScore', function(req, res) {
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var evalRound = "";
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            evalRound = 1 + "/" + year;
+        } else if (month >= 4 && month <= 9) {
+            evalRound = 2 + "/" + year;
+        }
+        User.findOne({ username: req.decoded.username })
+            .populate({
+                path: 'selftemplates',
+                match: { 'timestamp.evalRound': evalRound }
+            }).populate({
+                path: 'othertemplates',
+                match: { 'timestamp.evalRound': evalRound, 'timestamp.month': month }
+            }).exec(function(err, user) {
+                if (err) return next(err);
+                res.json(user);
+            })
+    })
+
     // Selftemplate API
 
     router.post('/selftemps', function(req, res) {
         var st = new SelfTemplate();
         st.self_template = req.body.self_template;
         st.evaluatedBy = req.decoded.username;
-        st.isEvaluated = req.body.isEvaluated;
-        st.totalScore = req.body.totalScore;
         st.save(function(err, selftemp) {
             if (err) {
                 res.json({

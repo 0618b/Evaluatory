@@ -65,6 +65,11 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 templateUrl: '/app/views/pages/evalforms/selfscores.html',
                 authenticated: true
             })
+            .when('/users/checkScore', {
+                templateUrl: '/app/views/pages/users/checkScore.html',
+                controller: 'checkScoreCtrl',
+                authenticated: true
+            })
             .when('/404', {
                 templateUrl: '/app/views/pages/errors/404.html'
             })

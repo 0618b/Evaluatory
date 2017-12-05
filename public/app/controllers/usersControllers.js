@@ -71,6 +71,17 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
         getEvalUsers();
 
+    }).controller('checkScoreCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
+
+        function checkScores() {
+            userServices.checkScores().then(function(data) {
+                $scope.score = data.data;
+                console.log(data.data);
+            })
+        }
+
+        checkScores();
+
     }).directive('ngReallyClick', [function() {
         return {
             restrict: 'A',
