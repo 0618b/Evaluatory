@@ -5,6 +5,7 @@
                 <div class="card">
                     <div class="header">
                         <h3 class="title">แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</h3>
+                        <p>{{ subjectGroupFilter }}</p>
                     </div>
                     <hr>
                     <div class="content" ng-controller="othertempsCtrl">
@@ -14,22 +15,6 @@
                             <li><a href="/othertemps/classGroup">กลุ่มสายชั้น</a></li>
                         </ul>
                         &nbsp;
-                        <div class="col-xs-12" align="center">
-                            <div class="col-xs-4">
-                                <p>กลุ่มสาระการเรียนรู้</p>
-                                <select ng-model="query" class="form-control">
-                                        <option value="">แสดงทั้งหมด</option>
-                                        <option value="กลุ่มสาระการเรียนรู้ภาษาไทย">กลุ่มสาระการเรียนรู้ภาษาไทย</option>
-                                        <option value="กลุ่มสาระการเรียนรู้คณิตศาสตร์">กลุ่มสาระการเรียนรู้คณิตศาสตร์</option>
-                                        <option value="กลุ่มสาระการเรียนรู้วิทยาศาสตร์">กลุ่มสาระการเรียนรู้วิทยาศาสตร์</option>
-                                        <option value="กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม">กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม</option>
-                                        <option value="กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา">กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา</option>
-                                        <option value="กลุ่มสาระการเรียนรู้ศิลปะ">กลุ่มสาระการเรียนรู้ศิลปะ</option>
-                                        <option value="กลุ่มสาระการเรียนรู้การงานอาชีพและเทคโนโลยี">กลุ่มสาระการเรียนรู้การงานอาชีพและเทคโนโลยี</option>
-                                        <option value="กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ">กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ</option>
-                                    </select>
-                            </div>
-                        </div>
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover">
                                 <thead>
@@ -41,7 +26,7 @@
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="o in othertemplateData | filter: query || undefind || isNotAdmin">
+                                    <tr ng-repeat="o in othertemplateData | filter: isNotAdmin || subjectGroupFilter">
                                         <td>{{$index + 1}}</td>
                                         <td>{{o.firstName}} {{o.lastName}} </td>
                                         <td>{{o.group.subjectGroup}}</td>

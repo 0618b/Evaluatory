@@ -38,6 +38,7 @@ var otherTemplateSchema = new Schema({
     },
     notation: String,
     evaluatedFor: { type: Schema.Types.ObjectId, ref: 'User' },
+    evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
         month: { type: Number, default: month },
         year: { type: Number, default: year },

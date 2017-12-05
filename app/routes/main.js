@@ -47,9 +47,10 @@ module.exports = function(router) {
         var present = new Date();
         var month = present.getMonth() + 1;
         var year = present.getFullYear() + 543;
+        var nextYear = year + 1;
         var evalRound = "";
         if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
-            evalRound = 1 + "/" + year;
+            evalRound = 1 + "/" + year + "-" + nextYear;
         } else if (month >= 4 && month <= 9) {
             evalRound = 2 + "/" + year;
         }
@@ -190,9 +191,10 @@ module.exports = function(router) {
         var present = new Date();
         var month = present.getMonth() + 1;
         var year = present.getFullYear() + 543;
+        var nextYear = year + 1;
         var evalRound = "";
         if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
-            evalRound = 1 + "/" + year;
+            evalRound = 1 + "/" + year + "-" + nextYear;
         } else if (month >= 4 && month <= 9) {
             evalRound = 2 + "/" + year;
         }
@@ -299,6 +301,7 @@ module.exports = function(router) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
         ot.notation = req.body.notation;
+        ot.evaluatedBy = req.decoded.evaluatedBy;
         ot.evaluatedFor = req.params.id;
         console.log(req.params.id);
         ot.save(function(err, othertemp) {

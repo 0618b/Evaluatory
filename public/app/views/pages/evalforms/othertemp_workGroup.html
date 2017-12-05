@@ -14,16 +14,6 @@
                             <li><a href="/othertemps/classGroup">กลุ่มสายชั้น</a></li>
                         </ul>
                         &nbsp;
-                        <div class="col-xs-12" align="center">
-                            <div class="col-xs-4">
-                                <p>กลุ่มสายงาน</p>
-                                <select ng-model="query" class="form-control">
-                                        <option value="">แสดงทั้งหมด</option>
-                                        <option value="ฝ่ายบริหารวิชาการ">ฝ่ายบริหารวิชาการ</option>
-                                        <option value="ฝ่ายงานบริหารทั่วไป">ฝ่ายงานบริหารทั่วไป</option>
-                                    </select>
-                            </div>
-                        </div>
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover">
                                 <thead>
@@ -35,7 +25,7 @@
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="o in othertemplateData | filter: query || undefind || isNotAdmin">
+                                    <tr ng-repeat="o in othertemplateData | filter: workGroup || undefind || isNotAdmin ">
                                         <td>{{$index + 1}}</td>
                                         <td>{{o.firstName}} {{o.lastName}} </td>
                                         <td>{{o.group.workGroup}}</td>
