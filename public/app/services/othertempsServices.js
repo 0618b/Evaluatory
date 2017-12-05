@@ -8,8 +8,16 @@ angular.module('othertempsServices', [])
         };
 
         // Get Subject Group User
-        otFactory.getOtherTempsUser = function() {
-            return $http.get('/api/othertemps');
+        otFactory.getSubjectGroupUsers = function() {
+            return $http.get('/api/othertemps/subjectGroup');
+        }
+
+        otFactory.getClassGroupUsers = function() {
+            return $http.get('/api/othertemps/classGroup');
+        }
+
+        otFactory.getWorkGroupUsers = function() {
+            return $http.get('/api/othertemps/workGroup');
         }
 
         // Get Each Template

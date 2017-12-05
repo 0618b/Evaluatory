@@ -7,7 +7,7 @@
                         <h3 class="title">แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</h3>
                     </div>
                     <hr>
-                    <div class="content" ng-controller="othertempsCtrl">
+                    <div class="content" ng-controller="workGroupCtrl">
                         <ul class="nav nav-tabs">
                             <li><a href="/othertemps/subjectGroup">กลุ่มสาระการเรียนรู้</a></li>
                             <li class="active"><a href="/othertemps/workGroup">กลุ่มสายงาน</a></li>
@@ -25,7 +25,7 @@
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="o in othertemplateData | filter: workGroup || undefind || isNotAdmin ">
+                                    <tr ng-repeat="o in othertemplateData | filter: undefind || isNotAdmin || isNotYou">
                                         <td>{{$index + 1}}</td>
                                         <td>{{o.firstName}} {{o.lastName}} </td>
                                         <td>{{o.group.workGroup}}</td>

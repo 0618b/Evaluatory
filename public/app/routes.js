@@ -68,6 +68,7 @@ var app = angular.module('mainRoutes', ['ngRoute'])
             .when('/users/checkScore', {
                 templateUrl: '/app/views/pages/users/checkScore.html',
                 controller: 'checkScoreCtrl',
+                permission: ['admin', 'header', 'director', 'teacher'],
                 authenticated: true
             })
             .when('/404', {

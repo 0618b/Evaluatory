@@ -339,8 +339,26 @@ module.exports = function(router) {
         });
     });
 
-    router.get('/othertemps', function(req, res, next) {
-        User.find({}, function(err, users) {
+    router.get('/othertemps/subjectGroup', function(req, res, next) {
+        User.find({ 'group.subjectGroup': req.decoded.group.subjectGroup }, function(err, users) {
+            if (err) {
+                return next(err);
+            } else {
+                res.json(users);
+            }
+        });
+    });
+    router.get('/othertemps/classGroup', function(req, res, next) {
+        User.find({ 'group.classGroup': req.decoded.group.classGroup }, function(err, users) {
+            if (err) {
+                return next(err);
+            } else {
+                res.json(users);
+            }
+        });
+    });
+    router.get('/othertemps/workGroup', function(req, res, next) {
+        User.find({ 'group.workGroup': req.decoded.group.workGroup }, function(err, users) {
             if (err) {
                 return next(err);
             } else {

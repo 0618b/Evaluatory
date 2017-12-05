@@ -1,15 +1,6 @@
 angular.module('othertempsControllers', ['othertempsServices', 'angular.filter'])
     .controller('othertempsCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
-        function getOtherTempsUser() {
-            otherTemplateService.getOtherTempsUser().then(function(data) {
-                $scope.othertemplateData = data.data;
-                console.log($scope.othertemplateData);
-            });
-        };
-
-        getOtherTempsUser();
-
         $scope.isNotAdmin = function(data) {
             return data.permission != "admin";
         }
@@ -38,6 +29,37 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
         }
 
     })
+
+.controller('subjectGroupCtrl', function(otherTemplateService, $scope) {
+    function getSubjectGroupUsers() {
+        otherTemplateService.getSubjectGroupUsers().then(function(data) {
+            $scope.othertemplateData = data.data;
+            console.log($scope.othertemplateData);
+        });
+    };
+    getSubjectGroupUsers();
+})
+
+
+.controller('classGroupCtrl', function(otherTemplateService, $scope) {
+    function getClassGroupUsers() {
+        otherTemplateService.getClassGroupUsers().then(function(data) {
+            $scope.othertemplateData = data.data;
+            console.log($scope.othertemplateData);
+        });
+    };
+    getClassGroupUsers();
+})
+
+.controller('workGroupCtrl', function(otherTemplateService, $scope) {
+    function getWorkGroupUsers() {
+        otherTemplateService.getWorkGroupUsers().then(function(data) {
+            $scope.othertemplateData = data.data;
+            console.log($scope.othertemplateData);
+        });
+    };
+    getWorkGroupUsers();
+})
 
 .controller('otherevalCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
