@@ -36,6 +36,7 @@ var otherTemplateSchema = new Schema({
         q27: Number,
         q28: Number,
     },
+    type: String,
     notation: String,
     evaluatedFor: { type: Schema.Types.ObjectId, ref: 'User' },
     evaluatedBy: { type: String, ref: 'User' },
