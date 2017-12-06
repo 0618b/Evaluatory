@@ -1,10 +1,6 @@
 angular.module('othertempsControllers', ['othertempsServices', 'angular.filter'])
     .controller('othertempsCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
 
-        $scope.isNotAdmin = function(data) {
-            return data.permission != "admin";
-        }
-
         $scope.createOtherTemplate = function(otherTemp) {
             otherTemplateService.createOtherTemplate($routeParams.id, otherTemp).then(function(data) {
                 if (data.data.success === true) {
@@ -31,6 +27,11 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
     })
 
 .controller('subjectGroupCtrl', function(otherTemplateService, $scope) {
+
+    $scope.isNotAdmin = function(data) {
+        return data.permission != "admin";
+    }
+
     function getSubjectGroupUsers() {
         otherTemplateService.getSubjectGroupUsers().then(function(data) {
             $scope.othertemplateData = data.data;
@@ -42,6 +43,11 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
 
 
 .controller('classGroupCtrl', function(otherTemplateService, $scope) {
+
+    $scope.isNotAdmin = function(data) {
+        return data.permission != "admin";
+    }
+
     function getClassGroupUsers() {
         otherTemplateService.getClassGroupUsers().then(function(data) {
             $scope.othertemplateData = data.data;
@@ -52,6 +58,11 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
 })
 
 .controller('workGroupCtrl', function(otherTemplateService, $scope) {
+
+    $scope.isNotAdmin = function(data) {
+        return data.permission != "admin";
+    }
+
     function getWorkGroupUsers() {
         otherTemplateService.getWorkGroupUsers().then(function(data) {
             $scope.othertemplateData = data.data;
