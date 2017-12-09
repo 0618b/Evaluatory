@@ -55,8 +55,20 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 authenticated: true,
                 permission: ['admin', 'header', 'director', 'admin']
             })
-            .when('/othertemp/:id', {
-                templateUrl: '/app/views/pages/evalforms/othertempeval.html',
+            .when('/othertemp/classGroup/:id', {
+                templateUrl: '/app/views/pages/evalforms/o_eval_classGroup.html',
+                controller: 'othertempsCtrl',
+                authenticated: true,
+                permission: ['admin', 'header', 'director', 'admin']
+            })
+            .when('/othertemp/subjectGroup/:id', {
+                templateUrl: '/app/views/pages/evalforms/o_eval_subjectGroup.html',
+                controller: 'othertempsCtrl',
+                authenticated: true,
+                permission: ['admin', 'header', 'director', 'admin']
+            })
+            .when('/othertemp/workGroup/:id', {
+                templateUrl: '/app/views/pages/evalforms/o_eval_workGroup.html',
                 controller: 'othertempsCtrl',
                 authenticated: true,
                 permission: ['admin', 'header', 'director', 'admin']
