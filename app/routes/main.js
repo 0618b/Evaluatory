@@ -301,6 +301,7 @@ module.exports = function(router) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
         ot.notation = req.body.notation;
+        ot.type = req.body.type;
         ot.evaluatedBy = req.decoded.evaluatedBy;
         ot.evaluatedFor = req.params.id;
         console.log(req.params.id);
