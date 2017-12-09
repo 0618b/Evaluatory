@@ -329,7 +329,7 @@ module.exports = function(router) {
                             } else {
                                 res.json({
                                     success: true,
-                                    msg: 'สร้างแบบประเมินเรียบร้อยแล้ว',
+                                    msg: 'สำเร็จ',
                                     othertemp: othertemp
                                 });
                             }
