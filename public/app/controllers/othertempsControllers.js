@@ -23,7 +23,6 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
                 }
             })
         }
-
     })
 
 .controller('subjectGroupCtrl', function(otherTemplateService, $scope) {

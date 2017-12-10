@@ -37,7 +37,7 @@ var otherTemplateSchema = new Schema({
         q28: Number,
     },
     type: String,
-    notation: { type: String, default: '' },
+    notation: { type: String, default: '-' },
     evaluatedFor: { type: Schema.Types.ObjectId, ref: 'User' },
     evaluatedBy: { type: String, ref: 'User' },
     timestamp: {
