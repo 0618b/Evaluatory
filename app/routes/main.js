@@ -427,7 +427,10 @@ module.exports = function(router) {
         User.find({
             'group.subjectGroup': req.decoded.group.subjectGroup,
             username: { '$ne': req.decoded.username }
-        }, function(err, users) {
+        }).populate({
+            path: 'othertemplates',
+            match: { 'timestamp.evalRound': evalRound, 'timestamp.month': month, type: "subjectGroup" },
+        }).exec(function(err, users) {
             if (err) {
                 return next(err);
             } else {
@@ -439,7 +442,10 @@ module.exports = function(router) {
         User.find({
             'group.classGroup': req.decoded.group.classGroup,
             username: { '$ne': req.decoded.username }
-        }, function(err, users) {
+        }).populate({
+            path: 'othertemplates',
+            match: { 'timestamp.evalRound': evalRound, 'timestamp.month': month, type: "classGroup" },
+        }).exec(function(err, users) {
             if (err) {
                 return next(err);
             } else {
@@ -464,12 +470,6 @@ module.exports = function(router) {
             if (err) return next(err);
             res.json(data);
         })
-    })
-    router.get('/othertemps/notevalyet', function(req, res, next) {
-        OtherTemplate.find({ isEvaluated: false }, function(err, data) {
-            if (err) return next(err);
-            res.json(data);
-        });
     });
     router.get('/othertemp/:id', function(req, res, next) {
         OtherTemplate.findOne({ _id: req.params.id }, function(err, data) {
