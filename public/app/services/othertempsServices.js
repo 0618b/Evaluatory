@@ -3,8 +3,16 @@ angular.module('othertempsServices', [])
 
         otFactory = {};
 
-        otFactory.createOtherTemplate = function(id, otherTemp) {
-            return $http.post('/api/othertemps/' + id, otherTemp);
+        otFactory.createSubjectGroupOtherTemplate = function(id, otherTemp) {
+            return $http.post('/api/othertemps/subjectGroup/' + id, otherTemp);
+        };
+
+        otFactory.createWorkGroupOtherTemplate = function(id, otherTemp) {
+            return $http.post('/api/othertemps/workGroup/' + id, otherTemp);
+        };
+
+        otFactory.createClassGroupOtherTemplate = function(id, otherTemp) {
+            return $http.post('/api/othertemps/classGroup/' + id, otherTemp);
         };
 
         // Get Subject Group User
@@ -28,11 +36,6 @@ angular.module('othertempsServices', [])
         // Get template by its id, then edit
         otFactory.getOtherTemplateById = function(id) {
             return $http.get('/api/othertemp/' + id);
-        };
-
-        // Edit a self-evaluation template
-        otFactory.evalOtherTemplate = function(id, evalData) {
-            return $http.put('/api/othertemp/' + id, evalData);
         };
 
         return otFactory; // Return Self-Template Factory Object

@@ -297,14 +297,97 @@ module.exports = function(router) {
 
     // Othertemplate API
 
-    router.post('/othertemps/:id', function(req, res) {
+    router.post('/othertemps/workGroup/:id', function(req, res) {
         var ot = new OtherTemplate();
         ot.other_template = req.body.other_template;
         ot.notation = req.body.notation;
-        ot.type = req.body.type;
+        ot.type = "workGroup";
         ot.evaluatedBy = req.decoded.evaluatedBy;
         ot.evaluatedFor = req.params.id;
-        console.log(req.params.id);
+        ot.save(function(err, othertemp) {
+            if (err) {
+                res.json({
+                    success: false,
+                    msg: 'มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง'
+                });
+            } else {
+                User.findOne({ _id: req.params.id }, function(err, user) {
+                    if (!user) {
+                        res.json({
+                            success: false,
+                            msg: 'ไม่พบผู้ใช้งานดังกล่าว'
+                        })
+                    } else {
+                        user.othertemplates.push(ot);
+                        user.save(function(err) {
+                            if (err) {
+                                res.json({
+                                    success: false,
+                                    msg: 'มีบางอย่างผิดพลาด โปรดลองใหม่อีกครั้ง'
+                                })
+                            } else {
+                                res.json({
+                                    success: true,
+                                    msg: 'สำเร็จ',
+                                    othertemp: othertemp
+                                });
+                            }
+                        })
+                    }
+                })
+            }
+        });
+    });
+
+    router.post('/othertemps/subjectGroup/:id', function(req, res) {
+        var ot = new OtherTemplate();
+        ot.other_template = req.body.other_template;
+        ot.notation = req.body.notation;
+        ot.type = "subjectGroup";
+        ot.evaluatedBy = req.decoded.evaluatedBy;
+        ot.evaluatedFor = req.params.id;
+        ot.save(function(err, othertemp) {
+            if (err) {
+                res.json({
+                    success: false,
+                    msg: 'มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง'
+                });
+            } else {
+                User.findOne({ _id: req.params.id }, function(err, user) {
+                    if (!user) {
+                        res.json({
+                            success: false,
+                            msg: 'ไม่พบผู้ใช้งานดังกล่าว'
+                        })
+                    } else {
+                        user.othertemplates.push(ot);
+                        user.save(function(err) {
+                            if (err) {
+                                res.json({
+                                    success: false,
+                                    msg: 'มีบางอย่างผิดพลาด โปรดลองใหม่อีกครั้ง'
+                                })
+                            } else {
+                                res.json({
+                                    success: true,
+                                    msg: 'สำเร็จ',
+                                    othertemp: othertemp
+                                });
+                            }
+                        })
+                    }
+                })
+            }
+        });
+    });
+
+    router.post('/othertemps/classGroup/:id', function(req, res) {
+        var ot = new OtherTemplate();
+        ot.other_template = req.body.other_template;
+        ot.notation = req.body.notation;
+        ot.type = "classGroup";
+        ot.evaluatedBy = req.decoded.evaluatedBy;
+        ot.evaluatedFor = req.params.id;
         ot.save(function(err, othertemp) {
             if (err) {
                 res.json({

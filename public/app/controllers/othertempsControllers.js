@@ -1,8 +1,20 @@
 angular.module('othertempsControllers', ['othertempsServices', 'angular.filter'])
-    .controller('othertempsCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
+    .controller('subjectGroupCtrl', function(otherTemplateService, $scope, $location, $routeParams, $timeout) {
 
-        $scope.createOtherTemplate = function(otherTemp) {
-            otherTemplateService.createOtherTemplate($routeParams.id, otherTemp).then(function(data) {
+        $scope.isNotAdmin = function(data) {
+            return data.permission != "admin";
+        }
+
+        function getSubjectGroupUsers() {
+            otherTemplateService.getSubjectGroupUsers().then(function(data) {
+                $scope.othertemplateData = data.data;
+            });
+        };
+
+        getSubjectGroupUsers();
+
+        $scope.createSubjectGroupOtherTemplate = function(otherTemp) {
+            otherTemplateService.createSubjectGroupOtherTemplate($routeParams.id, otherTemp).then(function(data) {
                 if (data.data.success === true) {
                     let msg = data.data.msg;
                     swal({
@@ -25,23 +37,8 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
         }
     })
 
-.controller('subjectGroupCtrl', function(otherTemplateService, $scope) {
 
-    $scope.isNotAdmin = function(data) {
-        return data.permission != "admin";
-    }
-
-    function getSubjectGroupUsers() {
-        otherTemplateService.getSubjectGroupUsers().then(function(data) {
-            $scope.othertemplateData = data.data;
-            console.log($scope.othertemplateData);
-        });
-    };
-    getSubjectGroupUsers();
-})
-
-
-.controller('classGroupCtrl', function(otherTemplateService, $scope) {
+.controller('classGroupCtrl', function(otherTemplateService, $scope, $location, $routeParams, $timeout) {
 
     $scope.isNotAdmin = function(data) {
         return data.permission != "admin";
@@ -53,10 +50,34 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
             console.log($scope.othertemplateData);
         });
     };
+
     getClassGroupUsers();
+
+    $scope.createClassGroupOtherTemplate = function(otherTemp) {
+        otherTemplateService.createClassGroupOtherTemplate($routeParams.id, otherTemp).then(function(data) {
+            if (data.data.success === true) {
+                let msg = data.data.msg;
+                swal({
+                    title: msg,
+                    type: 'success',
+                    timer: 2000
+                })
+                $timeout(function() {
+                    $location.url('/othertemps/classGroup')
+                }, 500);
+            } else {
+                let msg = data.data.msg;
+                swal({
+                    title: msg,
+                    type: 'error',
+                    timer: 2000
+                })
+            }
+        })
+    }
 })
 
-.controller('workGroupCtrl', function(otherTemplateService, $scope) {
+.controller('workGroupCtrl', function(otherTemplateService, $scope, $location, $routeParams, $timeout) {
 
     $scope.isNotAdmin = function(data) {
         return data.permission != "admin";
@@ -68,28 +89,31 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
             console.log($scope.othertemplateData);
         });
     };
+
     getWorkGroupUsers();
-})
 
-.controller('otherevalCtrl', function(otherTemplateService, $scope, $location, $routeParams, $rootScope, $timeout) {
-
-    function getOtherTemplateById(id) {
-        otherTemplateService.getOtherTemplateById($routeParams.id).then(function(data) {
-            if (data.status === 200) { // check that data is OK
-                $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
-                $scope.other_template = data.data;
-            } else {
+    $scope.createWorkGroupOtherTemplate = function(otherTemp) {
+        otherTemplateService.createWorkGroupOtherTemplate($routeParams.id, otherTemp).then(function(data) {
+            if (data.data.success === true) {
+                let msg = data.data.msg;
                 swal({
-                    title: 'มีบางอย่างผิดพลาด',
-                    type: 'warning',
+                    title: msg,
+                    type: 'success',
+                    timer: 2000
+                })
+                $timeout(function() {
+                    $location.url('/othertemps/workGroup')
+                }, 500);
+            } else {
+                let msg = data.data.msg;
+                swal({
+                    title: msg,
+                    type: 'error',
                     timer: 2000
                 })
             }
-        });
+        })
     }
-
-    getOtherTemplateById();
-
 }).directive('convertToNumber', function() {
     return {
         require: 'ngModel',
