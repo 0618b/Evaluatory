@@ -19,7 +19,9 @@
                                 <thead>
                                     <th>ที่</th>
                                     <th>ชื่อ-นามสกุล ผู้รับการประเมิน</th>
-                                    <th>กลุ่มสายงาน</th>
+                                    <th>
+                                        <center>กลุ่มสายงาน</center>
+                                    </th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -28,12 +30,22 @@
                                     <tr ng-repeat="o in othertemplateData | filter: undefind || isNotAdmin">
                                         <td>{{$index + 1}}</td>
                                         <td>{{o.firstName}} {{o.lastName}} </td>
-                                        <td>{{o.group.workGroup}}</td>
                                         <td>
-                                            <!-- ตรงนี้อาจจะใช้ ng-show คอยดัก ทำปุ่มก่อนละกัน -->
-                                            <a href="/othertemp/workGroup/{{ o._id }}">
-                                                <button type="button" class="btn btn-info btn-block">ประเมิน</button>
-                                            </a>
+                                            <center>{{o.group.workGroup}}</center>
+                                        </td>
+                                        <td ng-show="o.othertemplates.length == 0">
+                                            <center>
+                                                <a href="/othertemp/workGroup/{{ o._id }}">
+                                                    <button type="button" class="btn btn-info btn-block">ประเมิน</button>
+                                                </a>
+                                            </center>
+                                        </td>
+                                        <td ng-show="o.othertemplates.length == 1">
+                                            <center>
+                                                <center>
+                                                    <button type="button" class="btn btn-success btn-block">ประเมินแล้ว</button>
+                                                </center>
+                                            </center>
                                         </td>
                                         <td></td>
                                         <td></td>

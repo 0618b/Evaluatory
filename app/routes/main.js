@@ -424,6 +424,16 @@ module.exports = function(router) {
     });
 
     router.get('/othertemps/subjectGroup', function(req, res, next) {
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var nextYear = year + 1;
+        var evalRound = "";
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            evalRound = 1 + "/" + year + "-" + nextYear;
+        } else if (month >= 4 && month <= 9) {
+            evalRound = 2 + "/" + year;
+        }
         User.find({
             'group.subjectGroup': req.decoded.group.subjectGroup,
             username: { '$ne': req.decoded.username }
@@ -439,6 +449,16 @@ module.exports = function(router) {
         });
     });
     router.get('/othertemps/classGroup', function(req, res, next) {
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var nextYear = year + 1;
+        var evalRound = "";
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            evalRound = 1 + "/" + year + "-" + nextYear;
+        } else if (month >= 4 && month <= 9) {
+            evalRound = 2 + "/" + year;
+        }
         User.find({
             'group.classGroup': req.decoded.group.classGroup,
             username: { '$ne': req.decoded.username }
@@ -454,10 +474,23 @@ module.exports = function(router) {
         });
     });
     router.get('/othertemps/workGroup', function(req, res, next) {
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var nextYear = year + 1;
+        var evalRound = "";
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            evalRound = 1 + "/" + year + "-" + nextYear;
+        } else if (month >= 4 && month <= 9) {
+            evalRound = 2 + "/" + year;
+        }
         User.find({
             'group.workGroup': req.decoded.group.workGroup,
             username: { '$ne': req.decoded.username }
-        }, function(err, users) {
+        }).populate({
+            path: 'othertemplates',
+            match: { 'timestamp.evalRound': evalRound, 'timestamp.month': month, type: "workGroup" },
+        }).exec(function(err, users) {
             if (err) {
                 return next(err);
             } else {

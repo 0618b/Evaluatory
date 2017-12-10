@@ -8,12 +8,6 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
         function getSubjectGroupUsers() {
             otherTemplateService.getSubjectGroupUsers().then(function(data) {
                 $scope.othertemplateData = data.data;
-                console.log($scope.othertemplateData);
-                if ($scope.othertemplateData.othertemplates[0].length === 0) {
-                    $scope.isEvaluated = false;
-                } else {
-                    $scope.isEvaluated = true;
-                }
             });
         };
 
@@ -53,7 +47,6 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
     function getClassGroupUsers() {
         otherTemplateService.getClassGroupUsers().then(function(data) {
             $scope.othertemplateData = data.data;
-            console.log($scope.othertemplateData);
         });
     };
 

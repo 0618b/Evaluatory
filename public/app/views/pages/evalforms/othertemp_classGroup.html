@@ -19,7 +19,10 @@
                                 <thead>
                                     <th>ที่</th>
                                     <th>ชื่อ-นามสกุล ผู้รับการประเมิน</th>
-                                    <th>กลุ่มสายชั้น</th>
+                                    <th>
+                                        <center>กลุ่มสายชั้น</center>
+                                    </th>
+                                    <th></th>
                                     <th></th>
                                     <th></th>
                                 </thead>
@@ -27,15 +30,20 @@
                                     <tr ng-repeat="o in othertemplateData | filter: undefind || isNotAdmin">
                                         <td>{{$index + 1}}</td>
                                         <td>{{o.firstName}} {{o.lastName}} </td>
-                                        <td>{{o.group.classGroup}}</td>
+                                        <td>
+                                            <center>{{o.group.classGroup}}</center>
+                                        </td>
                                         <td ng-show="o.othertemplates.length == 0">
-                                            <!-- ตรงนี้อาจจะใช้ ng-show คอยดัก ทำปุ่มก่อนละกัน -->
-                                            <a href="/othertemp/classGroup/{{ o._id }}">
-                                                <button type="button" class="btn btn-info btn-block">ประเมิน</button>
-                                            </a>
+                                            <center>
+                                                <a href="/othertemp/classGroup/{{ o._id }}">
+                                                    <button type="button" class="btn btn-info btn-block">ประเมิน</button>
+                                                </a>
+                                            </center>
                                         </td>
                                         <td ng-show="o.othertemplates.length == 1">
-                                            <center>ประเมินเรียบร้อยแล้ว</center>
+                                            <center>
+                                                <button type="button" class="btn btn-success btn-block">ประเมินแล้ว</button>
+                                            </center>
                                         </td>
                                         <td></td>
                                         <td></td>
