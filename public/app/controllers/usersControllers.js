@@ -90,7 +90,52 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
         function checkScores() {
             userServices.checkScores().then(function(data) {
                 $scope.score = data.data;
+                $scope.selfTemplateScore = data.data.selftemplates[0];
+                $scope.otherTemplateScore = data.data.othertemplates;
                 console.log(data.data);
+
+                s0 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score;
+                s1 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score;
+                s2 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].score;
+                s3 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].score;
+                s4 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].score;
+                s5 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].score;
+                s6 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].score;
+                s7 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].score;
+                s8 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].score;
+                s9 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].score;
+
+                w0 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].evalWeight;
+                w1 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].evalWeight;
+                w2 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[2].evalWeight;
+                w3 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[3].evalWeight;
+                w4 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[4].evalWeight;
+                w5 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[1].choiceList[0].evalWeight;
+                w6 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[1].choiceList[1].evalWeight;
+                w7 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[1].choiceList[2].evalWeight;
+                w8 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[2].choiceList[0].evalWeight;
+                w9 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight;
+
+                let othertemp_arr = $scope.otherTemplateScore;
+                console.log(othertemp_arr);
+                let score_arr = [s0, s1, s2, s2, s4, s5, s6, s7, s8, s9];
+                let evalWeight_arr = [w0, w1, w2, w3, w4, w5, w6, w7, w8, w9];
+                $scope.totalScore = 0;
+                $scope.totalWeight = 0;
+
+                for (var i = 0; i < score_arr.length; i++) {
+                    $scope.totalScore += score_arr[i];
+                }
+
+                for (var i = 0; i < evalWeight_arr.length; i++) {
+                    $scope.totalWeight += evalWeight_arr[i];
+                }
+
+                for (var i = 0; i < othertemp_arr.length; i++) {
+                    $scope.totalScoreO = othertemp_arr[i].other_template;
+                    console.log($scope.totalScoreO);
+                }
+
             });
         }
 

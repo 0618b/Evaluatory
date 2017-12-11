@@ -11,7 +11,13 @@
                     </div>
                     <hr>
                     <div class="content">
-
+                        <center>
+                            <h4>คุณได้คะแนนทั้งหมด</h4>
+                            <h1> {{totalScore}}/{{totalWeight}}</h1>
+                            <h2><span ng-show="totalScore >= 50" class="label label-success">ผ่าน</span></h2>
+                            <h2><span ng-show="totalScore < 0 || !totalScore" class="label label-warning">ไม่ผ่าน</span></h2>
+                        </center>
+                        &nbsp;
                     </div>
                 </div>
             </div>
