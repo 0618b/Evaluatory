@@ -73,11 +73,25 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
     }).controller('checkScoreCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
 
+        var date = new Date().getDate();
+        var month = new Date().getMonth() + 1;
+        var year = new Date().getFullYear() + 543;
+        var nextYear = year + 1;
+        $scope.evalRound = "";
+        $scope.getMonth = month;
+        $scope.presentDate = date + "/" + month + "/" + year;
+
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            $scope.evalRound = 1 + "/" + year + "-" + nextYear;
+        } else if (month >= 4 && month <= 9) {
+            $scope.evalRound = 2 + "/" + year;
+        }
+
         function checkScores() {
             userServices.checkScores().then(function(data) {
                 $scope.score = data.data;
                 console.log(data.data);
-            })
+            });
         }
 
         checkScores();

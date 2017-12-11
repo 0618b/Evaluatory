@@ -199,6 +199,7 @@ module.exports = function(router) {
             evalRound = 2 + "/" + year;
         }
         User.findOne({ username: req.decoded.username })
+            .select('othertemplates selftemplates')
             .populate({
                 path: 'selftemplates',
                 match: { 'timestamp.evalRound': evalRound }
@@ -262,9 +263,10 @@ module.exports = function(router) {
         var present = new Date();
         var month = present.getMonth() + 1;
         var year = present.getFullYear() + 543;
+        var nextYear = year + 1;
         var evalRound = "";
         if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
-            evalRound = 1 + "/" + year;
+            evalRound = 1 + "/" + year + "-" + nextYear;
         } else if (month >= 4 && month <= 9) {
             evalRound = 2 + "/" + year;
         }
