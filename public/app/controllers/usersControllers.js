@@ -132,10 +132,17 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 }
 
                 for (var i = 0; i < othertemp_arr.length; i++) {
-                    $scope.totalScoreO = othertemp_arr[i].other_template;
-                    console.log($scope.totalScoreO);
+                    var object = othertemp_arr[i].other_template[0];
                 }
 
+                var summed = 0;
+                var result = 0;
+                for (var key in object) {
+                    summed += object[key];
+                    result = (summed / object[key].length);
+                }
+
+                console.log(result);
             });
         }
 
