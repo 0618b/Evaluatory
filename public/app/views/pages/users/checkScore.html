@@ -31,7 +31,32 @@
                     </div>
                     <hr>
                     <div class="content">
-
+                        <center>
+                            <h4>คุณได้คะแนนทั้งหมด</h4>
+                            <h1> 25/30</h1>
+                            <h2><span ng-show="totalScore >= 50" class="label label-success">ผ่าน</span></h2>
+                            <h2><span ng-show="totalScore < 0 || !totalScore" class="label label-warning">ไม่ผ่าน</span></h2>
+                        </center>
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <center>
+                            <h2>คะแนนรวม</h2>
+                            <p class="category">คะแนนรวมต้องมีจำนวนรวมกันมากกว่า 70 ขึ้นไปจึงจะผ่านการประเมินในรอบนั้นๆ</p>
+                        </center>
+                        <div class="content">
+                            <center>
+                                <h1>79/100</h1>
+                                <h2><span ng-show="totalScore >= 50" class="label label-success">ผ่าน</span></h2>
+                                <h2><span ng-show="totalScore < 0 || !totalScore" class="label label-warning">ไม่ผ่าน</span></h2>
+                            </center>
+                        </div>
                     </div>
                 </div>
             </div>

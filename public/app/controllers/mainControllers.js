@@ -70,6 +70,10 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
                             if (data.data.permission === "admin") {
                                 $rootScope.isAdmin = true;
                                 $scope.loadme = true;
+                            } else if (data.data.permission === "teacher") {
+                                $rootScope.isAdmin = false;
+                                $rootScope.isTeacher = true;
+                                $scope.loadme = true;
                             } else {
                                 $rootScope.isAdmin = false;
                                 $scope.loadme = true;
