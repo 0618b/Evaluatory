@@ -68,7 +68,7 @@
                             <p>หน้าแรก</p>
                         </a>
                     </li>
-                    <li ng-hide="showLoginButton || isAdmin">
+                    <li ng-hide="showLoginButton || isAdmin || isHeader">
                         <a href="/selftemps" data-toggle="tooltip" title="แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น">
                             <i class="pe-7s-user"></i>
                             <p>แบบประเมินตนเอง</p>
@@ -86,7 +86,7 @@
                             <p>ผู้ใช้งาน</p>
                         </a>
                     </li>
-                    <li ng-hide="showLoginButton || isAdmin">
+                    <li ng-hide="showLoginButton || isAdmin || isHeader">
                         <a href="/users/checkScore">
                             <i class="pe-7s-note2"></i>
                             <p>ผลคะแนน</p>

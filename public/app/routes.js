@@ -20,7 +20,7 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 authenticated: true,
                 permission: ['admin']
             })
-            .when('/user/edit:id', {
+            .when('/user/edit/:id', {
                 templateUrl: '/app/views/pages/admin/adduser.html',
                 authenticated: true,
                 permission: ['admin']
@@ -38,7 +38,8 @@ var app = angular.module('mainRoutes', ['ngRoute'])
             .when('/selftemp/:id', {
                 templateUrl: '/app/views/pages/evalforms/selfeval.html',
                 controller: 'selfevalCtrl',
-                authenticated: true
+                authenticated: true,
+                permission: ['teacher']
             })
             .when('/othertemps/subjectGroup', {
                 templateUrl: '/app/views/pages/evalforms/othertemp_subjectGroup.html',
@@ -80,7 +81,7 @@ var app = angular.module('mainRoutes', ['ngRoute'])
             .when('/users/checkScore', {
                 templateUrl: '/app/views/pages/users/checkScore.html',
                 controller: 'checkScoreCtrl',
-                permission: ['header', 'teacher', 'director'],
+                permission: ['teacher'],
                 authenticated: true
             })
             .when('/404', {

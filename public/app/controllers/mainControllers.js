@@ -2,6 +2,8 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
     .controller('mainCtrl', function(authServices, userServices, $scope, $location, $routeParams, $window, $interval, $timeout, $rootScope) {
         $scope.loadme = false;
         $rootScope.isAdmin = false;
+        $rootScope.isTeacher = false;
+        $rootScope.isHeader = false;
 
         var hideLogInModal = function() {
             $("#loginModal").modal('hide'); // Hide modal once criteria met
@@ -71,8 +73,10 @@ angular.module('mainControllers', ['authServices', 'usersServices', 'ui.bootstra
                                 $rootScope.isAdmin = true;
                                 $scope.loadme = true;
                             } else if (data.data.permission === "teacher") {
-                                $rootScope.isAdmin = false;
                                 $rootScope.isTeacher = true;
+                                $scope.loadme = true;
+                            } else if (data.data.permission === "header") {
+                                $rootScope.isHeader = true;
                                 $scope.loadme = true;
                             } else {
                                 $rootScope.isAdmin = false;
