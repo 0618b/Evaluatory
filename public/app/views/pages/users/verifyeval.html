@@ -1,20 +1,15 @@
-<div class="content" ng-controller="userEvalCtrl">
+<div class="content" ng-controller="verifyEvalCtrl">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h3 class="title">สถานะการประเมินของผู้ใช้งาน</h3>
+                        <h3 class="title">ตรวจสอบแบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น</h3>
                         <p class="category">ประจำรอบการประเมินที่ {{ evalRound }} &nbsp; ประจำเดือนที่ {{ getMonth }}</p>
+                        <p class="category">* ตรวจสอบแบบประเมินประจำหน่วยงานของตนเอง</p>
                     </div>
                     <hr>
                     <div class="content">
-                        <ul class="nav nav-tabs">
-                            <li><a href="/users">รายชื่อผู้ใช้งาน</a></li>
-                            <li class="active"><a href="/users/evalstatus">สถานะการประเมินของผู้ใช้งาน</a></li>
-                            <li><a href="/addUser">เพิ่มข้อมูลผู้ใช้งาน</a></li>
-                        </ul>
-                        &nbsp;
                         <div class="content table-responsive table-full-width">
                             <table class="table tablhover tablstriped ">
                                 <thead>
@@ -31,12 +26,12 @@
                                         </th>
                                         <th style="width:20%;">
                                             <center>
-                                                <h4>สถานะการประเมิน : แบบประเมินตนเอง</h4>
+                                                <h4>สังกัดหน่วยงาน</h4>
                                             </center>
                                         </th>
                                         <th style="width:20%;">
                                             <center>
-                                                <h4>สถานะการประเมิน : แบบประเมินผู้อื่น</h4>
+                                                <h4>สถานะ</h4>
                                             </center>
                                         </th>
                                     </tr>

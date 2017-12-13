@@ -80,6 +80,12 @@
                             <p>แบบประเมินผู้อื่น</p>
                         </a>
                     </li>
+                    <li ng-hide="showLoginButton || isAdmin || isTeacher">
+                        <a href="/users/verifyeval">
+                            <i class="pe-7s-note2"></i>
+                            <p>ตรวจสอบแบบประเมิน</p>
+                        </a>
+                    </li>
                     <li ng-hide="!isAdmin">
                         <a href="/users">
                             <i class="pe-7s-note2"></i>

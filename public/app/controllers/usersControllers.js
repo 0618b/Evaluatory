@@ -71,6 +71,32 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
         getEvalUsers();
 
+    }).controller('verifyEvalCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
+
+        function getVerifyUsers() {
+            userServices.getVerifyUsers().then(function(data) {
+                $scope.userVerify = data.data;
+                console.log(data.data);
+                var present = new Date();
+                var month = present.getMonth() + 1;
+                var year = present.getFullYear() + 543;
+                var nextYear = year + 1;
+                $scope.getMonth = month;
+                $scope.evalRound = "";
+                if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+                    $scope.evalRound = 1 + "/" + year + "-" + nextYear;
+                } else if (month >= 4 && month <= 9) {
+                    $scope.evalRound = 2 + "/" + year;
+                }
+            })
+        }
+
+        $scope.isNotAdmin = function(data) {
+            return data.permission != "admin";
+        }
+
+        getVerifyUsers();
+
     }).controller('checkScoreCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
 
         var date = new Date().getDate();

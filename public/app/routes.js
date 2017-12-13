@@ -20,6 +20,11 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 authenticated: true,
                 permission: ['admin']
             })
+            .when('/users/verifyeval', {
+                templateUrl: '/app/views/pages/users/verifyeval.html',
+                authenticated: true,
+                permission: ['header']
+            })
             .when('/user/edit/:id', {
                 templateUrl: '/app/views/pages/admin/adduser.html',
                 authenticated: true,
