@@ -19,23 +19,22 @@
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover">
                                 <thead>
-                                    <th>
+                                    <th style="width:5%">
                                         <center>
                                             <h4>ที่</h4>
                                         </center>
                                     </th>
-                                    <th>
+                                    <th style="width:40%">
                                         <center>
                                             <h4>ชื่อ-นามสกุล ผู้รับการประเมิน</h4>
                                         </center>
                                     </th>
-                                    <th>
+                                    <th style="width:30%">
                                         <center>
                                             <h4>กลุ่มสาระ</h4>
                                         </center>
                                     </th>
-                                    <th></th>
-                                    <th></th>
+                                    <th style="width:30%"></th>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="o in othertemplateData | filter: undefind || isNotAdmin">
@@ -64,8 +63,6 @@
                                         <td ng-show="o.othertemplates.length == 1">
                                             <center><button type="button" class="btn btn-success btn-block">ประเมินแล้ว</button></center>
                                         </td>
-                                        <td></td>
-                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>
