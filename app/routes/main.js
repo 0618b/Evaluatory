@@ -66,34 +66,6 @@ module.exports = function(router) {
         })
     })
 
-    router.get('/users/verifyeval', function(req, res, next) {
-        var present = new Date();
-        var month = present.getMonth() + 1;
-        var year = present.getFullYear() + 543;
-        var nextYear = year + 1;
-        var evalRound = "";
-        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
-            evalRound = 1 + "/" + year + "-" + nextYear;
-        } else if (month >= 4 && month <= 9) {
-            evalRound = 2 + "/" + year;
-        }
-        User.find({
-            'group.subjectGroup': req.decoded.group.subjectGroup,
-            'group.workGroup': req.decoded.group.workGroup,
-            'group.classGroup': req.decoded.group.classGroup,
-            permission: { '$ne': "header" }
-        }).populate({
-            path: 'selftemplates',
-            match: { 'timestamp.evalRound': evalRound }
-        }).populate({
-            path: 'othertemplates',
-            match: { 'timestamp.evalRound': evalRound, 'timestamp.month': month }
-        }).exec(function(err, data) {
-            if (err) return next(err);
-            res.json(data);
-        })
-    })
-
     router.get('/user/:id', function(req, res, next) {
         User.findOne({ _id: req.params.id }, function(err, user) {
             if (err) {
@@ -554,6 +526,34 @@ module.exports = function(router) {
                 });
             }
         });
+    });
+    router.get('/users/verifyeval', function(req, res, next) {
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var nextYear = year + 1;
+        var evalRound = "";
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            evalRound = 1 + "/" + year + "-" + nextYear;
+        } else if (month >= 4 && month <= 9) {
+            evalRound = 2 + "/" + year;
+        }
+        User.find({
+            "$or": [{
+                'group.classGroup': req.decoded.group.classGroup
+            }, {
+                'group.workGroup': req.decoded.group.workGroup
+            }, {
+                'group.subjectGroup': req.decoded.group.subjectGroup
+            }],
+            permission: { '$ne': "header" }
+        }).populate({
+            path: 'selftemplates',
+            match: { 'timestamp.evalRound': evalRound }
+        }).select('firstName lastName position belongTo group groupRole permission selftemplates').exec(function(err, data) {
+            if (err) return next(err);
+            res.json(data);
+        })
     });
 
     return router;
