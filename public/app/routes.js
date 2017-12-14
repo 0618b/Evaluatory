@@ -25,6 +25,11 @@ var app = angular.module('mainRoutes', ['ngRoute'])
                 authenticated: true,
                 permission: ['header']
             })
+            .when('/users/checkeval/:id', {
+                templateUrl: '/app/views/pages/evalforms/selfscores.html',
+                authenticated: true,
+                permission: ['header']
+            })
             .when('/user/edit/:id', {
                 templateUrl: '/app/views/pages/admin/adduser.html',
                 authenticated: true,
