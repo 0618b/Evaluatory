@@ -78,11 +78,12 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 $scope.userVerify = data.data;
                 console.log(data.data);
                 var present = new Date();
+                var date = present.getDate();
                 var month = present.getMonth() + 1;
                 var year = present.getFullYear() + 543;
                 var nextYear = year + 1;
-                $scope.getMonth = month;
                 $scope.evalRound = "";
+                $scope.presentDate = date + "/" + month + "/" + year;
                 if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
                     $scope.evalRound = 1 + "/" + year + "-" + nextYear;
                 } else if (month >= 4 && month <= 9) {

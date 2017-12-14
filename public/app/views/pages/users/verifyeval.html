@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="header">
                         <h3 class="title">ตรวจสอบแบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น</h3>
-                        <p class="category">ประจำรอบการประเมินที่ {{ evalRound }} &nbsp; ประจำเดือนที่ {{ getMonth }}</p>
+                        <p class="category">ประจำรอบการประเมินที่ {{ evalRound }} &nbsp; ประจำวันที่ {{ presentDate }}</p>
                         <p class="category">* ตรวจสอบแบบประเมินประจำหน่วยงานของตนเอง</p>
                     </div>
                     <hr>
@@ -27,6 +27,11 @@
                                         <th style="width:20%;">
                                             <center>
                                                 <h4>สังกัดหน่วยงาน</h4>
+                                            </center>
+                                        </th>
+                                        <th style="width:20%;">
+                                            <center>
+                                                <h4>คะแนนที่ได้</h4>
                                             </center>
                                         </th>
                                         <th style="width:20%;">
@@ -58,6 +63,7 @@
                                                 <h4><i class="fa fa-check" aria-hidden="true" style="color:greenyellow" ng-show="u.othertemplates.length > 0"></i></h4>
                                             </center>
                                         </td>
+                                        <td></td>
                                         <!-- ตรงนี้ต้อง filter เฉพาะรอบประเมินให้ได้ เอาเท่านี้ก่อนละกัน เดี๋ยวตื่นมาทำใหม่ -->
                                     </tr>
                                 </tbody>

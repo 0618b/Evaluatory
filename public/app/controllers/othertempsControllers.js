@@ -5,6 +5,18 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
             return data.permission != "admin";
         }
 
+        var present = new Date();
+        var month = present.getMonth() + 1;
+        var year = present.getFullYear() + 543;
+        var nextYear = year + 1;
+        $scope.getMonth = month;
+        $scope.evalRound = "";
+        if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+            $scope.evalRound = 1 + "/" + year + "-" + nextYear;
+        } else if (month >= 4 && month <= 9) {
+            $scope.evalRound = 2 + "/" + year;
+        }
+
         function getSubjectGroupUsers() {
             otherTemplateService.getSubjectGroupUsers().then(function(data) {
                 $scope.othertemplateData = data.data;
@@ -44,6 +56,18 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
         return data.permission != "admin";
     }
 
+    var present = new Date();
+    var month = present.getMonth() + 1;
+    var year = present.getFullYear() + 543;
+    var nextYear = year + 1;
+    $scope.getMonth = month;
+    $scope.evalRound = "";
+    if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+        $scope.evalRound = 1 + "/" + year + "-" + nextYear;
+    } else if (month >= 4 && month <= 9) {
+        $scope.evalRound = 2 + "/" + year;
+    }
+
     function getClassGroupUsers() {
         otherTemplateService.getClassGroupUsers().then(function(data) {
             $scope.othertemplateData = data.data;
@@ -80,6 +104,18 @@ angular.module('othertempsControllers', ['othertempsServices', 'angular.filter']
 
     $scope.isNotAdmin = function(data) {
         return data.permission != "admin";
+    }
+
+    var present = new Date();
+    var month = present.getMonth() + 1;
+    var year = present.getFullYear() + 543;
+    var nextYear = year + 1;
+    $scope.getMonth = month;
+    $scope.evalRound = "";
+    if (month >= 10 && month <= 12 || month >= 1 && month <= 3) {
+        $scope.evalRound = 1 + "/" + year + "-" + nextYear;
+    } else if (month >= 4 && month <= 9) {
+        $scope.evalRound = 2 + "/" + year;
     }
 
     function getWorkGroupUsers() {

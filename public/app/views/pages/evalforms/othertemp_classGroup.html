@@ -1,14 +1,15 @@
-<div class="content">
+<div class="content" ng-controller="classGroupCtrl">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
                         <h3 class="title">แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</h3>
-                        <p class="category"><span></span> แบบประเมินสมาชิกภายในหน่วยงาน</p>
+                        <p class="category">ประจำรอบการประเมินที่ {{ evalRound }} &nbsp; ประจำเดือนที่ {{ getMonth }}</p>
+                        <p class="category">* แบบประเมินสมาชิกภายในหน่วยงาน</p>
                     </div>
                     <hr>
-                    <div class="content" ng-controller="classGroupCtrl">
+                    <div class="content">
                         <ul class="nav nav-tabs">
                             <li><a href="/othertemps/subjectGroup">กลุ่มสาระการเรียนรู้</a></li>
                             <li><a href="/othertemps/workGroup">กลุ่มสายงาน</a></li>
