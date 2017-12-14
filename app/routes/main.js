@@ -540,17 +540,20 @@ module.exports = function(router) {
         }
         User.find({
             "$or": [{
-                'group.classGroup': req.decoded.group.classGroup
+                'group.classGroup': req.decoded.group.classGroup,
+                'groupRole.classGroupRole': "สมาชิก"
             }, {
-                'group.workGroup': req.decoded.group.workGroup
+                'group.workGroup': req.decoded.group.workGroup,
+                'groupRole.workGroupRole': "สมาชิก"
             }, {
-                'group.subjectGroup': req.decoded.group.subjectGroup
+                'group.subjectGroup': req.decoded.group.subjectGroup,
+                'groupRole.subjectGroupRole': "สมาชิก"
             }],
             permission: { '$ne': "header" }
         }).populate({
             path: 'selftemplates',
             match: { 'timestamp.evalRound': evalRound }
-        }).select('firstName lastName position belongTo group groupRole permission selftemplates').exec(function(err, data) {
+        }).select('firstName lastName selftemplates').exec(function(err, data) {
             if (err) return next(err);
             res.json(data);
         })

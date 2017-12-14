@@ -19,10 +19,20 @@
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover">
                                 <thead>
-                                    <th>ที่</th>
-                                    <th>ชื่อ-นามสกุล ผู้รับการประเมิน</th>
                                     <th>
-                                        <center>กลุ่มสายชั้น</center>
+                                        <center>
+                                            <h4>ที่</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>ชื่อ-นามสกุล ผู้รับการประเมิน</h4>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <h4>กลุ่มสายชั้น</h4>
+                                        </center>
                                     </th>
                                     <th></th>
                                     <th></th>
@@ -30,10 +40,20 @@
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="o in othertemplateData | filter: undefind || isNotAdmin">
-                                        <td>{{$index + 1}}</td>
-                                        <td>{{o.firstName}} {{o.lastName}} </td>
                                         <td>
-                                            <center>{{o.group.classGroup}}</center>
+                                            <center>
+                                                <h4>{{$index + 1}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <h4>{{o.firstName}} {{o.lastName}}</h4>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <h4>{{o.group.classGroup}}</h4>
+                                            </center>
                                         </td>
                                         <td ng-show="o.othertemplates.length == 0">
                                             <center>

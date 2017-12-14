@@ -12,7 +12,8 @@ var selfTemplateSchema = new Schema({
         month: { type: Number, default: month },
         year: { type: Number, default: year },
         evalRound: ''
-    }
+    },
+    isVerified: { type: Boolean, default: false }
 });
 
 selfTemplateSchema.pre('save', function(next) {
