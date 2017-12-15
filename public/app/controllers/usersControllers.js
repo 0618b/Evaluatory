@@ -71,7 +71,7 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
         getEvalUsers();
 
-    }).controller('verifyEvalCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
+    }).controller('verifyEvalCtrl', function(userServices, selfTemplateService, $scope, $location, $routeParams, $timeout) {
 
         function getVerifyUsers() {
             userServices.getVerifyUsers().then(function(data) {
