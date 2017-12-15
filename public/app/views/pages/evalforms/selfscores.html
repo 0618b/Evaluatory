@@ -364,9 +364,10 @@
                                             <center>
                                                 <h3 class="title">ผลการวิเคราะห์แบบประเมิน</h3>
                                                 <h4>
-                                                    <input type="radio" name="optradio" /> ผ่าน
-                                                    <input type="radio" name="optradio" /> ไม่ผ่าน
+                                                    <input type="radio" name="verifyRadio" ng-model="isVerified" value="true" required /> ผ่าน
+                                                    <input type="radio" name="verifyRadio" ng-model="isVerified" value="false" /> ไม่ผ่าน
                                                 </h4>
+                                                <button ng-click="evalSelfTemp()" class="btn btn-block btn-lg btn-success">บันทึกผลการประเมิน</button>
                                             </center>
                                         </div>
                                     </div>

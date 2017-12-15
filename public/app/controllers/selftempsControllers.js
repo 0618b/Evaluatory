@@ -50,6 +50,7 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
             if (data.status === 200) { // check that data is OK
                 $scope.data = JSON.parse(JSON.stringify(data)); //parse data into json strings to show in the system
                 $scope.self_template = data.data.self_template;
+                $scope.isVerified = data.data.isVerified;
 
                 s0 = $scope.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score;
                 s1 = $scope.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score;
@@ -99,7 +100,8 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
 
     $scope.evalSelfTemp = function() {
         var evalData = {
-                "self_template": $scope.self_template
+                "self_template": $scope.self_template,
+                "isVerified": $scope.isVerified
             } // saving the eval data then parse as an object
         selfTemplateService.evalSelfTemplate($routeParams.id, evalData).then(function(data) {
             swal({
@@ -108,7 +110,7 @@ angular.module('selftempsControllers', ['selftempsServices', 'angular.filter'])
                 timer: 2000
             })
             $timeout(function() {
-                $location.url('/selftemps')
+                window.history.back();
             }, 500);
         });
     };
