@@ -43,7 +43,7 @@
                                                 <h4>{{u.firstName + " " + u.lastName}}</h4>
                                             </center>
                                         </td>
-                                        <td style="width:20%;" ng-show="u.selftemplates.length === 1">
+                                        <td style="width:20%;" ng-show="u.selftemplates.length === 1 && u.selftemplates[0].isVerified == false">
                                             <center>
                                                 <h4>
                                                     <a href="/users/checkeval/{{ u.selftemplates[0]._id }} ">
@@ -52,7 +52,7 @@
                                                 </h4>
                                             </center>
                                         </td>
-                                        <td style="width:20%;" ng-show="u.selftemplates.length === 1 && u.selftemplates[0].isVerified = true">
+                                        <td style="width:20%;" ng-show="u.selftemplates.length === 1 && u.selftemplates[0].isVerified == true">
                                             <center>
                                                 <h4>
                                                     <button type="button" class="btn btn-success"><i class="fa fa-check"></i> ตรวจสอบแบบประเมินเรียบร้อยแล้ว</button>
