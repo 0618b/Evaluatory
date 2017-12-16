@@ -142,7 +142,7 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 w9 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight;
 
                 let othertemp_arr = $scope.otherTemplateScore;
-                let numberOfOtherTempofEachMonth = 0;
+                let numberOfOtherTempOfEachRound = 18;
                 console.log(othertemp_arr);
                 let score_arr = [s0, s1, s2, s2, s4, s5, s6, s7, s8, s9];
                 let evalWeight_arr = [w0, w1, w2, w3, w4, w5, w6, w7, w8, w9];
@@ -157,9 +157,8 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                     $scope.totalWeight += evalWeight_arr[i];
                 }
 
-                if (othertemp_arr.length >= numberOfOtherTempofEachMonth) {
+                if (othertemp_arr.length >= numberOfOtherTempOfEachRound) {
                     $scope.test = othertemp_arr[0].other_template;
-
                 }
             });
         }
