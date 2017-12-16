@@ -116,10 +116,8 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
         function checkScores() {
             userServices.checkScores().then(function(data) {
-                $scope.score = data.data;
                 $scope.selfTemplateScore = data.data.selftemplates[0];
                 $scope.otherTemplateScore = data.data.othertemplates;
-                console.log(data.data);
 
                 s0 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[0].score;
                 s1 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[0].choiceList[1].score;
@@ -144,6 +142,7 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 w9 = $scope.selfTemplateScore.self_template.sectionGroup[0].choiceGroupList[2].choiceList[1].evalWeight;
 
                 let othertemp_arr = $scope.otherTemplateScore;
+                let numberOfOtherTempofEachMonth = 0;
                 console.log(othertemp_arr);
                 let score_arr = [s0, s1, s2, s2, s4, s5, s6, s7, s8, s9];
                 let evalWeight_arr = [w0, w1, w2, w3, w4, w5, w6, w7, w8, w9];
@@ -158,7 +157,10 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                     $scope.totalWeight += evalWeight_arr[i];
                 }
 
-                console.log(result);
+                if (othertemp_arr.length >= numberOfOtherTempofEachMonth) {
+                    $scope.test = othertemp_arr[0].other_template;
+
+                }
             });
         }
 
