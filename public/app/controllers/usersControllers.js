@@ -158,17 +158,6 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                     $scope.totalWeight += evalWeight_arr[i];
                 }
 
-                for (var i = 0; i < othertemp_arr.length; i++) {
-                    var object = othertemp_arr[i].other_template[0];
-                }
-
-                var summed = 0;
-                var result = 0;
-                for (var key in object) {
-                    summed += object[key];
-                    result = (summed / object[key].length);
-                }
-
                 console.log(result);
             });
         }
