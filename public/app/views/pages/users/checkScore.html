@@ -50,15 +50,19 @@
                     <div class="header">
                         <center>
                             <h2>คะแนนรวม</h2>
-                            <p class="category">คะแนนรวมต้องมีจำนวนรวมกันมากกว่า 70 ขึ้นไปจึงจะผ่านการประเมินในรอบนั้นๆ</p>
+                            <p>
+                                <h4>คะแนนรวมต้องมีจำนวนรวมกันมากกว่า 70% ขึ้นไปจึงจะผ่านการประเมินในรอบนั้นๆ</h4>
+                            </p>
                         </center>
-                        <div class="content">
-                            <center>
-                                <h1>{{STtotalScore + OTtotalScore}}/100</h1>
-                                <h2><span ng-show="STtotalScore + OTtotalScore >= 70" class="label label-success">ผ่าน</span></h2>
-                                <h2><span ng-show="STtotalScore + OTtotalScore < 70 || !STtotalScore || !OTtotalScore " class="label label-warning">ไม่ผ่าน</span></h2>
-                            </center>
-                        </div>
+                    </div>
+                    <hr>
+                    <div class="content">
+                        <center>
+                            <h4>คุณได้คะแนนทั้งหมด</h4>
+                            <h1>{{STtotalScore + OTtotalScore}}</h1>
+                            <h2><span ng-show="STtotalScore + OTtotalScore >= 70" class="label label-success">ผ่านการประเมิน</span></h2>
+                            <h2><span ng-show="STtotalScore + OTtotalScore < 70 || !STtotalScore || !OTtotalScore " class="label label-warning">ไม่ผ่านการประเมิน</span></h2>
+                        </center>
                     </div>
                 </div>
             </div>
