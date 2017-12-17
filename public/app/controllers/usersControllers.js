@@ -215,7 +215,7 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
         checkScores();
 
         $scope.generatePdf = function() {
-            pdfMake.font = {
+            pdfMake.fonts = {
                 THSarabunNew: {
                     normal: 'THSarabunNew.ttf',
                     bold: 'THSarabunNew-Bold.ttf',
@@ -233,7 +233,8 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 info: {
                     title: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่ ' + $scope.evalRound
                 },
-                content: [{ text: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่' + $scope.evalRound + 'ประจำปี ' + year }]
+                content: [{ text: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่' + $scope.evalRound + 'ประจำปี ' + year }],
+                defaultStyle: { font: 'THSarabunNew' }
             };
             pdfMake.createPdf(docDefinition).open();
         }
