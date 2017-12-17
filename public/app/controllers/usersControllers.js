@@ -233,25 +233,35 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 info: {
                     title: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่ ' + $scope.evalRound
                 },
-                content: [{ text: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่ ' + $scope.evalRound + ' ประจำปี ' + year, style: 'header' },
+                content: [
+                    '\n',
+                    { text: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่ ' + $scope.evalRound + ' ประจำปี ' + year, style: 'header' },
                     { text: 'โรงเรียนเทศบาล 6 นครเชียงราย', style: 'header2' },
+                    '\n',
                     { text: "ชื่อ - นามสกุล : " + $scope.userDatas.firstName + " " + $scope.userDatas.lastName + " " + "ตำแหน่ง : " + $scope.userDatas.position.positionName + " " + "ระดับ : " + $scope.userDatas.position.positionLevel, alignment: 'left', style: 'p' },
                     { text: "ประเภทตำแหน่ง : " + $scope.userDatas.position.positionCategory + " " + "ตำแหน่งเลขที่ : " + $scope.userDatas.position.positionNumber, style: 'p' },
-                    { text: "สังกัด : " + $scope.userDatas.belongTo + "\n", style: 'p' },
+                    { text: "สังกัด : " + $scope.userDatas.belongTo + "\n\n", style: 'p' },
                     { canvas: [{ type: 'line', x1: 0, y1: 5, x2: 595 - 2 * 40, y2: 5, lineWidth: 1 }] },
-                    '\n',
+                    '\n\n',
                     {
                         table: {
                             widths: [300, '*', '*'],
                             body: [
-                                [{ text: 'ประเภทของแบบประเมิน', style: 'ptable' }, { text: 'คะแนนเต็ม', style: 'ptable' }, { text: 'ผลลัพธ์', style: 'ptable' }],
-                                [{ text: 'แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น', style: 'ptable' }, { text: $scope.STtotalWeight, style: 'ptable' }, { text: $scope.STtotalScore + " (ผ่าน)", style: 'ptable' }],
-                                [{ text: 'แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน', style: 'ptable' }, { text: $scope.OTtotalWeight, style: 'ptable' }, { text: $scope.OTtotalScore + " (ผ่าน)", style: 'ptable' }]
+                                [{ text: 'ประเภทของแบบประเมิน', style: 'Ptable' }, { text: 'คะแนนเต็ม', style: 'Ptable' }, { text: 'ผลลัพธ์', style: 'Ptable' }],
+                                [{ text: 'แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น *', style: 'Ptable' }, { text: $scope.STtotalWeight, style: 'Ptable' }, { text: $scope.STtotalScore + " (ผ่าน)", style: 'Ptable' }],
+                                [{ text: 'แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน', style: 'Ptable' }, { text: $scope.otPercentWeight, style: 'Ptable' }, { text: $scope.OTtotalScore + " (ผ่าน)", style: 'Ptable' }],
+                                [{ text: 'คะแนนเต็ม **', style: 'Ptable', bold: true }, { text: $scope.otPercentWeight + $scope.STtotalWeight, style: 'Ptable', bold: true }, { text: $scope.OTtotalScore + $scope.STtotalScore + " (ผ่าน)", style: 'Ptable', bold: true }]
                             ]
                         }
                     },
+                    '\n\n',
+                    { text: "* ท่านต้องได้คะแนนรวมไม่น้อยกว่า 50 จากคะแนนเต็ม " + $scope.STtotalWeight + " คะแนน", style: 'p' },
+                    { text: "** ท่านต้องได้คะแนนรวมทั้งหมดของแบบประเมินรวมกันมากกว่า 70% ขึ้นไปจึงจะถือว่า \"ผ่าน\" การประเมินในรอบนั้นๆ", style: 'p' },
+                    '\n\n\n\n\n\n\n\n',
+                    { text: "ลงชื่อ..................................................................................ผู้ประเมิน", style: 'Ptable' },
+                    { text: "(......................................................................)", style: 'Ptable' },
+                    { text: "ตำแหน่ง : " + $scope.userDatas.position.positionName, style: 'Ptable' }
                 ],
-
                 styles: {
                     header: {
                         fontSize: 20,
@@ -265,14 +275,14 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                     p: {
                         fontSize: 16,
                     },
-                    ptable: {
+                    Ptable: {
                         fontSize: 16,
                         alignment: 'center'
                     }
                 },
                 defaultStyle: { font: 'THSarabunNew' }
             };
-            pdfMake.createPdf(docDefinition).open();
+            pdfMake.createPdf(docDefinition).download($scope.userDatas.position.positionNumber + "_resultScore_" + year);
         }
 
     }).directive('ngReallyClick', [function() {

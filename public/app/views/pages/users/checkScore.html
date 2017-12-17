@@ -68,35 +68,6 @@
             </div>
         </div>
     </div>
-    <div id="social-share">
-        <ul class="social-itens hidden">
-            <li>
-                <button class="btn-share social-item-4">
-                  <i class="material-icons">location_on</i>
-                  <span class="btn-share-text">Location</span>
-                </button>
-            </li>
-            <li>
-                <button class="btn-share social-item-3">
-                  <i class="material-icons">shopping_cart</i>
-                  <span class="btn-share-text">Cart</span>
-                </button>
-
-            </li>
-            <li>
-                <button class="btn-share social-item-2">
-                  <i class="material-icons">phone</i>
-                  <span class="btn-share-text">Phone</span>
-                </button>
-
-            </li>
-            <li>
-                <button class="btn-share social-item-1">
-                  <i class="material-icons">thumb_up</i>
-                  <span class="btn-share-text">Facebook</span>
-                </button>
-            </li>
-        </ul>
-        <center><button class="btn btn-lg btn-info" ng-click="generatePdf()"><i class="fa fa-print" aria-hidden="true"></i> พิมพ์แบบประเมิน</button></center>
-    </div>
+    <center><button class="btn btn-lg btn-info" ng-show="STtotalScore + OTtotalScore >= 70" ng-click="generatePdf()"><i class="fa fa-print" aria-hidden="true"></i> พิมพ์แบบประเมิน</button></center>
+</div>
 </div>
