@@ -13,10 +13,10 @@
                     <div class="content">
                         <center>
                             <h4>คุณได้คะแนนทั้งหมด</h4>
-                            <h1> {{totalScore}}/{{totalWeight}}</h1>
-                            <h2><span ng-show="totalScore >= 50 && selfTemplateScore.isVerified == true" class="label label-success">ผ่านการอนุมัติ</span></h2>
-                            <h2><span ng-show="totalScore >= 50 && selfTemplateScore.isVerified == false" class="label label-warning">รอการอนุมัติ</span></h2>
-                            <h2><span ng-show="totalScore < 0 || !totalScore" class="label label-warning">ยังไม่ได้ทำแบบประเมิน</span></h2>
+                            <h1> {{STtotalScore}}/{{STtotalWeight}}</h1>
+                            <h2><span ng-show="STtotalScore >= 50 && selfTemplateScore.isVerified == true" class="label label-success">ผ่านการอนุมัติ</span></h2>
+                            <h2><span ng-show="STtotalScore >= 50 && selfTemplateScore.isVerified == false" class="label label-warning">รอการอนุมัติ</span></h2>
+                            <h2><span ng-show="STtotalScore < 0 || !STtotalScore" class="label label-warning">ยังไม่ได้ทำแบบประเมิน</span></h2>
                         </center>
                         &nbsp;
                     </div>
@@ -34,10 +34,10 @@
                     <div class="content">
                         <center>
                             <h4>คุณได้คะแนนทั้งหมด</h4>
-                            <h1 ng-show="!TotalScore"> กำลังเก็บรวบรวมคะแนน.. </h1>
-                            <h1 ng-show="TotalScore"> {{TotalScore}}/30 </h1>
-                            <h2><span ng-show="otherTemplateScore.length >= 18" class="label label-success">ผ่าน</span></h2>
-                            <h2><span ng-show="otherTemplateScore.length < 18" class="label label-warning">ไม่ผ่าน</span></h2>
+                            <h1 ng-show="!OTtotalScore"> กำลังเก็บรวบรวมคะแนน.. </h1>
+                            <h1 ng-show="OTtotalScore"> {{OTtotalScore}}/30 </h1>
+                            <h2><span ng-show="OTtotalScore" class="label label-success">ผ่าน</span></h2>
+                            <h2><span ng-show="!OTtotalScore" class="label label-warning">ไม่ผ่าน</span></h2>
                         </center>
                         &nbsp;
                     </div>
@@ -54,9 +54,9 @@
                         </center>
                         <div class="content">
                             <center>
-                                <h1>79/100</h1>
-                                <h2><span ng-show="totalScore >= 50" class="label label-success">ผ่าน</span></h2>
-                                <h2><span ng-show="totalScore < 0 || !totalScore" class="label label-warning">ไม่ผ่าน</span></h2>
+                                <h1>{{STtotalScore + OTtotalScore}}/100</h1>
+                                <h2><span ng-show="STtotalScore + OTtotalScore >= 70" class="label label-success">ผ่าน</span></h2>
+                                <h2><span ng-show="STtotalScore + OTtotalScore < 70 || !STtotalScore || !OTtotalScore " class="label label-warning">ไม่ผ่าน</span></h2>
                             </center>
                         </div>
                     </div>

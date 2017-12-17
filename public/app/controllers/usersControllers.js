@@ -145,19 +145,15 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 let numberOfOtherTempOfEachRound = 18;
                 let score_arr = [s0, s1, s2, s2, s4, s5, s6, s7, s8, s9];
                 let evalWeight_arr = [w0, w1, w2, w3, w4, w5, w6, w7, w8, w9];
-                $scope.totalScore = 0;
-                $scope.totalWeight = 0;
+                $scope.STtotalScore = 0;
+                $scope.STtotalWeight = 0;
 
                 for (var i = 0; i < score_arr.length; i++) {
-                    $scope.totalScore += score_arr[i];
+                    $scope.STtotalScore += score_arr[i];
                 }
 
                 for (var i = 0; i < evalWeight_arr.length; i++) {
-                    $scope.totalWeight += evalWeight_arr[i];
-                }
-
-                if (othertemp_arr.length >= numberOfOtherTempOfEachRound) {
-                    // do nothing
+                    $scope.STtotalWeight += evalWeight_arr[i];
                 }
 
                 function sum(obj) {
@@ -181,7 +177,7 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 var otherTempTotal = 0;
                 for (var i = otherTempScoreArr.length; i--;) {
                     otherTempTotal += otherTempScoreArr[i];
-                    $scope.TotalScore = (otherTempTotal * otPercentWeight) / otherTempWeight;
+                    $scope.OTtotalScore = (otherTempTotal * otPercentWeight) / otherTempWeight;
                 }
 
 
