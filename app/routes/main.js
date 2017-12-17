@@ -199,7 +199,7 @@ module.exports = function(router) {
             evalRound = 2 + "/" + year;
         }
         User.findOne({ username: req.decoded.username })
-            .select('othertemplates selftemplates')
+            .select('othertemplates selftemplates firstname lastname position')
             .populate({
                 path: 'selftemplates',
                 match: { 'timestamp.evalRound': evalRound }

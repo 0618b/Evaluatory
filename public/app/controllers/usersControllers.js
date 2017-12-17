@@ -171,13 +171,13 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 var ot3 = sum(othertemp_arr[2].other_template[0]);
 
                 var otherTempScoreArr = [ot1, ot2, ot3]
-                var otPercentWeight = 30; // 30 percent
+                $scope.otPercentWeight = 30; // 30 percent
                 var otherTempWeight = 336; // from 3 othertemplate records score weight (3*112 = 336)
 
                 var otherTempTotal = 0;
                 for (var i = otherTempScoreArr.length; i--;) {
                     otherTempTotal += otherTempScoreArr[i];
-                    $scope.OTtotalScore = (otherTempTotal * otPercentWeight) / otherTempWeight;
+                    $scope.OTtotalScore = (otherTempTotal * $scope.otPercentWeight) / otherTempWeight;
                 }
 
                 /*if (othertemp_arr.length == numberOfOtherTempOfEachRound) {
@@ -233,7 +233,43 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 info: {
                     title: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่ ' + $scope.evalRound
                 },
-                content: [{ text: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่' + $scope.evalRound + 'ประจำปี ' + year }],
+                content: [{ text: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่ ' + $scope.evalRound + ' ประจำปี ' + year, style: 'header' },
+                    { text: 'โรงเรียนเทศบาล 6 นครเชียงราย', style: 'header2' },
+                    { text: "ชื่อ - นามสกุล : " + $scope.userDatas.firstName + " " + $scope.userDatas.lastName + " " + "ตำแหน่ง : " + $scope.userDatas.position.positionName + " " + "ระดับ : " + $scope.userDatas.position.positionLevel, alignment: 'left', style: 'p' },
+                    { text: "ประเภทตำแหน่ง : " + $scope.userDatas.position.positionCategory + " " + "ตำแหน่งเลขที่ : " + $scope.userDatas.position.positionNumber, style: 'p' },
+                    { text: "สังกัด : " + $scope.userDatas.belongTo + "\n", style: 'p' },
+                    { canvas: [{ type: 'line', x1: 0, y1: 5, x2: 595 - 2 * 40, y2: 5, lineWidth: 1 }] },
+                    '\n',
+                    {
+                        table: {
+                            widths: [300, '*', '*'],
+                            body: [
+                                [{ text: 'ประเภทของแบบประเมิน', style: 'ptable' }, { text: 'คะแนนเต็ม', style: 'ptable' }, { text: 'ผลลัพธ์', style: 'ptable' }],
+                                [{ text: 'แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น', style: 'ptable' }, { text: $scope.STtotalWeight, style: 'ptable' }, { text: $scope.STtotalScore + " (ผ่าน)", style: 'ptable' }],
+                                [{ text: 'แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน', style: 'ptable' }, { text: $scope.OTtotalWeight, style: 'ptable' }, { text: $scope.OTtotalScore + " (ผ่าน)", style: 'ptable' }]
+                            ]
+                        }
+                    },
+                ],
+
+                styles: {
+                    header: {
+                        fontSize: 20,
+                        alignment: 'center'
+                    },
+                    header2: {
+                        fontSize: 18,
+                        alignment: 'center',
+                        marginBottom: 20
+                    },
+                    p: {
+                        fontSize: 16,
+                    },
+                    ptable: {
+                        fontSize: 16,
+                        alignment: 'center'
+                    }
+                },
                 defaultStyle: { font: 'THSarabunNew' }
             };
             pdfMake.createPdf(docDefinition).open();
