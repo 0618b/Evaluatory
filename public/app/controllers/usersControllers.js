@@ -143,7 +143,6 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
                 let othertemp_arr = $scope.otherTemplateScore;
                 let numberOfOtherTempOfEachRound = 18;
-                console.log(othertemp_arr);
                 let score_arr = [s0, s1, s2, s2, s4, s5, s6, s7, s8, s9];
                 let evalWeight_arr = [w0, w1, w2, w3, w4, w5, w6, w7, w8, w9];
                 $scope.totalScore = 0;
@@ -158,8 +157,24 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                 }
 
                 if (othertemp_arr.length >= numberOfOtherTempOfEachRound) {
-                    $scope.test = othertemp_arr[0].other_template;
+                    // do nothing
                 }
+
+                function sum(obj) {
+                    var sum = 0;
+                    for (var el in obj) {
+                        if (obj.hasOwnProperty(el)) {
+                            sum += parseFloat(obj[el]);
+                        }
+                    }
+                    return sum;
+                }
+
+                var sample = othertemp_arr[0].other_template[0];
+                var summed = sum(sample);
+
+                console.log(summed)
+
             });
         }
 
