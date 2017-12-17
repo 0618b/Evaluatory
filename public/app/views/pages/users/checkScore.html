@@ -34,8 +34,8 @@
                     <div class="content">
                         <center>
                             <h4>คุณได้คะแนนทั้งหมด</h4>
-                            <h1 ng-show="!test"> กำลังเก็บรวบรวมคะแนน.. </h1>
-                            <h1 ng-show="test"> {{test}} </h1>
+                            <h1 ng-show="!TotalScore"> กำลังเก็บรวบรวมคะแนน.. </h1>
+                            <h1 ng-show="TotalScore"> {{TotalScore}}/30 </h1>
                             <h2><span ng-show="otherTemplateScore.length >= 18" class="label label-success">ผ่าน</span></h2>
                             <h2><span ng-show="otherTemplateScore.length < 18" class="label label-warning">ไม่ผ่าน</span></h2>
                         </center>

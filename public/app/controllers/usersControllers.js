@@ -170,11 +170,50 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                     return sum;
                 }
 
-                var sample = othertemp_arr[0].other_template[0];
-                var summed = sum(sample);
+                var ot1 = sum(othertemp_arr[0].other_template[0]);
+                var ot2 = sum(othertemp_arr[1].other_template[0]);
+                var ot3 = sum(othertemp_arr[2].other_template[0]);
 
-                console.log(summed)
+                var otherTempScoreArr = [ot1, ot2, ot3]
+                var otPercentWeight = 30; // 30 percent
+                var otherTempWeight = 336; // from 3 othertemplate records score weight (3*112 = 336)
 
+                var otherTempTotal = 0;
+                for (var i = otherTempScoreArr.length; i--;) {
+                    otherTempTotal += otherTempScoreArr[i];
+                    $scope.TotalScore = (otherTempTotal * otPercentWeight) / otherTempWeight;
+                }
+
+
+                /*if (othertemp_arr.length == numberOfOtherTempOfEachRound) {
+                    var ot1 = sum(othertemp_arr[0].other_template[0]);
+                    var ot2 = sum(othertemp_arr[1].other_template[0]);
+                    var ot3 = sum(othertemp_arr[2].other_template[0]);
+                    var ot4 = sum(othertemp_arr[3].other_template[0]);
+                    var ot5 = sum(othertemp_arr[4].other_template[0]);
+                    var ot6 = sum(othertemp_arr[5].other_template[0]);
+                    var ot7 = sum(othertemp_arr[6].other_template[0]);
+                    var ot8 = sum(othertemp_arr[7].other_template[0]);
+                    var ot9 = sum(othertemp_arr[8].other_template[0]);
+                    var ot10 = sum(othertemp_arr[9].other_template[0]);
+                    var ot11 = sum(othertemp_arr[10].other_template[0]);
+                    var ot12 = sum(othertemp_arr[11].other_template[0]);
+                    var ot13 = sum(othertemp_arr[12].other_template[0]);
+                    var ot14 = sum(othertemp_arr[13].other_template[0]);
+                    var ot15 = sum(othertemp_arr[14].other_template[0]);
+                    var ot16 = sum(othertemp_arr[15].other_template[0]);
+                    var ot17 = sum(othertemp_arr[16].other_template[0]);
+                    var ot18 = sum(othertemp_arr[17].other_template[0]);
+
+                    var otherTempScoreArr = [ot1, ot2, ot3, ot4, ot5, ot6, ot7, ot8, ot9, ot10, ot11, ot12, ot13, ot14, ot15, ot16, ot17, ot18]
+                    var otherTempWeight = 2016; // from 18 othertemplate records score weight (18*112 = 2016)
+
+                    var otherTempTotal = 0;
+                    for (var i = otherTempScoreArr.length; i--;) {
+                        $scope.otherTempTotal += otherTempScoreArr[i];
+                    }
+                    
+                }*/
             });
         }
 
