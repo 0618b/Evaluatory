@@ -98,7 +98,7 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
 
         getVerifyUsers();
 
-    }).controller('checkScoreCtrl', function(userServices, $scope, $location, $routeParams, $timeout) {
+    }).controller('checkScoreCtrl', function(userServices, $scope, $location, $routeParams, $timeout, $http) {
 
         var date = new Date().getDate();
         var month = new Date().getMonth() + 1;
@@ -180,7 +180,6 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
                     $scope.OTtotalScore = (otherTempTotal * otPercentWeight) / otherTempWeight;
                 }
 
-
                 /*if (othertemp_arr.length == numberOfOtherTempOfEachRound) {
                     var ot1 = sum(othertemp_arr[0].other_template[0]);
                     var ot2 = sum(othertemp_arr[1].other_template[0]);
@@ -214,6 +213,30 @@ angular.module('usersControllers', ['usersServices', 'selftempsServices'])
         }
 
         checkScores();
+
+        $scope.generatePdf = function() {
+            pdfMake.font = {
+                THSarabunNew: {
+                    normal: 'THSarabunNew.ttf',
+                    bold: 'THSarabunNew-Bold.ttf',
+                    italics: 'THSarabunNew-Italic.ttf',
+                    bolditalics: 'THSarabunNew-BoldItalic.ttf'
+                },
+                Roboto: {
+                    normal: 'Roboto-Regular.ttf',
+                    bold: 'Roboto-Medium.ttf',
+                    italics: 'Roboto-Italic.ttf',
+                    bolditalics: 'Roboto-MediumItalic.ttf'
+                }
+            }
+            var docDefinition = {
+                info: {
+                    title: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่ ' + $scope.evalRound
+                },
+                content: [{ text: 'ใบแสดงผลคะแนนการประเมินประจำรอบการประเมินที่' + $scope.evalRound + 'ประจำปี ' + year }]
+            };
+            pdfMake.createPdf(docDefinition).open();
+        }
 
     }).directive('ngReallyClick', [function() {
         return {
